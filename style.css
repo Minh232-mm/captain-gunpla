@@ -1133,6 +1133,14 @@ footer .brand-logo {
     animation: none;
   }
 }
-
+/* Không để câu giới thiệu bị ngắt dòng trên máy tính */
+@media (min-width: 1024px) {
+  .hero-copy .lead {
+    white-space: nowrap !important;
+    max-width: none !important;
+    width: max-content !important;
+    font-size: 15px;
+  }
+}
 
 
