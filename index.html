@@ -1,72 +1,116 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CAPTAIN GUNPLA — Your Kit, Our Craft</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0c0f">
+  <title>CAPTAIN GUNPLA — Your Kit, Our Craft</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="topbar">
   <a class="brand" href="index.html">
     <span class="brand-mark">CG</span>
-    <span>CAPTAIN <b>GUNPLA</b><small>YOUR KIT. OUR CRAFT.</small></span>
+    <span>
+      CAPTAIN <b>GUNPLA</b>
+      <small>YOUR KIT. OUR CRAFT.</small>
+    </span>
   </a>
-  <button class="menu" aria-label="Mở menu" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+
+  <button class="menu" aria-label="Mở menu"
+    onclick="document.querySelector('nav').classList.toggle('show')">
+    ☰
+  </button>
+
   <nav>
     <a href="#services">DỊCH VỤ</a>
     <a href="#products">MÔ HÌNH</a>
     <a href="#gallery">TÁC PHẨM</a>
     <a href="#order">ĐẶT HÀNG</a>
   </nav>
+
   <a class="nav-cta" href="#order">GỬI YÊU CẦU ↗</a>
 </header>
 
 <main>
 
+<!-- TRANG CHỦ -->
 <section class="hero">
+
   <div class="hero-copy">
     <p class="eyebrow">GUNPLA • BUILD • PAINT • CUSTOM</p>
+
     <h1>YOUR KIT.<br><em>OUR CRAFT.</em></h1>
-    <p class="lead">Biến từng bộ mô hình thành một tác phẩm mang dấu ấn riêng của bạn.</p>
+
+    <p class="lead">
+      Biến từng bộ mô hình thành một tác phẩm mang dấu ấn riêng của bạn.
+    </p>
+
     <div class="actions">
-      <a class="btn red" href="#order">ĐẶT DỊCH VỤ <span>↗</span></a>
-      <a class="btn ghost" href="#products">KHÁM PHÁ MÔ HÌNH</a>
+      <a class="btn red" href="#order">
+        ĐẶT DỊCH VỤ <span>↗</span>
+      </a>
+
+      <a class="btn ghost" href="#products">
+        KHÁM PHÁ MÔ HÌNH
+      </a>
     </div>
-    <div class="hero-note"><span class="dot"></span> TƯ VẤN • LẮP RÁP • SƠN • CUSTOM</div>
+
+    <div class="hero-note">
+      <span class="dot"></span>
+      TƯ VẤN • LẮP RÁP • SƠN • CUSTOM
+    </div>
   </div>
 
+  <!-- CHỈ HIỂN THỊ ẢNH HINH4 -->
   <div class="hero-art hero-image">
-    <img src="images/hinh4.jpg" alt="Mô hình Gundam Captain Gunpla">
-    <div class="image-stamp">CAPTAIN<br>GUNPLA</div>
-    <div class="image-caption">BUILD YOUR<br>OWN LEGEND.</div>
+    <img
+      src="images/hinh4.jpg"
+      alt="Mô hình Gundam Captain Gunpla"
+      fetchpriority="high"
+    >
   </div>
+
 </section>
 
+<!-- THANH THÔNG TIN -->
 <section class="ticker">
-  <span>PRECISION BUILDING</span><b>✦</b>
-  <span>DETAIL PAINTING</span><b>✦</b>
-  <span>YOUR IDEA, OUR CRAFT</span><b>✦</b>
+  <span>PRECISION BUILDING</span>
+  <b>✦</b>
+  <span>DETAIL PAINTING</span>
+  <b>✦</b>
+  <span>YOUR IDEA, OUR CRAFT</span>
+  <b>✦</b>
   <span>GUNPLA COMMUNITY</span>
 </section>
 
+<!-- DỊCH VỤ -->
 <section class="section" id="services">
+
   <div class="section-head">
     <div>
       <p class="eyebrow">WHAT WE DO / 01</p>
       <h2>DỊCH VỤ <em>CỦA CHÚNG TÔI</em></h2>
     </div>
-    <p>Từ lắp ráp cơ bản đến hoàn thiện custom — cùng bạn tạo nên phiên bản độc đáo.</p>
+
+    <p>
+      Từ lắp ráp cơ bản đến hoàn thiện custom —
+      cùng bạn tạo nên phiên bản độc đáo.
+    </p>
   </div>
 
   <div class="cards three">
+
     <article class="service-card">
       <span class="num">01</span>
       <div class="symbol">◈</div>
       <h3>LẮP RÁP MÔ HÌNH</h3>
-      <p>Lắp ráp gọn gàng, xử lý chi tiết và hoàn thiện theo yêu cầu.</p>
+      <p>
+        Lắp ráp gọn gàng, xử lý chi tiết và hoàn thiện theo yêu cầu.
+      </p>
       <a href="#order">GỬI YÊU CẦU ↗</a>
     </article>
 
@@ -74,7 +118,9 @@
       <span class="num">02</span>
       <div class="symbol">✳</div>
       <h3>SƠN & HOÀN THIỆN</h3>
-      <p>Tư vấn màu sắc, sơn phủ và chăm chút từng chi tiết cho mô hình.</p>
+      <p>
+        Tư vấn màu sắc, sơn phủ và chăm chút từng chi tiết cho mô hình.
+      </p>
       <a href="#order">GỬI YÊU CẦU ↗</a>
     </article>
 
@@ -82,32 +128,49 @@
       <span class="num">03</span>
       <div class="symbol">⌁</div>
       <h3>CUSTOM / ĐỘ CHẾ</h3>
-      <p>Tiếp nhận ý tưởng riêng, trao đổi phương án và báo giá trước khi làm.</p>
+      <p>
+        Tiếp nhận ý tưởng riêng, trao đổi phương án và báo giá trước khi làm.
+      </p>
       <a href="#order">GỬI YÊU CẦU ↗</a>
     </article>
+
   </div>
 </section>
 
+<!-- SẢN PHẨM NỔI BẬT -->
 <section class="section products" id="products">
+
   <div class="section-head">
     <div>
       <p class="eyebrow">THE COLLECTION / 02</p>
       <h2>MÔ HÌNH <em>NỔI BẬT</em></h2>
     </div>
-    <p>Khám phá các mẫu mô hình Gunpla. Liên hệ để kiểm tra tình trạng hàng và giá hiện tại.</p>
+
+    <p>
+      Khám phá các mẫu mô hình Gunpla.
+      Liên hệ để kiểm tra tình trạng hàng và giá hiện tại.
+    </p>
   </div>
 
   <div class="cards three product-grid">
+
     <article class="product-card">
       <div class="product-photo">
-        <img src="images/H%C3%ACnh%201.jpg" alt="Mô hình Gunpla 01" loading="lazy">
+        <img
+          src="images/H%C3%ACnh%201.jpg"
+          alt="Mô hình Gunpla 01"
+          loading="lazy"
+        >
         <span class="photo-tag">GUNPLA / 01</span>
       </div>
+
       <div class="product-meta">
         <div>
           <h3>MÔ HÌNH 01</h3>
           <p>Liên hệ để biết giá và tình trạng hàng.</p>
-          <a class="product-order" href="#order">HỎI MUA SẢN PHẨM ↗</a>
+          <a class="product-order" href="#order">
+            HỎI MUA SẢN PHẨM ↗
+          </a>
         </div>
         <span>01</span>
       </div>
@@ -115,14 +178,21 @@
 
     <article class="product-card">
       <div class="product-photo">
-        <img src="images/hinh2.jpg" alt="Mô hình Gunpla 02" loading="lazy">
+        <img
+          src="images/hinh2.jpg"
+          alt="Mô hình Gunpla 02"
+          loading="lazy"
+        >
         <span class="photo-tag">GUNPLA / 02</span>
       </div>
+
       <div class="product-meta">
         <div>
           <h3>MÔ HÌNH 02</h3>
           <p>Liên hệ để biết giá và tình trạng hàng.</p>
-          <a class="product-order" href="#order">HỎI MUA SẢN PHẨM ↗</a>
+          <a class="product-order" href="#order">
+            HỎI MUA SẢN PHẨM ↗
+          </a>
         </div>
         <span>02</span>
       </div>
@@ -130,69 +200,130 @@
 
     <article class="product-card">
       <div class="product-photo">
-        <img src="images/hinh3.jpg" alt="Mô hình Gunpla 03" loading="lazy">
+        <img
+          src="images/hinh3.jpg"
+          alt="Mô hình Gunpla 03"
+          loading="lazy"
+        >
         <span class="photo-tag">GUNPLA / 03</span>
       </div>
+
       <div class="product-meta">
         <div>
           <h3>MÔ HÌNH 03</h3>
           <p>Liên hệ để biết giá và tình trạng hàng.</p>
-          <a class="product-order" href="#order">HỎI MUA SẢN PHẨM ↗</a>
+          <a class="product-order" href="#order">
+            HỎI MUA SẢN PHẨM ↗
+          </a>
         </div>
         <span>03</span>
       </div>
     </article>
+
   </div>
-  <p class="hint">* Tên và giá sản phẩm có thể cập nhật theo thông tin kinh doanh thực tế.</p>
+
+  <p class="hint">
+    * Tên và giá sản phẩm có thể cập nhật theo thông tin kinh doanh thực tế.
+  </p>
+
 </section>
 
+<!-- GÓC TÁC PHẨM -->
 <section class="gallery-section" id="gallery">
+
   <div class="section-head">
     <div>
       <p class="eyebrow">SELECTED WORK / 03</p>
       <h2>GÓC <em>TÁC PHẨM</em></h2>
     </div>
-    <p>Không chỉ là lắp ráp — đó là quá trình tạo nên phong cách riêng.</p>
+
+    <p>
+      Không chỉ là lắp ráp — đó là quá trình tạo nên phong cách riêng.
+    </p>
   </div>
 
   <div class="gallery photo-gallery">
+
     <figure class="gallery-photo">
-      <img src="images/H%C3%ACnh%201.jpg" alt="Tác phẩm Gunpla 01" loading="lazy">
-      <figcaption><span>01 / BUILD</span><b>THE DETAIL</b></figcaption>
+      <img
+        src="images/H%C3%ACnh%201.jpg"
+        alt="Tác phẩm Gunpla 01"
+        loading="lazy"
+      >
+      <figcaption>
+        <span>01 / BUILD</span>
+        <b>THE DETAIL</b>
+      </figcaption>
     </figure>
 
     <figure class="gallery-photo">
-      <img src="images/hinh2.jpg" alt="Tác phẩm Gunpla 02" loading="lazy">
-      <figcaption><span>02 / PAINT</span><b>COLOR YOUR WORLD</b></figcaption>
+      <img
+        src="images/hinh2.jpg"
+        alt="Tác phẩm Gunpla 02"
+        loading="lazy"
+      >
+      <figcaption>
+        <span>02 / PAINT</span>
+        <b>COLOR YOUR WORLD</b>
+      </figcaption>
     </figure>
 
     <figure class="gallery-photo">
-      <img src="images/hinh3.jpg" alt="Tác phẩm Gunpla 03" loading="lazy">
-      <figcaption><span>03 / CUSTOM</span><b>MAKE IT YOURS</b></figcaption>
+      <img
+        src="images/hinh3.jpg"
+        alt="Tác phẩm Gunpla 03"
+        loading="lazy"
+      >
+      <figcaption>
+        <span>03 / CUSTOM</span>
+        <b>MAKE IT YOURS</b>
+      </figcaption>
     </figure>
+
   </div>
 </section>
 
+<!-- ĐẶT HÀNG -->
 <section class="order-section" id="order">
+
   <div>
     <p class="eyebrow">LET'S BUILD SOMETHING / 04</p>
+
     <h2>BẮT ĐẦU<br><em>DỰ ÁN CỦA BẠN</em></h2>
-    <p>Gửi thông tin mô hình hoặc ý tưởng custom. Captain Gunpla sẽ liên hệ xác nhận và báo giá.</p>
+
+    <p>
+      Gửi thông tin mô hình hoặc ý tưởng custom.
+      Captain Gunpla sẽ liên hệ xác nhận và báo giá.
+    </p>
+
     <div class="contact-line">
       CHƯA CÓ FORM ĐẶT HÀNG?
-      <b>Website sẽ được kết nối Google Forms ở bước tiếp theo.</b>
+      <b>
+        Website sẽ được kết nối Google Forms ở bước tiếp theo.
+      </b>
     </div>
   </div>
 
   <form id="orderForm">
+
     <label>
       HỌ VÀ TÊN
-      <input required name="name" placeholder="Tên của bạn">
+      <input
+        required
+        name="name"
+        placeholder="Tên của bạn"
+      >
     </label>
+
     <label>
       SỐ ĐIỆN THOẠI / ZALO
-      <input required name="phone" placeholder="Số điện thoại liên hệ">
+      <input
+        required
+        name="phone"
+        placeholder="Số điện thoại liên hệ"
+      >
     </label>
+
     <label>
       BẠN QUAN TÂM ĐẾN
       <select name="service">
@@ -203,26 +334,47 @@
         <option>Tư vấn khác</option>
       </select>
     </label>
+
     <label>
       CHI TIẾT YÊU CẦU
-      <textarea name="detail" rows="4" placeholder="Tên kit, cấp độ, ý tưởng, ngân sách dự kiến..."></textarea>
+      <textarea
+        name="detail"
+        rows="4"
+        placeholder="Tên kit, cấp độ, ý tưởng, ngân sách dự kiến..."
+      ></textarea>
     </label>
-    <button class="btn red submit" type="submit">GỬI YÊU CẦU ↗</button>
-    <p class="form-note" id="formNote">Biểu mẫu đang chờ kết nối Google Forms.</p>
+
+    <button class="btn red submit" type="submit">
+      GỬI YÊU CẦU ↗
+    </button>
+
+    <p class="form-note" id="formNote">
+      Biểu mẫu đang chờ kết nối Google Forms.
+    </p>
+
   </form>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
+
   <a class="brand" href="#">
     <span class="brand-mark">CG</span>
-    <span>CAPTAIN <b>GUNPLA</b><small>YOUR KIT. OUR CRAFT.</small></span>
+    <span>
+      CAPTAIN <b>GUNPLA</b>
+      <small>YOUR KIT. OUR CRAFT.</small>
+    </span>
   </a>
+
   <p>BUILD WITH PASSION. DISPLAY WITH PRIDE.</p>
+
   <span>© 2026 CAPTAIN GUNPLA</span>
+
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
