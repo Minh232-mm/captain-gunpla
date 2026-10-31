@@ -1142,5 +1142,14 @@ footer .brand-logo {
     font-size: 15px;
   }
 }
+/* Tạo khoảng cách giữa dòng giới thiệu và tiêu đề */
+.hero-copy .eyebrow {
+  display: block;
+  margin-bottom: 24px !important;
+}
+
+.hero-copy h1 {
+  margin-top: 0 !important;
+}
 
 
