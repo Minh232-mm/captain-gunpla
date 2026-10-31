@@ -994,3 +994,33 @@ footer > span {
   }
 }
 
+/* KICH THUOC LOGO CAPTAIN GUNPLA */
+.topbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar .brand-logo,
+footer .brand-logo {
+  width: 55px !important;
+  height: 55px !important;
+  max-width: 55px !important;
+  max-height: 55px !important;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* LOGO TREN DIEN THOAI */
+@media (max-width: 650px) {
+  .topbar .brand-logo,
+  footer .brand-logo {
+    width: 45px !important;
+    height: 45px !important;
+    max-width: 45px !important;
+    max-height: 45px !important;
+  }
+}
+
+
