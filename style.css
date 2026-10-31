@@ -1305,3 +1305,7 @@ textarea,
 select {
     font-family: Arial, Helvetica, sans-serif;
 }
+/* FONT TIẾNG VIỆT */
+* {
+    font-family: "Be Vietnam Pro", Arial, sans-serif !important;
+}
