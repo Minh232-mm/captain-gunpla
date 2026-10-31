@@ -5,86 +5,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0c0f">
-  <meta name="description" content="CAPTAIN GUNPLA - Dịch vụ lắp ráp, sơn và custom mô hình Gunpla.">
-  <title>CAPTAIN GUNPLA — LẮP RÁP CUSTOM</title>
+  <meta name="description" content="CAPTAIN GUNPLA - Gian hàng mô hình Gundam, Gunpla và phụ kiện.">
+  <title>CAPTAIN GUNPLA — GUNPLA STORE</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="topbar">
-  <a class="brand" href="index.html">
-    <img class="brand-logo" src="images/logo.jpg" alt="CAPTAIN GUNPLA">
-    <span>
-      CAPTAIN <b>GUNPLA</b>
-      <small>LẮP RÁP CUSTOM.</small>
-    </span>
+  <a class="brand" href="#">
+    <img src="images/logo.jpg" alt="Captain Gunpla" class="brand-logo">
+    <span>CAPTAIN <b>GUNPLA</b><small>YOUR KIT. OUR CRAFT.</small></span>
   </a>
 
-  <button class="menu" aria-label="Mở menu"
-    onclick="document.querySelector('nav').classList.toggle('show')">
-    ☰
-  </button>
+  <form class="site-search" id="searchForm">
+    <input id="searchInput" type="search" placeholder="Tìm kiếm mô hình, sản phẩm...">
+    <button type="submit">⌕</button>
+  </form>
 
-  <nav>
+  <button class="menu" id="menuBtn" aria-label="Mở menu">☰</button>
+
+  <nav id="mainNav">
+    <a href="#home">TRANG CHỦ</a>
+    <a href="#shop">GIAN HÀNG</a>
     <a href="#services">DỊCH VỤ</a>
-    <a href="#products">MÔ HÌNH</a>
     <a href="#gallery">TÁC PHẨM</a>
-    <a href="#order">ĐẶT HÀNG</a>
+    <a href="#order">LIÊN HỆ</a>
   </nav>
 
-  <a class="nav-cta" href="#order">GỬI YÊU CẦU ↗</a>
+  <a class="nav-cta" href="#shop">MUA SẮM ↗</a>
 </header>
-
 
 <main>
 
-<!-- TRANG CHỦ -->
-<section class="hero">
-
+<!-- HERO -->
+<section class="hero" id="home">
   <div class="hero-copy">
     <p class="eyebrow">GUNPLA • BUILD • PAINT • CUSTOM</p>
-
     <h1>LẮP RÁP<br><em>CUSTOM</em></h1>
-
     <p class="lead">
-        Captain Gunpla sẽ biến bộ mô hình của bạn thành một tác phẩm mang dấu ấn riêng.
-
+      Captain Gunpla sẽ biến bộ mô hình của bạn thành một tác phẩm mang dấu ấn riêng.
     </p>
-
     <div class="actions">
-      <a class="btn red" href="#order">
-        ĐẶT DỊCH VỤ <span>↗</span>
-      </a>
-
-      <a class="btn ghost" href="#products">
-        KHÁM PHÁ MÔ HÌNH
-      </a>
+      <a class="btn red" href="#shop">KHÁM PHÁ GIAN HÀNG ↗</a>
+      <a class="btn ghost" href="#services">DỊCH VỤ CỦA CHÚNG TÔI</a>
     </div>
-
-    <div class="hero-note">
-      <span class="dot"></span>
-      TƯ VẤN • LẮP RÁP • SƠN • CUSTOM
-    </div>
+    <div class="hero-note"><span class="dot"></span> TƯ VẤN • LẮP RÁP • SƠN • CUSTOM</div>
   </div>
 
-  <!-- ẢNH CHÍNH -->
   <div class="hero-art hero-image">
-    <img
-      src="images/hinh4.jpg"
-      alt="Mô hình Gundam Captain Gunpla"
-      fetchpriority="high"
-    >
+    <img src="images/hinh4.jpg" alt="Mô hình Gundam Captain Gunpla">
   </div>
-
 </section>
 
-
-<!-- THANH CHỮ CHẠY LIÊN TỤC -->
+<!-- TICKER -->
 <section class="ticker">
   <div class="ticker-track">
-
     <div class="ticker-group">
       <span>PRECISION BUILDING</span><b>✦</b>
       <span>DETAIL PAINTING</span><b>✦</b>
@@ -95,8 +71,6 @@
       <span>Ý TƯỞNG CỦA BẠN – SÁNG TẠO CỦA CHÚNG TÔI</span><b>✦</b>
       <span>ĐAM MÊ GUNPLA – KẾT NỐI CỘNG ĐỒNG</span><b>✦</b>
     </div>
-
-    <!-- Lặp lại nội dung để tạo chuyển động liền mạch -->
     <div class="ticker-group" aria-hidden="true">
       <span>PRECISION BUILDING</span><b>✦</b>
       <span>DETAIL PAINTING</span><b>✦</b>
@@ -107,269 +81,393 @@
       <span>Ý TƯỞNG CỦA BẠN – SÁNG TẠO CỦA CHÚNG TÔI</span><b>✦</b>
       <span>ĐAM MÊ GUNPLA – KẾT NỐI CỘNG ĐỒNG</span><b>✦</b>
     </div>
-
   </div>
 </section>
 
+<!-- GIAN HÀNG -->
+<section class="shop-section" id="shop">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">CAPTAIN GUNPLA STORE / 01</p>
+      <h2>GIAN HÀNG <em>SẢN PHẨM</em></h2>
+    </div>
+    <p>Khám phá các mẫu mô hình và phụ kiện dành cho người đam mê Gunpla.</p>
+  </div>
+
+  <div class="shop-layout">
+
+    <aside class="shop-sidebar">
+      <h3>DANH MỤC</h3>
+      <button class="category-btn active" data-category="all">Tất cả sản phẩm</button>
+      <button class="category-btn" data-category="gundam">Gundam / Gunpla</button>
+      <button class="category-btn" data-category="accessory">Phụ kiện</button>
+      <button class="category-btn" data-category="tool">Dụng cụ</button>
+      <button class="category-btn" data-category="other">Sản phẩm khác</button>
+
+      <div class="sidebar-note">
+        <span>✦</span>
+        <b>CAPTAIN GUNPLA</b>
+        <p>YOUR KIT. OUR CRAFT.</p>
+      </div>
+    </aside>
+
+    <div class="shop-main">
+      <div class="shop-toolbar">
+        <div>
+          <b>TẤT CẢ SẢN PHẨM</b>
+          <span id="productCount">3 sản phẩm</span>
+        </div>
+
+        <select id="sortSelect" aria-label="Sắp xếp sản phẩm">
+          <option value="default">Sắp xếp mặc định</option>
+          <option value="az">Tên A – Z</option>
+          <option value="za">Tên Z – A</option>
+        </select>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+
+        <article class="product-card" data-category="gundam"
+          data-name="Mô hình Gundam 01" data-search="gundam gunpla mô hình 01">
+          <button class="product-image" type="button" data-detail="0">
+            <img src="images/Hình 1.jpg" alt="Mô hình Gundam 01" loading="lazy">
+            <span class="product-label">GUNPLA</span>
+            <span class="view-product">XEM CHI TIẾT ↗</span>
+          </button>
+          <div class="product-info">
+            <p class="product-category">GUNDAM / GUNPLA</p>
+            <h3>Mô hình Gundam 01</h3>
+            <div class="product-bottom">
+              <strong>Giá liên hệ</strong>
+              <button type="button" class="detail-btn" data-detail="0">Xem sản phẩm</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="gundam"
+          data-name="Mô hình Gundam 02" data-search="gundam gunpla mô hình 02">
+          <button class="product-image" type="button" data-detail="1">
+            <img src="images/hinh2.jpg" alt="Mô hình Gundam 02" loading="lazy">
+            <span class="product-label">GUNPLA</span>
+            <span class="view-product">XEM CHI TIẾT ↗</span>
+          </button>
+          <div class="product-info">
+            <p class="product-category">GUNDAM / GUNPLA</p>
+            <h3>Mô hình Gundam 02</h3>
+            <div class="product-bottom">
+              <strong>Giá liên hệ</strong>
+              <button type="button" class="detail-btn" data-detail="1">Xem sản phẩm</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="gundam"
+          data-name="Mô hình Gundam 03" data-search="gundam gunpla mô hình 03">
+          <button class="product-image" type="button" data-detail="2">
+            <img src="images/hinh3.jpg" alt="Mô hình Gundam 03" loading="lazy">
+            <span class="product-label">GUNPLA</span>
+            <span class="view-product">XEM CHI TIẾT ↗</span>
+          </button>
+          <div class="product-info">
+            <p class="product-category">GUNDAM / GUNPLA</p>
+            <h3>Mô hình Gundam 03</h3>
+            <div class="product-bottom">
+              <strong>Giá liên hệ</strong>
+              <button type="button" class="detail-btn" data-detail="2">Xem sản phẩm</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="no-products" id="noProducts" hidden>
+        Không tìm thấy sản phẩm phù hợp. Bạn hãy thử từ khóa khác nhé!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CỬA SỔ CHI TIẾT SẢN PHẨM -->
+<div class="modal" id="productModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-content" role="dialog" aria-modal="true" aria-label="Chi tiết sản phẩm">
+    <button class="modal-close" type="button" data-close-modal aria-label="Đóng">×</button>
+    <div class="modal-image">
+      <img id="modalImage" src="" alt="Ảnh sản phẩm">
+    </div>
+    <div class="modal-info">
+      <p class="eyebrow">CAPTAIN GUNPLA STORE</p>
+      <h2 id="modalName">Tên sản phẩm</h2>
+      <strong class="modal-price">Giá liên hệ</strong>
+      <p id="modalDescription">
+        Liên hệ Captain Gunpla để được tư vấn thông tin sản phẩm.
+      </p>
+      <label for="quantity">Số lượng</label>
+      <input id="quantity" type="number" min="1" value="1">
+      <button class="btn red modal-order" id="modalOrder" type="button">
+        ĐẶT MUA / TƯ VẤN ↗
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- DỊCH VỤ -->
 <section class="section" id="services">
-
   <div class="section-head">
     <div>
-      <p class="eyebrow">WHAT WE DO / 01</p>
+      <p class="eyebrow">WHAT WE DO / 02</p>
       <h2>DỊCH VỤ <em>CỦA CHÚNG TÔI</em></h2>
     </div>
-
-    <p>
-      Từ lắp ráp cơ bản đến hoàn thiện custom —
-      cùng bạn tạo nên phiên bản độc đáo.
-    </p>
+    <p>Từ lắp ráp cơ bản đến hoàn thiện custom — cùng bạn tạo nên phiên bản độc đáo.</p>
   </div>
 
   <div class="cards three">
-
     <article class="service-card">
       <span class="num">01</span>
       <div class="symbol">◈</div>
       <h3>LẮP RÁP MÔ HÌNH</h3>
-      <p>
-        Lắp ráp gọn gàng, xử lý chi tiết và hoàn thiện theo yêu cầu.
-      </p>
+      <p>Lắp ráp gọn gàng, xử lý chi tiết và hoàn thiện theo yêu cầu.</p>
       <a href="#order">GỬI YÊU CẦU ↗</a>
     </article>
-
     <article class="service-card featured">
       <span class="num">02</span>
       <div class="symbol">✳</div>
       <h3>SƠN & HOÀN THIỆN</h3>
-      <p>
-        Tư vấn màu sắc, sơn phủ và chăm chút từng chi tiết cho mô hình.
-      </p>
+      <p>Tư vấn màu sắc, sơn phủ và chăm chút từng chi tiết cho mô hình.</p>
       <a href="#order">GỬI YÊU CẦU ↗</a>
     </article>
-
     <article class="service-card">
       <span class="num">03</span>
       <div class="symbol">⌁</div>
       <h3>CUSTOM / ĐỘ CHẾ</h3>
-      <p>
-        Tiếp nhận ý tưởng riêng, trao đổi phương án và báo giá trước khi làm.
-      </p>
+      <p>Tiếp nhận ý tưởng riêng, trao đổi phương án và báo giá trước khi làm.</p>
       <a href="#order">GỬI YÊU CẦU ↗</a>
     </article>
-
   </div>
 </section>
-
-
-<!-- SẢN PHẨM -->
-<section class="section products" id="products">
-
-  <div class="section-head">
-    <div>
-      <p class="eyebrow">THE COLLECTION / 02</p>
-      <h2>MÔ HÌNH <em>NỔI BẬT</em></h2>
-    </div>
-
-    <p>
-      Khám phá các mẫu mô hình Gunpla.
-      Liên hệ để kiểm tra tình trạng hàng và giá hiện tại.
-    </p>
-  </div>
-
-  <div class="cards three product-grid">
-
-    <article class="product-card">
-      <div class="product-photo">
-        <img src="images/H%C3%ACnh%201.jpg"
-          alt="Mô hình Gunpla 01" loading="lazy">
-        <span class="photo-tag">GUNPLA / 01</span>
-      </div>
-
-      <div class="product-meta">
-        <div>
-          <h3>MÔ HÌNH 01</h3>
-          <p>Liên hệ để biết giá và tình trạng hàng.</p>
-          <a class="product-order" href="#order">HỎI MUA SẢN PHẨM ↗</a>
-        </div>
-        <span>01</span>
-      </div>
-    </article>
-
-    <article class="product-card">
-      <div class="product-photo">
-        <img src="images/hinh2.jpg"
-          alt="Mô hình Gunpla 02" loading="lazy">
-        <span class="photo-tag">GUNPLA / 02</span>
-      </div>
-
-      <div class="product-meta">
-        <div>
-          <h3>MÔ HÌNH 02</h3>
-          <p>Liên hệ để biết giá và tình trạng hàng.</p>
-          <a class="product-order" href="#order">HỎI MUA SẢN PHẨM ↗</a>
-        </div>
-        <span>02</span>
-      </div>
-    </article>
-
-    <article class="product-card">
-      <div class="product-photo">
-        <img src="images/hinh3.jpg"
-          alt="Mô hình Gunpla 03" loading="lazy">
-        <span class="photo-tag">GUNPLA / 03</span>
-      </div>
-
-      <div class="product-meta">
-        <div>
-          <h3>MÔ HÌNH 03</h3>
-          <p>Liên hệ để biết giá và tình trạng hàng.</p>
-          <a class="product-order" href="#order">HỎI MUA SẢN PHẨM ↗</a>
-        </div>
-        <span>03</span>
-      </div>
-    </article>
-
-  </div>
-
-  <p class="hint">
-    * Tên và giá sản phẩm có thể cập nhật theo thông tin kinh doanh thực tế.
-  </p>
-
-</section>
-
 
 <!-- TÁC PHẨM -->
 <section class="gallery-section" id="gallery">
-
   <div class="section-head">
     <div>
       <p class="eyebrow">SELECTED WORK / 03</p>
       <h2>GÓC <em>TÁC PHẨM</em></h2>
     </div>
-
-    <p>
-      Không chỉ là lắp ráp — đó là quá trình tạo nên phong cách riêng.
-    </p>
+    <p>Không chỉ là lắp ráp — đó là quá trình tạo nên phong cách riêng.</p>
   </div>
 
   <div class="gallery photo-gallery">
-
     <figure class="gallery-photo">
-      <img src="images/H%C3%ACnh%201.jpg"
-        alt="Tác phẩm Gunpla 01" loading="lazy">
-      <figcaption>
-        <span>01 / BUILD</span>
-        <b>THE DETAIL</b>
-      </figcaption>
+      <img src="images/Hình 1.jpg" alt="Tác phẩm Gunpla 01" loading="lazy">
+      <figcaption><span>01 / BUILD</span><b>THE DETAIL</b></figcaption>
     </figure>
-
     <figure class="gallery-photo">
-      <img src="images/hinh2.jpg"
-        alt="Tác phẩm Gunpla 02" loading="lazy">
-      <figcaption>
-        <span>02 / PAINT</span>
-        <b>COLOR YOUR WORLD</b>
-      </figcaption>
+      <img src="images/hinh2.jpg" alt="Tác phẩm Gunpla 02" loading="lazy">
+      <figcaption><span>02 / PAINT</span><b>COLOR YOUR WORLD</b></figcaption>
     </figure>
-
     <figure class="gallery-photo">
-      <img src="images/hinh3.jpg"
-        alt="Tác phẩm Gunpla 03" loading="lazy">
-      <figcaption>
-        <span>03 / CUSTOM</span>
-        <b>MAKE IT YOURS</b>
-      </figcaption>
+      <img src="images/hinh3.jpg" alt="Tác phẩm Gunpla 03" loading="lazy">
+      <figcaption><span>03 / CUSTOM</span><b>MAKE IT YOURS</b></figcaption>
     </figure>
-
   </div>
 </section>
 
-
-<!-- ĐẶT HÀNG -->
+<!-- LIÊN HỆ -->
 <section class="order-section" id="order">
-
   <div>
     <p class="eyebrow">LET'S BUILD SOMETHING / 04</p>
-
     <h2>BẮT ĐẦU<br><em>DỰ ÁN CỦA BẠN</em></h2>
-
-    <p>
-      Gửi thông tin mô hình hoặc ý tưởng custom.
-      Captain Gunpla sẽ liên hệ xác nhận và báo giá.
-    </p>
-
+    <p>Gửi thông tin mô hình hoặc ý tưởng custom. Captain Gunpla sẽ liên hệ xác nhận và báo giá.</p>
     <div class="contact-line">
-      CHƯA CÓ FORM ĐẶT HÀNG?
-      <b>
-        Website sẽ được kết nối Google Forms ở bước tiếp theo.
-      </b>
+      CAPTAIN GUNPLA
+      <b>YOUR KIT. OUR CRAFT.</b>
     </div>
   </div>
 
   <form id="orderForm">
-
-    <label>
-      HỌ VÀ TÊN
+    <label>HỌ VÀ TÊN
       <input required name="name" placeholder="Tên của bạn">
     </label>
-
-    <label>
-      SỐ ĐIỆN THOẠI / ZALO
+    <label>SỐ ĐIỆN THOẠI / ZALO
       <input required name="phone" placeholder="Số điện thoại liên hệ">
     </label>
-
-    <label>
-      BẠN QUAN TÂM ĐẾN
-      <select name="service">
-        <option>Lắp ráp mô hình</option>
-        <option>Sơn và hoàn thiện</option>
-        <option>Custom / độ chế</option>
-        <option>Đặt mua mô hình</option>
-        <option>Tư vấn khác</option>
-      </select>
+    <label>SẢN PHẨM / DỊCH VỤ QUAN TÂM
+      <input id="orderProduct" name="product" placeholder="Tên sản phẩm hoặc dịch vụ">
     </label>
-
-    <label>
-      CHI TIẾT YÊU CẦU
-      <textarea name="detail" rows="4"
-        placeholder="Tên kit, cấp độ, ý tưởng, ngân sách dự kiến..."></textarea>
+    <label>CHI TIẾT YÊU CẦU
+      <textarea name="detail" rows="4" placeholder="Nội dung bạn cần tư vấn..."></textarea>
     </label>
-
-    <button class="btn red submit" type="submit">
-      GỬI YÊU CẦU ↗
-    </button>
-
-    <p class="form-note" id="formNote">
-      Biểu mẫu đang chờ kết nối Google Forms.
-    </p>
-
+    <button class="btn red submit" type="submit">GỬI YÊU CẦU ↗</button>
+    <p class="form-note" id="formNote">Biểu mẫu cần được kết nối với Google Forms để nhận đơn hàng.</p>
   </form>
 </section>
 
 </main>
 
-
-<!-- FOOTER -->
 <footer>
-
-  <a class="brand" href="index.html">
-    <img class="brand-logo" src="images/logo.jpg" alt="CAPTAIN GUNPLA">
-    <span>
-      CAPTAIN <b>GUNPLA</b>
-      <small>YOUR KIT. OUR CRAFT.</small>
-    </span>
+  <a class="brand" href="#">
+    <img src="images/logo.jpg" alt="Captain Gunpla" class="brand-logo">
+    <span>CAPTAIN <b>GUNPLA</b><small>YOUR KIT. OUR CRAFT.</small></span>
   </a>
-
   <p>BUILD WITH PASSION. DISPLAY WITH PRIDE.</p>
-
   <span>© 2026 CAPTAIN GUNPLA</span>
-
 </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = Array.from(document.querySelectorAll(".product-card"));
+  const searchInput = document.getElementById("searchInput");
+  const searchForm = document.getElementById("searchForm");
+  const categoryButtons = document.querySelectorAll(".category-btn");
+  const sortSelect = document.getElementById("sortSelect");
+  const grid = document.getElementById("productGrid");
+  const count = document.getElementById("productCount");
+  const noProducts = document.getElementById("noProducts");
 
-<script src="script.js"></script>
+  let activeCategory = "all";
+  let keyword = "";
+
+  function filterProducts() {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const categoryMatch = activeCategory === "all" ||
+        card.dataset.category === activeCategory;
+
+      const text = (
+        card.dataset.name + " " + card.dataset.search + " " + card.textContent
+      ).toLowerCase();
+
+      const searchMatch = text.includes(keyword);
+      const show = categoryMatch && searchMatch;
+
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    count.textContent = visible + " sản phẩm";
+    noProducts.hidden = visible !== 0;
+  }
+
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    keyword = searchInput.value.trim().toLocaleLowerCase("vi");
+    filterProducts();
+    document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
+  });
+
+  searchInput.addEventListener("input", function () {
+    keyword = searchInput.value.trim().toLocaleLowerCase("vi");
+    filterProducts();
+  });
+
+  categoryButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      categoryButtons.forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+      activeCategory = button.dataset.category;
+      filterProducts();
+    });
+  });
+
+  sortSelect.addEventListener("change", function () {
+    const sorted = [...cards];
+
+    if (sortSelect.value === "az") {
+      sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name, "vi"));
+    } else if (sortSelect.value === "za") {
+      sorted.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name, "vi"));
+    }
+
+    sorted.forEach(card => grid.appendChild(card));
+    filterProducts();
+  });
+
+  const productData = [
+    {
+      name: "Mô hình Gundam 01",
+      image: "images/Hình 1.jpg",
+      description: "Liên hệ Captain Gunpla để được tư vấn thông tin, giá bán và tình trạng sản phẩm."
+    },
+    {
+      name: "Mô hình Gundam 02",
+      image: "images/hinh2.jpg",
+      description: "Liên hệ Captain Gunpla để được tư vấn thông tin, giá bán và tình trạng sản phẩm."
+    },
+    {
+      name: "Mô hình Gundam 03",
+      image: "images/hinh3.jpg",
+      description: "Liên hệ Captain Gunpla để được tư vấn thông tin, giá bán và tình trạng sản phẩm."
+    }
+  ];
+
+  const modal = document.getElementById("productModal");
+  const modalImage = document.getElementById("modalImage");
+  const modalName = document.getElementById("modalName");
+  const modalDescription = document.getElementById("modalDescription");
+  const quantity = document.getElementById("quantity");
+  const orderProduct = document.getElementById("orderProduct");
+
+  function openProduct(index) {
+    const product = productData[index];
+    if (!product) return;
+
+    modalImage.src = product.image;
+    modalImage.alt = product.name;
+    modalName.textContent = product.name;
+    modalDescription.textContent = product.description;
+    quantity.value = 1;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  }
+
+  function closeProduct() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+
+  document.querySelectorAll("[data-detail]").forEach(button => {
+    button.addEventListener("click", () => openProduct(Number(button.dataset.detail)));
+  });
+
+  document.querySelectorAll("[data-close-modal]").forEach(button => {
+    button.addEventListener("click", closeProduct);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeProduct();
+  });
+
+  document.getElementById("modalOrder").addEventListener("click", function () {
+    const productName = modalName.textContent;
+    const amount = Math.max(1, Number(quantity.value) || 1);
+
+    orderProduct.value = productName + " - Số lượng: " + amount;
+    closeProduct();
+    document.getElementById("order").scrollIntoView({ behavior: "smooth" });
+  });
+
+  document.getElementById("orderForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.getElementById("formNote").textContent =
+      "Biểu mẫu chưa được kết nối. Vui lòng liên hệ Captain Gunpla qua kênh liên hệ của cửa hàng.";
+  });
+
+  document.getElementById("menuBtn").addEventListener("click", function () {
+    document.getElementById("mainNav").classList.toggle("show");
+  });
+
+  document.querySelectorAll("#mainNav a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("mainNav").classList.remove("show");
+    });
+  });
+
+  filterProducts();
+});
+</script>
 
 </body>
 </html>
