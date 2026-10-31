@@ -1085,6 +1085,54 @@ footer .brand-logo {
 .ticker:hover b {
   animation-play-state: paused;
 }
+/* TICKER CHẠY LIÊN TỤC */
+.ticker {
+  display: block !important;
+  overflow: hidden !important;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.ticker-group span,
+.ticker-group b {
+  flex-shrink: 0;
+  animation: none !important;
+  transform: none !important;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
 
 
 
