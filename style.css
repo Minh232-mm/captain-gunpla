@@ -1309,3 +1309,12 @@ select {
 * {
     font-family: "Be Vietnam Pro", Arial, sans-serif !important;
 }
+/* Tạo khoảng cách giữa dòng giới thiệu và tiêu đề */
+.hero .eyebrow {
+    display: block;
+    margin-bottom: 45px !important;
+}
+
+.hero h1 {
+    margin-top: 0 !important;
+}
