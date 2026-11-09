@@ -424,3 +424,74 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 .contact-form textarea:focus {
   border-color: #F21C26;
 }
+
+/* ===================================
+   HERO - TY LE CHU GIONG ANH MAU
+=================================== */
+
+.hero h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: clamp(76px, 8vw, 145px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  color: #F5F5F5;
+  margin: 0;
+  padding: 0;
+  transform: none;
+  white-space: nowrap;
+}
+
+/* BUILD va LIMITS: kich thuoc goc */
+/* BEYOND: lon hon 22% */
+.hero h1 > span:not(.period) {
+  display: inline-block;
+  font-size: 1.22em;
+  color: #F21C26;
+  letter-spacing: -0.055em;
+}
+
+/* Dau cham do */
+.hero h1 .period {
+  color: #F21C26;
+  font-size: 0.65em;
+}
+
+/* MAY TINH */
+@media (min-width: 981px) {
+  .hero h1 {
+    font-size: clamp(76px, 7.4vw, 135px);
+  }
+}
+
+/* TABLET */
+@media (min-width: 701px) and (max-width: 980px) {
+  .hero h1 {
+    font-size: clamp(45px, 6vw, 75px);
+  }
+}
+
+/* DIEN THOAI */
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: clamp(30px, 7vw, 48px);
+    line-height: 0.86;
+    letter-spacing: -0.05em;
+  }
+
+  .hero h1 > span:not(.period) {
+    font-size: 1.17em;
+  }
+}
+
+/* DIEN THOAI NHO */
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: clamp(28px, 6.8vw, 35px);
+  }
+
+  .hero h1 > span:not(.period) {
+    font-size: 1.15em;
+  }
+}
