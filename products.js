@@ -130,5 +130,61 @@ window.CAPTAIN_PRODUCTS = [
     images: ["assets/anhsanpham6.jpg", "assets/anhsanpham6_2.jpg"],
     description: "Nhận sơn hoàn thiện, weathering và hiệu ứng bề mặt theo concept riêng.",
     available: true
-  }
+  },
+   
+/* ===== 2HAND 01 - SOLOMON GP02A ===== */
+{
+  id: "2hand-solomon-gp02a",
+  name: "Solomon GP02A Physalis 1/100 Full Option",
+  category: "secondhand",
+  grade: "2HAND · SOLOMON · 1/100",
+
+  price: 1200000,
+  oldPrice: null,
+  badge: "2HAND ĐÃ LẮP",
+
+  images: [
+    "assets/anh2hand1.jpg",
+    "assets/anh2hand1_2.jpg",
+    "assets/anh2hand1_3.jpg"
+  ],
+
+  description:
+    "• Phiên bản: Full Option, kèm balo MLRS và giáp Clear.\n" +
+    "• Tình trạng: Đã lắp hoàn chỉnh, thợ lắp đẹp, khớp chắc và giữ dáng tốt.\n" +
+    "• Ngoại hình: Đã dán decal nước, nhựa đẹp, không nứt gãy, không dùng keo.\n" +
+    "• Hộp & sách: Còn đầy đủ hộp và sách hướng dẫn.\n" +
+    "• Liên hệ Zalo, TikTok hoặc Fanpage để xem thêm ảnh và chi tiết thực tế.",
+
+  available: true
+},
+
+/* ===== 2HAND 02 - ENHANCED ZZ VER.KA ===== */
+{
+  id: "2hand-enhanced-zz-verka",
+  name: "MG 1/100 Enhanced ZZ Gundam Ver.Ka",
+  category: "secondhand",
+  grade: "2HAND · BANDAI · MG 1/100",
+
+  price: 1000000,
+  oldPrice: null,
+  badge: "2HAND ĐÃ LẮP",
+
+  images: [
+    "assets/anh2hand2.jpg",
+    "assets/anh2hand2_2.jpg",
+    "assets/anh2hand2_3.jpg"
+  ],
+
+  description:
+    "• Thương hiệu: Bandai chính hãng, dòng MG Ver.Ka.\n" +
+    "• Tình trạng: Đã lắp hoàn chỉnh, thợ lắp đẹp, khớp chắc, không lỏng lẻo.\n" +
+    "• Biến hình: Core Fighter, Core Top, Core Base và G-Fortress hoạt động bình thường.\n" +
+    "• Ngoại hình: Decal nước Ver.Ka, nhựa đẹp, không ố vàng, không dùng keo.\n" +
+    "• Hộp & sách: Còn đủ hộp màu và sách hướng dẫn.\n" +
+    "• Liên hệ Zalo, TikTok hoặc Fanpage để xem thêm ảnh và chi tiết thực tế.",
+
+  available: true
+},
+
 ];
