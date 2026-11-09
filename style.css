@@ -606,3 +606,26 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
   }
 
 }
+
+/* =====================================
+   ANH SAN PHAM TU DONG LAP DAY KHUNG
+===================================== */
+
+.product-cover {
+  overflow: hidden;
+}
+
+.product-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  display: block;
+}
+
+/* Giữ ảnh lấp đầy khi rê chuột */
+.product-card:hover .product-cover img {
+  transform: scale(1.04);
+}
+
