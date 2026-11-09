@@ -93,18 +93,32 @@ window.CAPTAIN_PRODUCTS = [
   available: true
 },
 
-  {
-    id: "decal-set",
-    name: "TECH DECAL / DETAIL SET",
-    category: "accessories",
-    grade: "ACCESSORY / DETAIL",
-    price: 120000,
-    oldPrice: 150000,
-    badge: "LIMITED",
-    images: ["assets/anhsanpham5.jpg"],
-    description: "Bộ decal trang trí mô hình. Giá và ảnh hiện là dữ liệu minh họa.",
-    available: true
-  },
+  
+{
+  id: "motor-nuclear-bv-xh01",
+  name: "Motor Nuclear BV-XH01 Hạng Vũ (Xiang Yu)",
+  category: "gunpla",
+  grade: "MOTOR NUCLEAR · 1/144",
+
+  price: 400000,
+  oldPrice: 600000,
+  badge: "SALE -33%",
+
+  images: [
+    "assets/anhsanpham4.jpg"
+  ],
+
+  description:
+    "• Thương hiệu: Motor Nuclear.\n" +
+    "• Tên sản phẩm: BV-XH01 Hạng Vũ (Xiang Yu).\n" +
+    "• Tỷ lệ: 1/144.\n" +
+    "• Chiều cao hoàn thiện: Khoảng 17cm.\n" +
+    "• Thiết kế nhỏ gọn, phù hợp trưng bày trên bàn làm việc hoặc góc gaming.\n" +
+    "• Tình trạng: Mới 100%.",
+
+  available: true
+},
+
   {
     id: "nightfall-custom",
     name: "NIGHTFALL / PAINT PROJECT",
