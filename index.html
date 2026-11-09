@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="vi">
 <head>
@@ -6,59 +7,728 @@
   <meta name="theme-color" content="#08090d">
   <meta name="description" content="Captain Gunpla — Gunpla, mô hình, sơn, lắp ráp và custom. Your Kit. Our Craft.">
   <title>CAPTAIN GUNPLA — YOUR KIT. OUR CRAFT.</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script defer src="products.js"></script>
   <script defer src="app.js"></script>
 </head>
+
 <body>
+
   <div class="site-grid" aria-hidden="true"></div>
-  <div class="top-line"><span class="signal"></span> CAPTAIN GUNPLA / BUILD CULTURE <span class="top-line-right">SYSTEM ONLINE <span class="live-dot"></span></span></div>
+
+  <!-- THANH TRÊN CÙNG -->
+  <div class="top-line">
+    <span class="signal"></span>
+    CAPTAIN GUNPLA / BUILD CULTURE
+    <span class="top-line-right">
+      SYSTEM ONLINE <span class="live-dot"></span>
+    </span>
+  </div>
+
+  <!-- HEADER -->
   <header class="header" id="top">
-    <a class="brand" href="#home" aria-label="Captain Gunpla - Trang chủ"><img class="brand-logo-image" src="assets/anhlogocaptain.jpg" alt="" width="50" height="50"><span class="brand-copy"><strong>CAPTAIN <b>GUNPLA</b></strong><small>YOUR KIT. OUR CRAFT.</small></span></a>
+
+    <a class="brand" href="#home" aria-label="Captain Gunpla - Trang chủ">
+      <img class="brand-logo-image"
+           src="assets/anhlogocaptain.jpg"
+           alt="Captain Gunpla"
+           width="50"
+           height="50">
+      <span class="brand-copy">
+        <strong>CAPTAIN <b>GUNPLA</b></strong>
+        <small>YOUR KIT. OUR CRAFT.</small>
+      </span>
+    </a>
+
     <nav class="nav" id="mainNav" aria-label="Điều hướng chính">
-      <a href="#home">TRANG CHỦ</a><a href="#shop">GIAN HÀNG</a><a href="#services">DỊCH VỤ</a><a href="#projects">TÁC PHẨM</a><a href="#contact">LIÊN HỆ</a>
+      <a href="#home">TRANG CHỦ</a>
+      <a href="#shop">GIAN HÀNG</a>
+      <a href="#services">DỊCH VỤ</a>
+      <a href="#projects">TÁC PHẨM</a>
+      <a href="#contact">LIÊN HỆ</a>
     </nav>
-    <div class="head-actions"><button class="search-toggle" id="searchToggle" type="button" aria-label="Tìm kiếm sản phẩm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><a class="head-cta" href="#contact">BẮT ĐẦU DỰ ÁN <span>↗</span></a><button class="hamburger" id="menuBtn" type="button" aria-label="Mở menu" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button></div>
+
+    <div class="head-actions">
+
+      <button class="search-toggle"
+              id="searchToggle"
+              type="button"
+              aria-label="Tìm kiếm sản phẩm">
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2">
+          <circle cx="10.8" cy="10.8" r="6.8"/>
+          <path d="m16 16 5 5"/>
+        </svg>
+      </button>
+
+      <a class="head-cta" href="#contact">
+        BẮT ĐẦU DỰ ÁN <span>↗</span>
+      </a>
+
+      <button class="hamburger"
+              id="menuBtn"
+              type="button"
+              aria-label="Mở menu"
+              aria-controls="mainNav"
+              aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
   </header>
+
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="home">
+
       <div class="hero-noise" aria-hidden="true"></div>
+
       <div class="hero-content" data-reveal>
-        <p class="eyebrow"><span class="slash">//</span> GUNPLA / BUILD / PAINT / CUSTOM</p>
-        <p class="hero-index">CG / 001 — EST. FOR BUILDERS</p>
-        <h1>BUILD<br><span>BEYOND</span><br>LIMITS<span class="period">.</span></h1>
-        <p class="hero-lead">Không chỉ là mô hình. Đó là kỹ thuật, sáng tạo và dấu ấn cá nhân. Khám phá Gunpla, phụ kiện và dịch vụ custom tại Captain Gunpla.</p>
-        <div class="hero-buttons"><a href="#shop" class="btn btn-red">KHÁM PHÁ GIAN HÀNG</a><a href="#projects" class="btn btn-outline">XEM TÁC PHẨM</a></div>
-        <div class="hero-stats"><div><strong>01<span>/</span></strong><small>BUILD YOUR VISION</small></div><div><strong>02<span>/</span></strong><small>CRAFT YOUR LEGACY</small></div></div>
+
+        <p class="eyebrow">
+          <span class="slash">//</span>
+          GUNPLA / BUILD / PAINT / CUSTOM
+        </p>
+
+        <p class="hero-index">
+          CG / 001 — EST. FOR BUILDERS
+        </p>
+
+        <h1>
+          BUILD<br>
+          <span>BEYOND</span><br>
+          LIMITS<span class="period">.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Không chỉ là mô hình. Đó là kỹ thuật, sáng tạo
+          và dấu ấn cá nhân. Khám phá Gunpla, phụ kiện
+          và dịch vụ custom tại Captain Gunpla.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#shop" class="btn btn-red">
+            KHÁM PHÁ GIAN HÀNG
+          </a>
+
+          <a href="#projects" class="btn btn-outline">
+            XEM TÁC PHẨM
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>01<span>/</span></strong>
+            <small>BUILD YOUR VISION</small>
+          </div>
+          <div>
+            <strong>02<span>/</span></strong>
+            <small>CRAFT YOUR LEGACY</small>
+          </div>
+        </div>
+
       </div>
+
       <div class="hero-visual" data-reveal>
-        <div class="hero-ring ring-a"></div><div class="hero-ring ring-b"></div>
-        <div class="hero-visual-grid"></div><img class="hero-mecha" src="assets/anhdautrang.jpg" alt="Minh họa chiến binh Gunpla công nghệ tương lai" width="620" height="680" fetchpriority="high">
-        <span class="hero-cross cross-a">+</span><span class="hero-cross cross-b">+</span>
-        <div class="hud hud-top"><span class="hud-pin"></span> PROJECT: GUNPLA / CUSTOM <small>UNIT 001 — ACTIVE</small></div>
-        <div class="hud hud-bottom">ENGINEERED FOR <b>CREATORS</b><span class="hud-bars">▰▰▰▰▱▱</span></div>
-        <span class="hero-vertical">CAPTAIN GUNPLA — CUSTOM MECHA WORKSHOP</span>
+
+        <div class="hero-ring ring-a"></div>
+        <div class="hero-ring ring-b"></div>
+        <div class="hero-visual-grid"></div>
+
+        <img class="hero-mecha"
+             src="assets/anhdautrang.jpg"
+             alt="Gunpla Captain Gunpla"
+             width="620"
+             height="680"
+             fetchpriority="high">
+
+        <span class="hero-cross cross-a">+</span>
+        <span class="hero-cross cross-b">+</span>
+
+        <div class="hud hud-top">
+          <span class="hud-pin"></span>
+          PROJECT: GUNPLA / CUSTOM
+          <small>UNIT 001 — ACTIVE</small>
+        </div>
+
+        <div class="hud hud-bottom">
+          ENGINEERED FOR
+          <b>CREATORS</b>
+          <span class="hud-bars">▰▰▰▰▱▱</span>
+        </div>
+
+        <span class="hero-vertical">
+          CAPTAIN GUNPLA — CUSTOM MECHA WORKSHOP
+        </span>
+
       </div>
     </section>
-    <div class="marquee" aria-label="Build - Paint - Custom"><div class="marquee-track"><span>GUNPLA / BUILD / PAINT / CUSTOM <b>✦</b> YOUR KIT. OUR CRAFT. <b>✦</b> PRECISION IN EVERY DETAIL <b>✦</b></span><span aria-hidden="true">GUNPLA / BUILD / PAINT / CUSTOM <b>✦</b> YOUR KIT. OUR CRAFT. <b>✦</b> PRECISION IN EVERY DETAIL <b>✦</b></span></div></div>
+
+    <!-- THANH CHỮ CHẠY -->
+    <div class="marquee" aria-label="Build - Paint - Custom">
+
+      <div class="marquee-track">
+
+        <span>
+          GUNPLA / BUILD / PAINT / CUSTOM
+          <b>✦</b>
+          YOUR KIT. OUR CRAFT.
+          <b>✦</b>
+          PRECISION IN EVERY DETAIL
+          <b>✦</b>
+        </span>
+
+        <span aria-hidden="true">
+          GUNPLA / BUILD / PAINT / CUSTOM
+          <b>✦</b>
+          YOUR KIT. OUR CRAFT.
+          <b>✦</b>
+          PRECISION IN EVERY DETAIL
+          <b>✦</b>
+        </span>
+
+      </div>
+    </div>
+
+    <!-- GIAN HÀNG -->
     <section class="section shop-section" id="shop">
-      <div class="section-heading" data-reveal><div><p class="eyebrow"><span class="slash">//</span> 01 / THE COLLECTION</p><h2>CỬA HÀNG <em>MÔ HÌNH</em><span class="end-dot">.</span></h2></div><p>Khám phá những mẫu kit, bản custom và công cụ dành cho người chơi hệ mecha.</p></div>
-      <div class="shop-controls" data-reveal> role="group" aria-label="Lọc danh mục"><button class="category active" data-category="all" type="button">TẤT CẢ</button> <button class="category" data-category="gunpla" type="button">GUNPLA NEW</button> <button class="category" data-category="secondhand" type="button">HÀNG 2HAND LẮP SẴN</button><button class="category" data-category="custom" type="button">CUSTOM</button><button class="category" data-category="tools" type="button">DỤNG CỤ</button><button class="category" data-category="accessories" type="button">PHỤ KIỆN</button></div><div class="shop-sort"><span id="productCount" aria-live="polite">0 SẢN PHẨM</span><label class="visually-hidden" for="sortSelect">Sắp xếp</label><select id="sortSelect"><option value="default">MẶC ĐỊNH</option><option value="az">TÊN A → Z</option><option value="price-asc">GIÁ TĂNG DẦN</option><option value="price-desc">GIÁ GIẢM DẦN</option></select></div></div>
-      <div class="search-panel" id="searchPanel" hidden><label class="visually-hidden" for="searchInput">Tìm sản phẩm</label><input id="searchInput" type="search" placeholder="Tìm theo tên sản phẩm, dòng mô hình, danh mục..." autocomplete="off"><button id="clearSearch" type="button">XÓA ×</button></div>
-      <div class="products" id="productGrid" aria-live="polite"></div>
-      <p class="empty-state" id="emptyState" hidden>CHƯA CÓ SẢN PHẨM PHÙ HỢP. THỬ TỪ KHÓA HOẶC DANH MỤC KHÁC.</p>
-      <div class="shop-footer-note">// HÌNH ẢNH VÀ GIÁ ĐANG LÀ DỮ LIỆU MINH HỌA — CẬP NHẬT TRONG <code>products.js</code> HOẶC <code>admin.html</code></div>
+
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="eyebrow">
+            <span class="slash">//</span>
+            01 / THE COLLECTION
+          </p>
+
+          <h2>
+            CỬA HÀNG <em>MÔ HÌNH</em><span class="end-dot">.</span>
+          </h2>
+        </div>
+
+        <p>
+          Khám phá những mẫu kit, bản custom và công cụ
+          dành cho người chơi hệ mecha.
+        </p>
+      </div>
+
+      <!-- DANH MỤC ĐÃ SỬA -->
+      <div class="shop-controls" data-reveal>
+
+        <div class="categories"
+             role="group"
+             aria-label="Lọc danh mục">
+
+          <button class="category active"
+                  data-category="all"
+                  type="button">
+            TẤT CẢ
+          </button>
+
+          <button class="category"
+                  data-category="gunpla"
+                  type="button">
+            GUNPLA NEW
+          </button>
+
+          <button class="category"
+                  data-category="secondhand"
+                  type="button">
+            HÀNG 2HAND LẮP SẴN
+          </button>
+
+          <button class="category"
+                  data-category="custom"
+                  type="button">
+            CUSTOM
+          </button>
+
+          <button class="category"
+                  data-category="tools"
+                  type="button">
+            DỤNG CỤ
+          </button>
+
+          <button class="category"
+                  data-category="accessories"
+                  type="button">
+            PHỤ KIỆN
+          </button>
+
+        </div>
+
+        <!-- SẮP XẾP SẢN PHẨM -->
+        <div class="shop-sort">
+
+          <span id="productCount" aria-live="polite">
+            0 SẢN PHẨM
+          </span>
+
+          <label class="visually-hidden" for="sortSelect">
+            Sắp xếp
+          </label>
+
+          <select id="sortSelect">
+            <option value="default">MẶC ĐỊNH</option>
+            <option value="az">TÊN A → Z</option>
+            <option value="price-asc">GIÁ TĂNG DẦN</option>
+            <option value="price-desc">GIÁ GIẢM DẦN</option>
+          </select>
+
+        </div>
+      </div>
+
+      <!-- TÌM KIẾM SẢN PHẨM -->
+      <div class="search-panel" id="searchPanel" hidden>
+
+        <label class="visually-hidden" for="searchInput">
+          Tìm sản phẩm
+        </label>
+
+        <input id="searchInput"
+               type="search"
+               placeholder="Tìm theo tên sản phẩm, dòng mô hình, danh mục..."
+               autocomplete="off">
+
+        <button id="clearSearch" type="button">
+          XÓA ×
+        </button>
+
+      </div>
+
+      <!-- SẢN PHẨM ĐƯỢC TẢI TỪ products.js -->
+      <div class="products"
+           id="productGrid"
+           aria-live="polite">
+      </div>
+
+      <p class="empty-state" id="emptyState" hidden>
+        CHƯA CÓ SẢN PHẨM PHÙ HỢP.
+        THỬ TỪ KHÓA HOẶC DANH MỤC KHÁC.
+      </p>
+
+      <div class="shop-footer-note">
+        // THÔNG TIN SẢN PHẨM ĐƯỢC QUẢN LÝ TRONG
+        <code>products.js</code> HOẶC <code>admin.html</code>
+      </div>
+
     </section>
-    <section class="statement"><div class="statement-inner" data-reveal><span class="statement-tag">THE CAPTAIN MINDSET / 002</span><h2>EVERY KIT HAS A STORY.<br><span>MAKE YOURS LEGENDARY.</span></h2><p>Lắp ráp chính xác. Sơn hoàn thiện tỉ mỉ. Custom không giới hạn.</p></div><div class="statement-lines" aria-hidden="true"></div></section>
-    <section class="section services-section" id="services"><div class="section-heading" data-reveal><div><p class="eyebrow"><span class="slash">//</span> 02 / OUR EXPERTISE</p><h2>DỊCH VỤ <em>CHUYÊN SÂU</em><span class="end-dot">.</span></h2></div><p>Từ kit nguyên bản đến tác phẩm độc bản — mỗi công đoạn đều thể hiện chất riêng của bạn.</p></div><div class="services-grid"><article class="service" data-reveal><span class="service-number">01 —</span><span class="service-icon">⌁</span><h3>LẮP RÁP<br>MÔ HÌNH</h3><p>Lắp ráp chuẩn xác, xử lý nhựa thừa, hoàn thiện chi tiết và kiểm tra tổng thể.</p><a href="#contact">YÊU CẦU TƯ VẤN ↗</a></article><article class="service featured" data-reveal><span class="service-number">02 —</span><span class="service-icon">✧</span><h3>SƠN &<br>HOÀN THIỆN</h3><p>Phối màu, sơn phủ, panel lining, decal, weathering và tối ưu bề mặt.</p><a href="#contact">YÊU CẦU TƯ VẤN ↗</a></article><article class="service" data-reveal><span class="service-number">03 —</span><span class="service-icon">⟁</span><h3>CUSTOM<br>ĐỘC BẢN</h3><p>Phát triển concept, biến đổi chi tiết và tạo một phiên bản theo ý tưởng riêng.</p><a href="#contact">YÊU CẦU TƯ VẤN ↗</a></article></div></section>
-    <section class="section showcase-section" id="projects"><div class="section-heading" data-reveal><div><p class="eyebrow"><span class="slash">//</span> 03 / VISUAL ARCHIVE</p><h2>MECHA <em>SHOWCASE</em><span class="end-dot">.</span></h2></div><p>Kéo ngang hoặc dùng nút mũi tên để xem các góc ảnh. Thay ảnh demo bằng tác phẩm của bạn trong thư mục assets.</p></div><div class="showcase-nav"><span>SCROLL / DRAG TO EXPLORE — 001</span><div><button type="button" id="galleryPrev" aria-label="Ảnh trước">←</button><button type="button" id="galleryNext" aria-label="Ảnh tiếp">→</button></div></div><div class="gallery-track" id="galleryTrack" tabindex="0" aria-label="Bộ sưu tập có thể cuộn ngang"><figure class="gallery-item"><img src="assets/anhtacpham1.jpg" alt="Mecha Crimson Unit" loading="lazy"><figcaption><span>01 / CRIMSON UNIT</span><b>THE RED PROTOCOL</b></figcaption></figure><figure class="gallery-item"><img src="assets/anhtacpham2.jpg" alt="Mecha Blue Unit" loading="lazy"><figcaption><span>02 / TECH FRAME</span><b>BEYOND THE FRAME</b></figcaption></figure><figure class="gallery-item"><img src="assets/anhtacpham3.jpg" alt="Mecha Gold Unit" loading="lazy"><figcaption><span>03 / NEXT GENERATION</span><b>BUILT TO STAND OUT</b></figcaption></figure><figure class="gallery-item"><img src="assets/anhtacpham4.jpg" alt="Mecha Project Concept" loading="lazy"><figcaption><span>04 / CUSTOM CONCEPT</span><b>YOUR IDEA, OUR CRAFT</b></figcaption></figure></div></section>
-    <section class="contact-section" id="contact"><div class="contact-info" data-reveal><p class="eyebrow"><span class="slash">//</span> 04 / CONNECT WITH US</p><h2>HAVE A<br><em>PROJECT?</em></h2><p>Bạn đang tìm một mẫu Gunpla, muốn custom mô hình hoặc cần tư vấn? Hãy gửi thông tin — chúng tôi sẽ tiếp tục trao đổi với bạn qua kênh liên hệ.</p><div class="socials"><a href="https://www.facebook.com/CaptainGunpla/" target="_blank" rel="noopener noreferrer"><img src="assets/anhlogofacebook.jpg" width="24" height="24" alt=""> FACEBOOK ↗</a><a href="https://www.tiktok.com/@captain23203" target="_blank" rel="noopener noreferrer"><img src="assets/anhlogotiktok.jpg" width="24" height="24" alt=""> TIKTOK ↗</a><a href="https://zalo.me/0395193831" target="_blank" rel="noopener noreferrer"><img src="assets/anhlogozalo.jpg" width="24" height="24" alt=""> ZALO ↗</a></div></div><form id="contactForm" class="contact-form" data-reveal><p class="form-title">// SEND AN INQUIRY <span>CG / CONTACT</span></p><div class="form-row"><label>HỌ VÀ TÊN *<input name="name" required placeholder="Tên của bạn" autocomplete="name"></label><label>SỐ ĐIỆN THOẠI / ZALO *<input name="phone" required inputmode="tel" placeholder="Số điện thoại" autocomplete="tel"></label></div><label>SẢN PHẨM / DỊCH VỤ QUAN TÂM<input id="orderProduct" name="product" placeholder="Ví dụ: RX-78, Sơn custom..."></label><label>CHI TIẾT YÊU CẦU<textarea name="message" rows="4" placeholder="Mô tả nhu cầu của bạn..."></textarea></label><button class="btn btn-red form-submit" type="submit">GỬI YÊU CẦU QUA ZALO <span>↗</span></button><p class="form-status" id="formStatus" aria-live="polite">Khi nhấn gửi, nội dung được sao chép để bạn dán vào Zalo và mở kênh liên hệ. Website không tự lưu đơn hàng.</p></form></section>
+
+    <!-- STATEMENT -->
+    <section class="statement">
+
+      <div class="statement-inner" data-reveal>
+
+        <span class="statement-tag">
+          THE CAPTAIN MINDSET / 002
+        </span>
+
+        <h2>
+          EVERY KIT HAS A STORY.<br>
+          <span>MAKE YOURS LEGENDARY.</span>
+        </h2>
+
+        <p>
+          Lắp ráp chính xác. Sơn hoàn thiện tỉ mỉ.
+          Custom không giới hạn.
+        </p>
+
+      </div>
+
+      <div class="statement-lines" aria-hidden="true"></div>
+
+    </section>
+
+    <!-- DỊCH VỤ -->
+    <section class="section services-section" id="services">
+
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="eyebrow">
+            <span class="slash">//</span>
+            02 / OUR EXPERTISE
+          </p>
+          <h2>
+            DỊCH VỤ <em>CHUYÊN SÂU</em><span class="end-dot">.</span>
+          </h2>
+        </div>
+        <p>
+          Từ kit nguyên bản đến tác phẩm độc bản —
+          mỗi công đoạn đều thể hiện chất riêng của bạn.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service" data-reveal>
+          <span class="service-number">01 —</span>
+          <span class="service-icon">⌁</span>
+
+          <h3>LẮP RÁP<br>MÔ HÌNH</h3>
+
+          <p>
+            Lắp ráp chuẩn xác, xử lý nhựa thừa,
+            hoàn thiện chi tiết và kiểm tra tổng thể.
+          </p>
+
+          <a href="#contact">YÊU CẦU TƯ VẤN ↗</a>
+        </article>
+
+        <article class="service featured" data-reveal>
+          <span class="service-number">02 —</span>
+          <span class="service-icon">✧</span>
+
+          <h3>SƠN &<br>HOÀN THIỆN</h3>
+
+          <p>
+            Phối màu, sơn phủ, panel lining,
+            decal, weathering và tối ưu bề mặt.
+          </p>
+
+          <a href="#contact">YÊU CẦU TƯ VẤN ↗</a>
+        </article>
+
+        <article class="service" data-reveal>
+          <span class="service-number">03 —</span>
+          <span class="service-icon">⟁</span>
+
+          <h3>CUSTOM<br>ĐỘC BẢN</h3>
+
+          <p>
+            Phát triển concept, biến đổi chi tiết
+            và tạo một phiên bản theo ý tưởng riêng.
+          </p>
+
+          <a href="#contact">YÊU CẦU TƯ VẤN ↗</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- THƯ VIỆN TÁC PHẨM -->
+    <section class="section showcase-section" id="projects">
+
+      <div class="section-heading" data-reveal>
+
+        <div>
+          <p class="eyebrow">
+            <span class="slash">//</span>
+            03 / VISUAL ARCHIVE
+          </p>
+          <h2>
+            MECHA <em>SHOWCASE</em><span class="end-dot">.</span>
+          </h2>
+        </div>
+
+        <p>
+          Kéo ngang hoặc dùng nút mũi tên để xem các góc ảnh.
+          Thay ảnh demo bằng tác phẩm của bạn trong thư mục assets.
+        </p>
+
+      </div>
+
+      <div class="showcase-nav">
+
+        <span>SCROLL / DRAG TO EXPLORE — 001</span>
+
+        <div>
+          <button type="button" id="galleryPrev" aria-label="Ảnh trước">←</button>
+          <button type="button" id="galleryNext" aria-label="Ảnh tiếp">→</button>
+        </div>
+
+      </div>
+
+      <div class="gallery-track"
+           id="galleryTrack"
+           tabindex="0"
+           aria-label="Bộ sưu tập có thể cuộn ngang">
+
+        <figure class="gallery-item">
+          <img src="assets/anhtacpham1.jpg"
+               alt="Mecha Crimson Unit"
+               loading="lazy">
+          <figcaption>
+            <span>01 / CRIMSON UNIT</span>
+            <b>THE RED PROTOCOL</b>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="assets/anhtacpham2.jpg"
+               alt="Mecha Blue Unit"
+               loading="lazy">
+          <figcaption>
+            <span>02 / TECH FRAME</span>
+            <b>BEYOND THE FRAME</b>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="assets/anhtacpham3.jpg"
+               alt="Mecha Gold Unit"
+               loading="lazy">
+          <figcaption>
+            <span>03 / NEXT GENERATION</span>
+            <b>BUILT TO STAND OUT</b>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="assets/anhtacpham4.jpg"
+               alt="Mecha Project Concept"
+               loading="lazy">
+          <figcaption>
+            <span>04 / CUSTOM CONCEPT</span>
+            <b>YOUR IDEA, OUR CRAFT</b>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section class="contact-section" id="contact">
+
+      <div class="contact-info" data-reveal>
+
+        <p class="eyebrow">
+          <span class="slash">//</span>
+          04 / CONNECT WITH US
+        </p>
+
+        <h2>HAVE A<br><em>PROJECT?</em></h2>
+
+        <p>
+          Bạn đang tìm một mẫu Gunpla, muốn custom mô hình
+          hoặc cần tư vấn? Hãy gửi thông tin — chúng tôi
+          sẽ tiếp tục trao đổi với bạn qua kênh liên hệ.
+        </p>
+
+        <div class="socials">
+
+          <a href="https://www.facebook.com/CaptainGunpla/"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="assets/anhlogofacebook.jpg"
+                 width="24"
+                 height="24"
+                 alt="">
+            FACEBOOK ↗
+          </a>
+
+          <a href="https://www.tiktok.com/@captain23203"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="assets/anhlogotiktok.jpg"
+                 width="24"
+                 height="24"
+                 alt="">
+            TIKTOK ↗
+          </a>
+
+          <a href="https://zalo.me/0395193831"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="assets/anhlogozalo.jpg"
+                 width="24"
+                 height="24"
+                 alt="">
+            ZALO ↗
+          </a>
+
+        </div>
+      </div>
+
+      <!-- FORM LIÊN HỆ -->
+      <form id="contactForm" class="contact-form" data-reveal>
+
+        <p class="form-title">
+          // SEND AN INQUIRY
+          <span>CG / CONTACT</span>
+        </p>
+
+        <div class="form-row">
+
+          <label>
+            HỌ VÀ TÊN *
+            <input name="name"
+                   required
+                   placeholder="Tên của bạn"
+                   autocomplete="name">
+          </label>
+
+          <label>
+            SỐ ĐIỆN THOẠI / ZALO *
+            <input name="phone"
+                   required
+                   inputmode="tel"
+                   placeholder="Số điện thoại"
+                   autocomplete="tel">
+          </label>
+
+        </div>
+
+        <label>
+          SẢN PHẨM / DỊCH VỤ QUAN TÂM
+          <input id="orderProduct"
+                 name="product"
+                 placeholder="Ví dụ: RX-78, Sơn custom...">
+        </label>
+
+        <label>
+          CHI TIẾT YÊU CẦU
+          <textarea name="message"
+                    rows="4"
+                    placeholder="Mô tả nhu cầu của bạn..."></textarea>
+        </label>
+
+        <button class="btn btn-red form-submit" type="submit">
+          GỬI YÊU CẦU QUA ZALO <span>↗</span>
+        </button>
+
+        <p class="form-status"
+           id="formStatus"
+           aria-live="polite">
+          Khi nhấn gửi, nội dung được sao chép để bạn dán vào Zalo
+          và mở kênh liên hệ. Website không tự lưu đơn hàng.
+        </p>
+
+      </form>
+    </section>
+
   </main>
-  <footer class="footer"><div><a class="footer-logo" href="#top"><img src="assets/anhlogocaptain.jpg" width="34" height="34" alt=""> CAPTAIN <span>GUNPLA</span><b>.</b></a><p>YOUR KIT. OUR CRAFT.</p></div><span>BUILD WITH PASSION. DISPLAY WITH PRIDE.</span><small>© 2026 CAPTAIN GUNPLA</small></footer>
-  <button type="button" class="back-top" id="backTop" aria-label="Về đầu trang">↑</button>
-  <div class="modal" id="productModal" aria-hidden="true"><div class="modal-shade" data-close-modal></div><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"><button class="modal-close" data-close-modal type="button" aria-label="Đóng chi tiết">×</button><div class="modal-media"><div class="modal-main-image"><img id="modalImage" src="" alt="Ảnh sản phẩm"></div><div class="modal-image-controls"><button id="imagePrev" aria-label="Ảnh trước" type="button">←</button><div class="modal-thumbs" id="modalThumbs"></div><button id="imageNext" aria-label="Ảnh tiếp" type="button">→</button></div><p class="gallery-tip">KÉO / CUỘN ẢNH NHỎ ĐỂ XEM THÊM GÓC CHỤP</p></div><div class="modal-details"><p class="eyebrow"><span class="slash">//</span> CAPTAIN GUNPLA / PRODUCT VIEW</p><p class="modal-grade" id="modalGrade"></p><h2 id="modalTitle"></h2><strong class="modal-price" id="modalPrice"></strong><p class="modal-description" id="modalDescription"></p><label class="qty-label" for="modalQty">SỐ LƯỢNG</label><div class="qty-control"><button id="qtyMinus" type="button" aria-label="Giảm số lượng">−</button><input id="modalQty" type="number" min="1" max="99" value="1"><button id="qtyPlus" type="button" aria-label="Tăng số lượng">+</button></div><button id="modalOrder" class="btn btn-red modal-order" type="button">TƯ VẤN / ĐẶT HÀNG <span>↗</span></button><p class="modal-footnote">THÔNG TIN / HÌNH ẢNH ĐANG LÀ DỮ LIỆU DEMO</p></div></div></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div>
+      <a class="footer-logo" href="#top">
+        <img src="assets/anhlogocaptain.jpg"
+             width="34"
+             height="34"
+             alt="">
+        CAPTAIN <span>GUNPLA</span><b>.</b>
+      </a>
+
+      <p>YOUR KIT. OUR CRAFT.</p>
+    </div>
+
+    <span>BUILD WITH PASSION. DISPLAY WITH PRIDE.</span>
+    <small>© 2026 CAPTAIN GUNPLA</small>
+
+  </footer>
+
+  <!-- NÚT LÊN ĐẦU TRANG -->
+  <button type="button"
+          class="back-top"
+          id="backTop"
+          aria-label="Về đầu trang">
+    ↑
+  </button>
+
+  <!-- POPUP CHI TIẾT SẢN PHẨM -->
+  <div class="modal" id="productModal" aria-hidden="true">
+
+    <div class="modal-shade" data-close-modal></div>
+
+    <div class="modal-dialog"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle"
+         tabindex="-1">
+
+      <button class="modal-close"
+              data-close-modal
+              type="button"
+              aria-label="Đóng chi tiết">
+        ×
+      </button>
+
+      <div class="modal-media">
+
+        <div class="modal-main-image">
+          <img id="modalImage" src="" alt="Ảnh sản phẩm">
+        </div>
+
+        <div class="modal-image-controls">
+
+          <button id="imagePrev"
+                  aria-label="Ảnh trước"
+                  type="button">←</button>
+
+          <div class="modal-thumbs" id="modalThumbs"></div>
+
+          <button id="imageNext"
+                  aria-label="Ảnh tiếp"
+                  type="button">→</button>
+
+        </div>
+
+        <p class="gallery-tip">
+          KÉO / CUỘN ẢNH NHỎ ĐỂ XEM THÊM GÓC CHỤP
+        </p>
+
+      </div>
+
+      <div class="modal-details">
+
+        <p class="eyebrow">
+          <span class="slash">//</span>
+          CAPTAIN GUNPLA / PRODUCT VIEW
+        </p>
+
+        <p class="modal-grade" id="modalGrade"></p>
+
+        <h2 id="modalTitle"></h2>
+
+        <strong class="modal-price" id="modalPrice"></strong>
+
+        <p class="modal-description" id="modalDescription"></p>
+
+        <label class="qty-label" for="modalQty">
+          SỐ LƯỢNG
+        </label>
+
+        <div class="qty-control">
+
+          <button id="qtyMinus"
+                  type="button"
+                  aria-label="Giảm số lượng">−</button>
+
+          <input id="modalQty"
+                 type="number"
+                 min="1"
+                 max="99"
+                 value="1">
+
+          <button id="qtyPlus"
+                  type="button"
+                  aria-label="Tăng số lượng">+</button>
+
+        </div>
+
+        <button id="modalOrder"
+                class="btn btn-red modal-order"
+                type="button">
+          TƯ VẤN / ĐẶT HÀNG <span>↗</span>
+        </button>
+
+        <p class="modal-footnote">
+          LIÊN HỆ CAPTAIN GUNPLA ĐỂ XÁC NHẬN TÌNH TRẠNG SẢN PHẨM
+        </p>
+
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
