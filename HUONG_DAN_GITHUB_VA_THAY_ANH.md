@@ -11,20 +11,20 @@
 ## 2. Toàn bộ ảnh giao diện hiện dùng nằm trong `assets/`
 | Tên ảnh | Vị trí |
 |---|---|
-| `anhdautrang.svg` | Nhân vật Gunpla lớn đầu trang |
-| `anhlogocaptain.svg` | Logo ở đầu trang và chân trang |
-| `anhlogofacebook.svg` | Biểu tượng Facebook phần Liên hệ |
-| `anhlogotiktok.svg` | Biểu tượng TikTok phần Liên hệ |
-| `anhlogozalo.svg` | Biểu tượng Zalo phần Liên hệ |
-| `anhsanpham1.svg` … `anhsanpham6.svg` | Ảnh chính 6 sản phẩm mẫu |
-| `anhsanpham1_2.svg`, `anhsanpham1_3.svg`, `anhsanpham2_2.svg`, `anhsanpham3_2.svg`, `anhsanpham6_2.svg` | Ảnh phụ trong hộp chi tiết sản phẩm |
-| `anhtacpham1.svg` … `anhtacpham4.svg` | 4 ảnh trong bộ sưu tập kéo ngang |
+| `anhdautrang.jpg` | Nhân vật Gunpla lớn đầu trang |
+| `anhlogocaptain.jpg` | Logo ở đầu trang và chân trang |
+| `anhlogofacebook.jpg` | Biểu tượng Facebook phần Liên hệ |
+| `anhlogotiktok.jpg` | Biểu tượng TikTok phần Liên hệ |
+| `anhlogozalo.jpg` | Biểu tượng Zalo phần Liên hệ |
+| `anhsanpham1.jpg` … `anhsanpham6.jpg` | Ảnh chính 6 sản phẩm mẫu |
+| `anhsanpham1_2.jpg`, `anhsanpham1_3.jpg`, `anhsanpham2_2.jpg`, `anhsanpham3_2.jpg`, `anhsanpham6_2.jpg` | Ảnh phụ trong hộp chi tiết sản phẩm |
+| `anhtacpham1.jpg` … `anhtacpham4.jpg` | 4 ảnh trong bộ sưu tập kéo ngang |
 
-**Mọi ảnh đang là SVG demo.** Không đổi đuôi ảnh `.png` thành `.svg` theo tên file. Nếu dùng ảnh PNG/JPG/WEBP, đặt vào `assets/` với tên dễ hiểu như `anhdautrang.png` và đổi `src` trong `index.html` thành `assets/anhdautrang.png`. Với ảnh sản phẩm, thay đường dẫn trong `products.js` hoặc ở `admin.html`, rồi xuất `products.js` để upload.
+**Mọi ảnh trong bộ V3.2 hiện là JPG.** Muốn thay ảnh, hãy dùng file JPEG thực sự (không chỉ đổi đuôi) với đúng tên `.jpg` trong `assets/`. Với ảnh sản phẩm, thay đường dẫn trong `products.js` hoặc ở `admin.html`, rồi xuất `products.js` để upload.
 
 Ví dụ thay ảnh đầu trang trong `index.html`:
 ```html
-<img class="hero-mecha" src="assets/anhdautrang.png" alt="Gunpla Captain Gunpla">
+<img class="hero-mecha" src="assets/anhdautrang.jpg" alt="Gunpla Captain Gunpla">
 ```
 
 ## 3. Thêm sản phẩm và thay giá

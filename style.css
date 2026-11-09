@@ -67,3 +67,140 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
   .hud-top{font-size:8px}.hud-bottom{font-size:8px}
 }
 @media (prefers-reduced-motion:reduce){.hero-mecha,.hero-ring,.marquee-track{animation:none!important}}
+
+
+/* ======================================================
+   V3.1 — HERO 2 CỘT TRÊN ĐIỆN THOẠI
+   Giữ chữ bên trái và nhân vật bên phải như desktop.
+   Đặt cuối style.css để ghi đè media query V3 cũ.
+   ====================================================== */
+@media (max-width: 700px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+    align-items: center;
+    min-height: clamp(310px, 90vw, 535px);
+    gap: 0;
+  }
+  .hero-content {
+    min-width: 0;
+    max-width: none;
+    align-self: center;
+    padding: 34px 0 38px 5vw;
+    z-index: 2;
+  }
+  .hero-content .eyebrow {
+    font-size: clamp(8px, 1.7vw, 11px);
+    letter-spacing: .7px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .hero-index {
+    margin: 10px 0 8px;
+    font-size: clamp(8px, 1.65vw, 11px);
+    letter-spacing: .9px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 8vw, 60px);
+    line-height: .89;
+    letter-spacing: -1px;
+    overflow-wrap: normal;
+  }
+  .hero-lead {
+    font-size: clamp(10px, 2.1vw, 12px);
+    line-height: 1.55;
+    margin: 16px 0 15px;
+    max-width: 100%;
+  }
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: stretch;
+  }
+  .hero-buttons .btn {
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding: 9px 8px;
+    font-size: clamp(9px, 1.7vw, 12px);
+    letter-spacing: 0;
+    gap: 5px;
+    line-height: 1.2;
+  }
+  .hero-stats {
+    margin-top: 15px;
+    padding-top: 10px;
+    gap: 8px;
+  }
+  .hero-stats strong {font-size: 19px}
+  .hero-stats small {font-size: 8px;letter-spacing: .3px}
+  .hero-stats div {gap: 5px}
+  .hero-visual {
+    order: initial;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0;
+    padding: 4px 3% 15px 0;
+    overflow: visible;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-mecha {
+    width: 115%;
+    max-width: none;
+    height: auto;
+    max-height: min(72vw, 490px);
+    aspect-ratio: 620 / 680;
+    object-fit: contain;
+    flex: 0 0 auto;
+  }
+  .hero-ring {width: 40vw;height: 40vw;max-width: none}
+  .ring-b {width: 32vw;height: 32vw}
+  .hud, .hud-top, .hud-bottom, .hero-cross, .hero-vertical {
+    display: none;
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 9px;
+    left: 5%;
+    margin: 0;
+    width: auto;
+    order: initial;
+    font-size: 8px;
+    gap: 7px;
+    z-index: 3;
+  }
+  .scroll-cue i {font-size: 15px}
+}
+@media (max-width: 420px) {
+  .hero {min-height: 350px}
+  .hero-content {padding: 25px 0 30px 4vw}
+  .hero h1 {font-size: clamp(31px, 8.4vw, 38px)}
+  .hero-content .eyebrow {font-size: 8px;letter-spacing: .25px}
+  .hero-index {margin: 8px 0}
+  .hero-lead {
+    font-size: 10px;
+    line-height: 1.45;
+    margin: 12px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+  .hero-buttons .btn {font-size: 9px;min-height: 32px;padding: 8px 6px}
+  .hero-stats {display: none}
+  .hero-visual {aspect-ratio: auto}
+  .hero-mecha {width: 119%;max-height: 350px}
+}
+@media (max-width: 340px) {
+  .hero {grid-template-columns: minmax(0, 53%) minmax(0, 47%);min-height: 310px}
+  .hero h1 {font-size: 28px}
+  .hero-lead {-webkit-line-clamp: 3}
+  .hero-buttons .btn {font-size: 8px}
+}

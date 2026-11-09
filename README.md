@@ -18,4 +18,7 @@ HUONG_DAN_GITHUB_VA_THAY_ANH.md
 README.md
 ```
 
-Toàn bộ hình ảnh được gọi từ `assets/` với tên dễ đọc: `anhdautrang.svg`, `anhlogocaptain.svg`, `anhlogozalo.svg`, `anhsanpham1.svg`, `anhtacpham1.svg` v.v. Chi tiết cách thay ảnh, upload GitHub, cập nhật giá có trong `HUONG_DAN_GITHUB_VA_THAY_ANH.md`.
+Toàn bộ hình ảnh được gọi từ `assets/` với tên dễ đọc: `anhdautrang.jpg`, `anhlogocaptain.jpg`, `anhlogozalo.jpg`, `anhsanpham1.jpg`, `anhtacpham1.jpg` v.v. Chi tiết cách thay ảnh, upload GitHub, cập nhật giá có trong `HUONG_DAN_GITHUB_VA_THAY_ANH.md`.
+
+
+**Phiên bản V3.2 JPG:** Hình ảnh demo đã được chuyển sang `.jpg`, thay ảnh theo tài liệu `HUONG_DAN_ANH_JPG.md`.
