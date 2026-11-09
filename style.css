@@ -301,3 +301,126 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 .service.featured {
   border-color: #F21C26;
 }
+
+/* =========================================
+   CAPTAIN GUNPLA - FULL GUNDAM RED THEME
+========================================= */
+
+/* Màu đỏ chủ đạo */
+:root {
+  --red: #F21C26;
+  --red2: #C8101B;
+}
+
+/* Thanh đỏ trên cùng và chữ chạy */
+.top-line,
+.marquee {
+  background: #F21C26;
+}
+
+/* Nền EVERY KIT HAS A STORY */
+.statement {
+  background: #F21C26;
+}
+
+/* Toàn bộ chữ của banner thành màu trắng */
+.statement h2,
+.statement h2 span,
+.statement-tag,
+.statement p {
+  color: #FFFFFF;
+}
+
+/* Chữ tiêu đề đỏ */
+.hero h1 span:not(.period),
+.hero .period,
+.section-heading h2 em,
+.end-dot,
+.contact-info h2 em,
+.brand-copy b,
+.footer-logo span,
+.service-icon,
+.service a,
+.product-price,
+.modal-price,
+.modal-grade {
+  color: #F21C26;
+}
+
+/* Nút bấm và danh mục */
+.btn-red,
+.head-cta,
+.category.active,
+.category:hover,
+.back-top,
+.search-panel button,
+.badge-product {
+  background-color: #F21C26;
+}
+
+/* Hiệu ứng hover */
+.btn-red:hover,
+.head-cta:hover {
+  background-color: #D91520;
+}
+
+/* Viền và điểm nhấn */
+.brand-mark,
+.service.featured,
+.product-card:hover,
+.service:hover,
+.category.active,
+.category:hover {
+  border-color: #F21C26;
+}
+
+/* Icon và đường trang trí */
+.hero-cross,
+.slash,
+.scroll-cue i,
+.hud-bottom b,
+.hud-bars,
+.gallery-item figcaption span {
+  color: #F21C26;
+}
+
+.gallery-item figcaption {
+  border-top-color: #F21C26;
+}
+
+/* Nút điều hướng gallery */
+.showcase-nav button:hover,
+.modal-image-controls > button:hover {
+  background-color: #F21C26;
+}
+
+/* Đồng bộ màu nền và ánh sáng đỏ */
+.hero {
+  background:
+    radial-gradient(
+      ellipse at 75% 52%,
+      rgba(242, 28, 38, 0.14),
+      transparent 45%
+    ),
+    linear-gradient(125deg, #0a0b11, #08090d 70%);
+}
+
+.hero-visual {
+  background:
+    radial-gradient(
+      circle at 56% 54%,
+      rgba(242, 28, 38, 0.18),
+      transparent 56%
+    );
+}
+
+/* Màu thanh cuộn gallery */
+.gallery-track {
+  scrollbar-color: #F21C26 #21232a;
+}
+
+/* Focus khi chọn ô nhập liệu */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #F21C26;
+}
