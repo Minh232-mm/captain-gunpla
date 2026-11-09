@@ -6,18 +6,39 @@
    badge: NEW | HOT | LIMITED | CUSTOM hoặc để trống.
 */
 window.CAPTAIN_PRODUCTS = [
-  {
-    id: "rx78-origin",
-    name: "RX-78 / ORIGIN SERIES",
-    category: "gunpla",
-    grade: "MG · 1/100",
-    price: 890000,
-    oldPrice: 1050000,
-    badge: "HOT",
-    images: ["assets/anhsanpham1.jpg", "assets/anhsanpham1_2.jpg", "assets/anhsanpham1_3.jpg"],
-    description: "Thiết kế lấy cảm hứng từ phong cách mecha cổ điển. Mẫu trưng bày demo — cập nhật hình ảnh và thông số thực tế trước khi bán.",
-    available: true
-  },
+ 
+{
+  id: "inera-fnr009-fenrir",
+  name: "IN ERA+ FNR009 Fenrir 1/72 RMD Series",
+  category: "gunpla",
+  grade: "IN ERA+ · RMD · 1/72",
+
+  price: 1700000,
+  oldPrice: 2000000,
+
+  badge: "SALE",
+
+  images: [
+    "assets/anhsanpham1.jpg",
+    "assets/anhsanpham1_2.jpg",
+    "assets/anhsanpham1_3.jpg"
+  ],
+
+  description:
+    "THÔNG TIN CHI TIẾT SẢN PHẨM:\n" +
+    "• Thương hiệu: IN ERA+ (RMD - Real Minutia Design)\n" +
+    "• Tên sản phẩm: FNR009 Fenrir\n" +
+    "• Tỷ lệ: 1/72\n" +
+    "• Chiều cao hoàn thiện: khoảng 27cm đến đỉnh đầu, " +
+    "khoảng 30cm tính cả trang bị sau lưng.\n" +
+    "• Chất liệu: Nhựa ABS, POM cao cấp kết hợp " +
+    "khung xương hợp kim Die-cast đúc sẵn.\n" +
+    "• Tình trạng: Mới 100%, nguyên seal, " +
+    "đầy đủ hộp và phụ kiện từ nhà sản xuất.",
+
+  available: true
+},
+
   {
     id: "astral-frame",
     name: "ASTRAL FRAME / CUSTOM",
