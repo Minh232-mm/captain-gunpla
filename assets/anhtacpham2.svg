@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900"><title>kit-blue — original mecha concept illustration</title><defs><radialGradient id="g"><stop stop-color="#3278da" stop-opacity=".22"/><stop offset="1" stop-color="#11141d"/></radialGradient><linearGradient id="armor" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#f3f4f6"/><stop offset=".52" stop-color="#89909e"/><stop offset="1" stop-color="#343943"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#626a77"/><stop offset="1" stop-color="#161c27"/></linearGradient><filter id="gl"><feGaussianBlur stdDeviation="8"/></filter></defs><rect width="800" height="900" fill="url(#g)"/><circle cx="400" cy="435" r="310" fill="none" stroke="#3278da" stroke-opacity=".22" stroke-width="2" stroke-dasharray="7 16"/><circle cx="400" cy="435" r="250" fill="none" stroke="#ffffff" stroke-opacity=".14"/>
+    <g opacity=".45" fill="none" stroke="#3278da" stroke-width="2"><path d="M130 200h90m-90 0v76M670 160h-70m70 0v100M115 695h130m-130 0v-68M685 665h-105m105 0v-75"/></g>
+    <g transform="translate(0 -8)" stroke="#101621" stroke-width="8" stroke-linejoin="round">
+      <!-- Rear fins / backpack -->
+      <path d="M270 335 153 116 217 156 336 302Z" fill="#3278da"/><path d="M530 335 647 116 583 156 464 302Z" fill="#3278da"/>
+      <path d="M294 295 222 172 250 189 357 299Z" fill="url(#dark)"/><path d="M506 295 578 172 550 189 443 299Z" fill="url(#dark)"/>
+      <!-- Legs -->
+      <path d="M333 543 394 547 380 699 350 771 292 754 298 690Z" fill="url(#armor)"/><path d="M467 543 406 547 420 699 450 771 508 754 502 690Z" fill="url(#armor)"/>
+      <path d="M305 737 364 748 356 812 293 827 252 815Z" fill="#3278da"/><path d="M495 737 436 748 444 812 507 827 548 815Z" fill="#3278da"/>
+      <path d="M322 590 366 588 353 678 305 692Z" fill="url(#dark)"/><path d="M478 590 434 588 447 678 495 692Z" fill="url(#dark)"/>
+      <!-- Arms -->
+      <path d="M283 330 223 348 171 497 215 526 306 435Z" fill="url(#armor)"/><path d="M517 330 577 348 629 497 585 526 494 435Z" fill="url(#armor)"/>
+      <path d="M174 477 217 498 204 614 145 607Z" fill="#3278da"/><path d="M626 477 583 498 596 614 655 607Z" fill="#3278da"/>
+      <path d="M151 589 205 590 218 654 171 684 135 649Z" fill="url(#dark)"/><path d="M649 589 595 590 582 654 629 684 665 649Z" fill="url(#dark)"/>
+      <!-- Torso / chest -->
+      <path d="M316 300 400 278 484 300 527 423 471 527 329 527 273 423Z" fill="url(#dark)"/>
+      <path d="M294 332 383 350 400 412 328 453 279 392Z" fill="url(#armor)"/><path d="M506 332 417 350 400 412 472 453 521 392Z" fill="url(#armor)"/>
+      <path d="M335 453 400 422 465 453 452 520 348 520Z" fill="#3278da"/>
+      <path d="M381 418 419 418 429 464 400 491 371 464Z" fill="#77e6ff" stroke="#3278da"/>
+      <path d="M322 520 478 520 489 576 451 606 400 579 349 606 311 576Z" fill="url(#armor)"/>
+      <path d="M356 571 400 557 444 571 414 599 386 599Z" fill="#3278da"/>
+      <!-- Shoulders -->
+      <path d="M298 295 232 304 180 397 260 427 322 365Z" fill="#3278da"/><path d="M502 295 568 304 620 397 540 427 478 365Z" fill="#3278da"/>
+      <path d="M226 328 285 322 290 356 237 391 199 379Z" fill="url(#armor)"/><path d="M574 328 515 322 510 356 563 391 601 379Z" fill="url(#armor)"/>
+      <!-- Neck and head -->
+      <path d="M369 274 431 274 426 323 374 323Z" fill="#333946"/>
+      <path d="M335 214 363 170 437 170 465 214 450 290 400 319 350 290Z" fill="url(#armor)"/>
+      <path d="M345 224 385 237 400 253 415 237 455 224 449 260 415 281 385 281 351 260Z" fill="#202734"/>
+      <path d="M349 240 390 250 398 258 370 260Z" fill="#77e6ff" stroke="none"/><path d="M451 240 410 250 402 258 430 260Z" fill="#77e6ff" stroke="none"/>
+      <path d="M390 279 410 279 417 292 400 306 383 292Z" fill="#3278da"/>
+      <!-- Antennae -->
+      <path d="M381 185 267 84 351 131 397 189Z" fill="#3278da"/><path d="M419 185 533 84 449 131 403 189Z" fill="#3278da"/>
+      <path d="M390 154 400 129 410 154 409 207 391 207Z" fill="#77e6ff"/>
+      <!-- Detail tracers -->
+      <path d="M302 400 326 422m172-22-24 22M312 693l36-6m140 6-36-6" stroke="#77e6ff" stroke-width="5"/>
+    </g><path d="M334 456 400 420 466 456" fill="none" stroke="#77e6ff" stroke-opacity=".5" stroke-width="7" filter="url(#gl)"/></svg>
