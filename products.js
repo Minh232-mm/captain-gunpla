@@ -16,7 +16,7 @@ window.CAPTAIN_PRODUCTS = [
   price: 1700000,
   oldPrice: 2000000,
 
-  badge: "SALE",
+  badge: "SALE -15%",
 
   images: [
     "assets/anhsanpham1.jpg",
