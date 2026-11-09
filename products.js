@@ -66,18 +66,33 @@ window.CAPTAIN_PRODUCTS = [
   available: true
 },
 
-  {
-    id: "precision-nipper",
-    name: "PRECISION NIPPER / PRO",
-    category: "tools",
-    grade: "TOOLS / BUILD",
-    price: 320000,
-    oldPrice: null,
-    badge: "",
-    images: ["assets/anhsanpham4.jpg"],
-    description: "Dụng cụ hỗ trợ cắt chi tiết mô hình. Sản phẩm minh họa — thay bằng ảnh và thông số thực tế.",
-    available: true
-  },
+ 
+{
+  id: "hg-gundam-calibarn",
+  name: "HG 1/144 Gundam Calibarn",
+  category: "gunpla",
+  grade: "BANDAI SPIRITS · HG · 1/144",
+
+  price: 400000,
+  oldPrice: 600000,
+  badge: "SALE -33%",
+
+  images: [
+    "assets/anhsanpham3.jpg",
+    "assets/anhsanpham3_2.jpg"
+  ],
+
+  description:
+    "• Thương hiệu: Bandai Spirits (Nhật Bản)\n" +
+    "• Dòng mô hình: High Grade (HG), tỷ lệ 1/144.\n" +
+    "• Chiều cao hoàn thiện: Khoảng 14cm.\n" +
+    "• Vũ khí: Variable Rod Rifle tích hợp 4 cụm thruster, Beam Saber.\n" +
+    "• Khiên Escutcheon kết hợp từ các Bit Stave.\n" +
+    "• Tình trạng: Mới 100%.",
+
+  available: true
+},
+
   {
     id: "decal-set",
     name: "TECH DECAL / DETAIL SET",
