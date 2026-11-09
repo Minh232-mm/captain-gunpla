@@ -268,3 +268,36 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
   font-family: var(--tech);
   font-weight: 700;
 }
+/* ======================================
+   CAPTAIN GUNPLA - GUNDAM RED THEME
+====================================== */
+
+:root {
+  --red: #F21C26;
+  --red2: #C8101B;
+}
+
+/* Chữ đỏ và các điểm nhấn */
+.hero h1 span:not(.period),
+.hero .period,
+.section-heading em,
+.end-dot,
+.contact-info h2 em,
+.statement h2 span,
+.footer-logo span {
+  color: #F21C26;
+}
+
+/* Nút màu đỏ */
+.btn-red,
+.head-cta,
+.category.active,
+.category:hover {
+  background-color: #F21C26;
+}
+
+/* Các chi tiết và đường viền đỏ */
+.brand-mark,
+.service.featured {
+  border-color: #F21C26;
+}
