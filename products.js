@@ -39,30 +39,33 @@ window.CAPTAIN_PRODUCTS = [
   available: true
 },
 
-  {
-    id: "astral-frame",
-    name: "ASTRAL FRAME / CUSTOM",
-    category: "custom",
-    grade: "CUSTOM BUILD",
-    price: null,
-    oldPrice: null,
-    badge: "CUSTOM",
-    images: ["assets/anhsanpham2.jpg", "assets/anhsanpham2_2.jpg"],
-    description: "Dịch vụ phối màu, tạo điểm nhấn và hoàn thiện mô hình theo yêu cầu. Hãy liên hệ để nhận báo giá theo độ phức tạp.",
-    available: true
-  },
-  {
-    id: "crimson-edge",
-    name: "CRIMSON EDGE / DISPLAY",
-    category: "gunpla",
-    grade: "RG · 1/144",
-    price: 650000,
-    oldPrice: null,
-    badge: "NEW",
-    images: ["assets/anhsanpham3.jpg", "assets/anhsanpham3_2.jpg"],
-    description: "Mẫu minh họa cho giao diện gian hàng. Thay bằng thông tin sản phẩm thực tế khi đưa website lên hoạt động.",
-    available: true
-  },
+  
+{
+  id: "inera-azure-falcon",
+  name: "IN ERA+ TR-2243EX Azure Falcon",
+  category: "gunpla",
+  grade: "IN ERA+ · RMD · 1/100",
+
+  price: 1200000,
+  oldPrice: 1500000,
+  badge: "SALE -20%",
+
+  images: [
+    "assets/anhsanpham2.jpg",
+    "assets/anhsanpham2_2.jpg"
+  ],
+
+  description:
+    "• Thương hiệu: IN ERA+ (RMD - Real Minutia Designs)\n" +
+    "• Tỷ lệ: 1/100 | Cao 22–24cm (Robot), dài 43cm (máy bay).\n" +
+    "• Chất liệu: Nhựa ABS, POM kết hợp khung và khớp hợp kim Die-cast.\n" +
+    "• Biến hình hoàn chỉnh Robot ↔ máy bay, không cần thay linh kiện.\n" +
+    "• Phụ kiện: Vũ khí, bàn tay linh hoạt, phi công mini, decal nước và đế trưng bày.\n" +
+    "• Tình trạng: Mới 100%.",
+
+  available: true
+},
+
   {
     id: "precision-nipper",
     name: "PRECISION NIPPER / PRO",
