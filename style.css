@@ -204,3 +204,26 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
   .hero-lead {-webkit-line-clamp: 3}
   .hero-buttons .btn {font-size: 8px}
 }
+.hero-buttons .btn{justify-content:center;text-align:center}
+.hero-buttons .btn span{display:none}
+
+@media (max-width: 700px){
+  .hero{grid-template-columns:minmax(0,55%) minmax(0,45%);min-height:clamp(320px,88vw,500px)}
+  .hero-content{padding:30px 0 34px 5vw}
+  .hero h1{font-size:clamp(33px,7.8vw,56px)}
+  .hero-lead{font-size:clamp(10px,2vw,11.5px);line-height:1.5;margin:14px 0 13px}
+  .hero-buttons{gap:8px}
+  .hero-buttons .btn{min-height:36px;padding:9px 10px;font-size:clamp(9px,1.8vw,11px);gap:0}
+  .hero-visual{padding:6px 5% 18px 0}
+  .hero-mecha{width:96%;max-width:96%;max-height:min(61vw,390px)}
+  .hero-ring{width:36vw;height:36vw}
+  .ring-b{width:29vw;height:29vw}
+}
+
+@media (max-width: 420px){
+  .hero{min-height:335px;grid-template-columns:minmax(0,56%) minmax(0,44%)}
+  .hero-content{padding:24px 0 28px 4vw}
+  .hero h1{font-size:clamp(29px,8vw,36px)}
+  .hero-buttons .btn{min-height:34px;padding:8px 8px;font-size:8.5px}
+  .hero-mecha{width:92%;max-width:92%;max-height:300px}
+}
