@@ -495,3 +495,55 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
     font-size: 1.15em;
   }
 }
+
+/* ======================================
+   CAPTAIN GUNPLA - THU NHO THANH CHU CHAY
+====================================== */
+
+/* Máy tính */
+.marquee {
+  height: 34px;
+  min-height: 34px;
+  background: #F21C26;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.marquee-track {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marquee-track b {
+  font-size: 12px;
+  padding: 0 20px;
+}
+
+/* Điện thoại */
+@media (max-width: 700px) {
+  .marquee {
+    height: 28px;
+    min-height: 28px;
+  }
+
+  .marquee-track {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .marquee-track b {
+    font-size: 10px;
+    padding: 0 13px;
+  }
+}
