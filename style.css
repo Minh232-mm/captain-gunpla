@@ -227,3 +227,44 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
   .hero-buttons .btn{min-height:34px;padding:8px 8px;font-size:8.5px}
   .hero-mecha{width:92%;max-width:92%;max-height:300px}
 }
+/* =========================================
+   CAPTAIN GUNPLA - FIX FONT TIENG VIET
+========================================= */
+
+/* Font công nghệ hỗ trợ tiếng Việt */
+:root {
+  --tech: "Roboto Condensed", "Be Vietnam Pro", sans-serif;
+}
+
+/* Tiêu đề chính */
+.hero h1,
+.section-heading h2,
+.statement h2,
+.contact-info h2 {
+  font-family: var(--tech);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+/* Tiêu đề trong thẻ dịch vụ */
+.service h3 {
+  font-family: var(--tech);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* Tên sản phẩm */
+.product-name {
+  font-family: var(--tech);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* Chữ trong các nút bấm */
+.btn,
+.category,
+.nav a {
+  font-family: var(--tech);
+  font-weight: 700;
+}
