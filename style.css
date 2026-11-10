@@ -94,3 +94,26 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
     line-height: 1.4;
     margin-bottom: 8px;
   }
+  /* Tùy chỉnh nút ĐĂNG NHẬP cho đồng bộ giao diện */
+.head-actions .btn-login, 
+.nav .btn-login,
+a[href="#login"], /* Hoặc class/selector tương ứng của nút đăng nhập */
+.head-actions > a:first-child {
+  font-family: var(--tech);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  background: var(--red);
+  color: #fff;
+  padding: 13px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  border: none;
+}
+
+.head-actions .btn-login:hover,
+.head-actions > a:first-child:hover {
+  background: #ff4c56;
+}
