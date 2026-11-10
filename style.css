@@ -980,3 +980,11 @@ textarea {
     padding: 0 10px !important;
   }
 }
+.view-btn {
+  color: #f5f6f8 !important;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 0 !important;
+  font-family: Arial, sans-serif !important;
+  font-variant-emoji: text;
+}
