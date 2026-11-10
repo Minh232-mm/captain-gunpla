@@ -873,3 +873,64 @@ textarea {
     radial-gradient(ellipse at 75% 52%, rgba(150, 12, 26, 0.16), transparent 45%),
     linear-gradient(125deg, #0a0b11, #08090d 70%);
 }
+@media (max-width: 700px) {
+  /* Hiện nút đăng nhập trên điện thoại */
+  #headerLogin,
+  .header-user-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 36px !important;
+    padding: 0 9px !important;
+    font-size: 9px !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  #headerLogin span {
+    display: none;
+  }
+
+  /* Thu gọn hai nút ở phần bìa, không kéo dài hết hàng */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .hero-buttons .btn {
+    display: inline-flex !important;
+    flex: 0 1 auto !important;
+    width: fit-content !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 39px !important;
+    justify-content: center !important;
+    padding: 9px 11px !important;
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 390px) {
+  #headerLogin,
+  .header-user-button {
+    min-height: 34px !important;
+    padding: 0 7px !important;
+    font-size: 8px !important;
+  }
+
+  .hero-buttons .btn {
+    min-height: 36px !important;
+    padding: 8px 9px !important;
+    font-size: 9px !important;
+  }
+}
