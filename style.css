@@ -934,3 +934,49 @@ textarea {
     font-size: 9px !important;
   }
 }
+@media (max-width: 700px) {
+  /* Hai nút cùng kích thước, chữ căn giữa */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 210px !important;
+    gap: 8px !important;
+  }
+
+  .hero-buttons .btn {
+    box-sizing: border-box !important;
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 42px !important;
+    justify-content: center !important;
+    padding: 8px 10px !important;
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.2px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  /* Dải chữ chạy gọn hơn */
+  .marquee {
+    height: 32px !important;
+  }
+
+  .marquee-track {
+    font-size: 13px !important;
+    line-height: 1 !important;
+    letter-spacing: 0.6px !important;
+  }
+
+  .marquee-track span {
+    padding-right: 12px !important;
+  }
+
+  .marquee-track b {
+    padding: 0 10px !important;
+  }
+}
