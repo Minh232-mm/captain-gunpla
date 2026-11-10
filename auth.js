@@ -1,5 +1,5 @@
-const SUPABASE_URL = "DAN_PROJECT_URL_CUA_BAN_VAO_DAY";
-const SUPABASE_PUBLISHABLE_KEY = "DAN_PUBLISHABLE_KEY_CUA_BAN_VAO_DAY";
+const SUPABASE_URL = "https://ma-du-an-cua-ban.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_khoa-cua-ban";
 
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
