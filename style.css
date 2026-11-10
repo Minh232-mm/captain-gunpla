@@ -846,3 +846,30 @@ textarea {
     white-space: nowrap;
   }
 }
+/* Tông đỏ đậm đồng bộ với mô hình */
+:root {
+  --red: #d10a1c;
+  --red2: #8f0b16;
+}
+
+/* Các dải đỏ có màu đang được khai báo riêng */
+.top-line {
+  background: #c8101e;
+}
+
+.marquee {
+  background: #c8101e;
+}
+
+/* Màu hover nút đỏ */
+.head-cta:hover,
+.btn-red:hover {
+  background: #a80d19;
+}
+
+/* Ánh đỏ nền hero dịu và đậm hơn */
+.hero {
+  background:
+    radial-gradient(ellipse at 75% 52%, rgba(150, 12, 26, 0.16), transparent 45%),
+    linear-gradient(125deg, #0a0b11, #08090d 70%);
+}
