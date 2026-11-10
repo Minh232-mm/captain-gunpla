@@ -718,3 +718,77 @@ textarea {
     transform: none;
   }
 }
+/* SỬA KÍCH THƯỚC NÚT TRÊN ĐIỆN THOẠI */
+@media (max-width: 700px) {
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 9px !important;
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+
+  .hero-buttons .btn {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    height: auto !important;
+    justify-content: center !important;
+    padding: 10px 12px !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.4px !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .hero-buttons .btn span {
+    margin-left: 4px !important;
+  }
+
+  /* Giữ nút đăng nhập gọn trên thanh đầu trang */
+  .header > .btn-login,
+  .head-actions .btn-login,
+  .header a[href="#login"] {
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 36px !important;
+    padding: 0 8px !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Nút lọc danh mục sản phẩm gọn và cuộn ngang */
+  .categories {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  .category {
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    min-height: 40px !important;
+    padding: 8px 11px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.4px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Tránh các nút tràn ra ngoài chiều ngang màn hình */
+  .hero,
+  .hero-content,
+  .shop-section,
+  .contact-section {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
