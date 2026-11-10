@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="vi">
 <head>
@@ -13,8 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="products.js"></script>
   <script defer src="app.js"></script>
+  <script defer src="header-auth.js"></script>
 </head>
 
 <body>
@@ -45,16 +47,14 @@
       </span>
     </a>
 
-    <a class="btn-login" href="dang-nhap.html">ĐĂNG NHẬP</a>
-<nav class="nav" id="mainNav" aria-label="Điều hướng chính">
-  <a href="#home">TRANG CHỦ</a>
-  <a href="#shop">GIAN HÀNG</a>
-  <a href="gioi-thieu.html">GIỚI THIỆU</a>
-  <a href="#services">DỊCH VỤ</a>
-  <a href="#projects">TÁC PHẨM</a>
-  <a href="#contact">LIÊN HỆ</a>
-</nav>
-
+    <nav class="nav" id="mainNav" aria-label="Điều hướng chính">
+      <a href="#home">TRANG CHỦ</a>
+      <a href="#shop">GIAN HÀNG</a>
+      <a href="gioi-thieu.html">GIỚI THIỆU</a>
+      <a href="#services">DỊCH VỤ</a>
+      <a href="#projects">TÁC PHẨM</a>
+      <a href="#contact">LIÊN HỆ</a>
+    </nav>
 
     <div class="head-actions">
 
@@ -71,9 +71,29 @@
         </svg>
       </button>
 
-      <a class="head-cta" href="#contact">
-        BẮT ĐẦU DỰ ÁN <span>↗</span>
+      <!-- Hiện khi chưa đăng nhập -->
+      <a class="head-cta" id="headerLogin" href="dang-nhap.html">
+        ĐĂNG NHẬP <span>↗</span>
       </a>
+
+      <!-- Hiện sau khi đăng nhập -->
+      <div class="header-user" id="headerUser" hidden>
+        <button
+          class="head-cta header-user-button"
+          id="headerUserButton"
+          type="button"
+          aria-expanded="false"
+          aria-controls="headerUserMenu"
+        >
+          <span id="headerUserName">TÀI KHOẢN</span>
+          <span>⌄</span>
+        </button>
+
+        <div class="header-user-menu" id="headerUserMenu" hidden>
+          <span id="headerUserEmail"></span>
+          <button id="headerSignOut" type="button">ĐĂNG XUẤT</button>
+        </div>
+      </div>
 
       <button class="hamburger"
               id="menuBtn"
@@ -224,7 +244,7 @@
         </p>
       </div>
 
-      <!-- DANH MỤC ĐÃ SỬA -->
+      <!-- DANH MỤC -->
       <div class="shop-controls" data-reveal>
 
         <div class="categories"
@@ -318,8 +338,6 @@
         CHƯA CÓ SẢN PHẨM PHÙ HỢP.
         THỬ TỪ KHÓA HOẶC DANH MỤC KHÁC.
       </p>
-
-     
 
     </section>
 
