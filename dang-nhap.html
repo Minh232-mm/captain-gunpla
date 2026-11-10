@@ -1,1 +1,173 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <title>ĐĂNG NHẬP — CAPTAIN GUNPLA</title>
 
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(242, 28, 38, .16), transparent 55%),
+        #08090d;
+      color: #f5f6f8;
+      font: 15px Arial, sans-serif;
+    }
+
+    .auth-box {
+      width: min(100%, 440px);
+      padding: 38px;
+      background: #11131a;
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+
+    .brand {
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .brand span { color: #f21c26; }
+
+    h1 {
+      margin: 34px 0 8px;
+      font-size: 34px;
+    }
+
+    .hint, #authMessage {
+      color: #a8aeba;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      color: #c9cbd1;
+      font-size: 13px;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      padding: 13px;
+      border: 1px solid #383b45;
+      background: #090a0f;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid #f21c26;
+      outline-offset: 1px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      border: 0;
+      background: #f21c26;
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    .text-button {
+      padding: 0;
+      background: none;
+      color: #ff6971;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 26px;
+      color: #a8aeba;
+      text-decoration: none;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 480px) {
+      .auth-box { padding: 26px 20px; }
+    }
+  </style>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="auth.js"></script>
+</head>
+
+<body>
+  <main class="auth-box">
+    <a class="brand" href="index.html">
+      CAPTAIN <span>GUNPLA</span>
+    </a>
+
+    <h1 id="authTitle">ĐĂNG NHẬP</h1>
+    <p class="hint" id="authHint">Đăng nhập để tiếp tục.</p>
+
+    <form id="authForm">
+      <div id="loginFields">
+        <label>
+          Email
+          <input id="emailInput" type="email" autocomplete="email" required>
+        </label>
+
+        <label>
+          Mật khẩu
+          <input
+            id="passwordInput"
+            type="password"
+            autocomplete="current-password"
+            minlength="6"
+            required
+          >
+        </label>
+
+        <label id="confirmWrap" hidden>
+          Nhập lại mật khẩu
+          <input
+            id="confirmInput"
+            type="password"
+            autocomplete="new-password"
+            minlength="6"
+          >
+        </label>
+
+        <button id="submitBtn" type="submit">ĐĂNG NHẬP</button>
+      </div>
+
+      <p id="authMessage" role="status" aria-live="polite"></p>
+    </form>
+
+    <button id="modeBtn" class="text-button" type="button">
+      Chưa có tài khoản? Đăng ký
+    </button>
+
+    <div id="accountBox" hidden>
+      <p>Đang đăng nhập bằng:</p>
+      <strong id="accountEmail"></strong>
+      <button id="logoutBtn" type="button">ĐĂNG XUẤT</button>
+    </div>
+
+    <a class="back-link" href="index.html">← Trở về trang chủ</a>
+  </main>
+</body>
+</html>
