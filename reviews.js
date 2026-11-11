@@ -1,4 +1,3 @@
-
 const reviewsSupabase = window.supabase.createClient(
   "https://cskfurtcvqomyvitcfua.supabase.co",
   "sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa"
@@ -26,6 +25,7 @@ function escapeReviewText(value) {
       '"': "&quot;",
       "'": "&#039;"
     };
+
     return replacements[character];
   });
 }
@@ -41,17 +41,41 @@ function setSelectedRating(rating) {
   });
 }
 
-starButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    setSelectedRating(Number(button.dataset.rating));
-  });
-});
+function setReviewUser(user) {
+  currentReviewUser = user;
+
+  if (!user) {
+    reviewStatus.innerHTML =
+      'Bạn cần <a href="dang-nhap.html">đăng nhập</a> để gửi đánh giá.';
+    return;
+  }
+
+  const metadata = user.user_metadata || {};
+  const savedName =
+    metadata.full_name ||
+    metadata.name ||
+    metadata.username ||
+    user.email?.split("@")[0] ||
+    "";
+
+  if (!reviewName.value.trim()) {
+    reviewName.value = savedName;
+  }
+
+  reviewStatus.textContent =
+    "Bạn có thể gửi đánh giá. Mỗi tài khoản có một đánh giá và có thể cập nhật hoặc xóa đánh giá của mình.";
+}
+
+async function checkReviewUser() {
+  const { data, error } = await reviewsSupabase.auth.getUser();
+  setReviewUser(error ? null : data.user);
+}
 
 async function loadReviews() {
   const [reviewsResult, ratingsResult] = await Promise.all([
     reviewsSupabase
       .from("shop_reviews")
-      .select("display_name, rating, comment, created_at")
+      .select("user_id, display_name, rating, comment, created_at")
       .order("created_at", { ascending: false })
       .limit(50),
 
@@ -61,7 +85,8 @@ async function loadReviews() {
   ]);
 
   if (reviewsResult.error || ratingsResult.error) {
-    reviewList.textContent = "Không tải được đánh giá. Vui lòng thử tải lại trang.";
+    reviewList.textContent =
+      "Không tải được đánh giá. Vui lòng thử tải lại trang.";
     return;
   }
 
@@ -74,17 +99,21 @@ async function loadReviews() {
     reviewCount.textContent = "Chưa có đánh giá";
   } else {
     const average =
-      ratings.reduce((total, item) => total + item.rating, 0) / ratings.length;
+      ratings.reduce((total, item) => total + item.rating, 0) /
+      ratings.length;
+
+    const roundedAverage = Math.round(average);
 
     reviewAverage.textContent = average.toFixed(1);
     reviewAverageStars.textContent =
-      "★".repeat(Math.round(average)) +
-      "☆".repeat(5 - Math.round(average));
+      "★".repeat(roundedAverage) +
+      "☆".repeat(5 - roundedAverage);
     reviewCount.textContent = `${ratings.length} đánh giá`;
   }
 
   if (reviews.length === 0) {
-    reviewList.textContent = "Chưa có nhận xét. Hãy là người đầu tiên đánh giá shop!";
+    reviewList.textContent =
+      "Chưa có nhận xét. Hãy là người đầu tiên đánh giá shop!";
     return;
   }
 
@@ -95,48 +124,44 @@ async function loadReviews() {
       day: "2-digit"
     }).format(new Date(review.created_at));
 
+    const isOwnReview =
+      currentReviewUser &&
+      currentReviewUser.id === review.user_id;
+
     return `
       <article class="review-card">
         <div class="review-card-top">
           <strong>${escapeReviewText(review.display_name)}</strong>
-          <time>${date}</time>
+
+          <div class="review-card-actions">
+            <time>${date}</time>
+            ${
+              isOwnReview
+                ? `<button
+                     class="review-delete"
+                     type="button"
+                     data-delete-review
+                   >XÓA</button>`
+                : ""
+            }
+          </div>
         </div>
+
         <div class="review-card-stars" aria-label="${review.rating} trên 5 sao">
           ${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}
         </div>
+
         <p>${escapeReviewText(review.comment)}</p>
       </article>
     `;
   }).join("");
 }
 
-async function checkReviewUser() {
-  const { data, error } = await reviewsSupabase.auth.getUser();
-
-  if (error || !data.user) {
-    currentReviewUser = null;
-    reviewStatus.innerHTML =
-      'Bạn cần <a href="dang-nhap.html">đăng nhập</a> để gửi đánh giá.';
-    return;
-  }
-
-  currentReviewUser = data.user;
-
-  const metadata = data.user.user_metadata || {};
-  const savedName =
-    metadata.full_name ||
-    metadata.name ||
-    metadata.username ||
-    data.user.email?.split("@")[0] ||
-    "";
-
-  if (!reviewName.value.trim()) {
-    reviewName.value = savedName;
-  }
-
-  reviewStatus.textContent =
-    "Bạn có thể gửi đánh giá. Mỗi tài khoản có một đánh giá và có thể cập nhật sau.";
-}
+starButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setSelectedRating(Number(button.dataset.rating));
+  });
+});
 
 reviewForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -153,6 +178,7 @@ reviewForm.addEventListener("submit", async (event) => {
   }
 
   const comment = reviewComment.value.trim();
+
   if (comment.length < 3) {
     reviewStatus.textContent = "Nhận xét cần có ít nhất 3 ký tự.";
     return;
@@ -183,19 +209,56 @@ reviewForm.addEventListener("submit", async (event) => {
 
   if (error) {
     reviewStatus.textContent =
-      "Chưa gửi được đánh giá. Kiểm tra kết nối rồi thử lại.";
+      "Chưa gửi được đánh giá. Vui lòng kiểm tra kết nối rồi thử lại.";
     return;
   }
 
   reviewStatus.textContent = "Đánh giá của bạn đã được đăng.";
   reviewComment.value = "";
   setSelectedRating(0);
+
   await loadReviews();
 });
 
-reviewsSupabase.auth.onAuthStateChange(() => {
-  checkReviewUser();
+reviewList.addEventListener("click", async (event) => {
+  const deleteButton = event.target.closest("[data-delete-review]");
+
+  if (!deleteButton || !currentReviewUser) {
+    return;
+  }
+
+  const confirmed = window.confirm(
+    "Bạn có chắc muốn xóa đánh giá của mình không?"
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  deleteButton.disabled = true;
+  deleteButton.textContent = "ĐANG XÓA...";
+
+  const { error } = await reviewsSupabase
+    .from("shop_reviews")
+    .delete()
+    .eq("user_id", currentReviewUser.id);
+
+  if (error) {
+    deleteButton.disabled = false;
+    deleteButton.textContent = "XÓA";
+    reviewStatus.textContent =
+      "Không xóa được đánh giá. Vui lòng thử lại.";
+    return;
+  }
+
+  reviewStatus.textContent = "Đánh giá của bạn đã được xóa.";
+  setSelectedRating(0);
+  await loadReviews();
 });
 
-checkReviewUser();
-loadReviews();
+reviewsSupabase.auth.onAuthStateChange((_event, session) => {
+  setReviewUser(session?.user || null);
+  loadReviews();
+});
+
+checkReviewUser().then(loadReviews);
