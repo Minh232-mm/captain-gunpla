@@ -1197,3 +1197,16 @@ textarea {
     to   { transform: scale(1.08); }
   }
 }
+@media (max-width: 600px) {
+  .section-heading h2,
+  .section-title,
+  .shop-title,
+  .services-title,
+  .gallery-title {
+    font-size: clamp(26px, 7vw, 36px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.04em;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
