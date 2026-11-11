@@ -1294,3 +1294,25 @@ textarea {
   background: #fff !important;
   border-color: #c81020 !important;
 }
+/* Ba ô dịch vụ: nền trắng, chữ đen, điểm nhấn đỏ */
+.services-grid .service,
+.services-grid .service.featured {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #d5d5d5 !important;
+}
+
+.services-grid .service h3,
+.services-grid .service p,
+.services-grid .service .service-number {
+  color: #111 !important;
+}
+
+.services-grid .service .service-icon,
+.services-grid .service a {
+  color: #c81020 !important;
+}
+
+.services-grid .service.featured {
+  border-color: #c81020 !important;
+}
