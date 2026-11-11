@@ -1167,3 +1167,8 @@ textarea {
   opacity: 0.6;
   cursor: wait;
 }
+.hero-mecha.hero-character-2,
+.hero-mecha.hero-character-3 {
+  transform: scale(1.2);
+  transform-origin: center;
+}
