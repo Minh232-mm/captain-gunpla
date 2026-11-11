@@ -988,3 +988,157 @@ textarea {
   font-family: Arial, sans-serif !important;
   font-variant-emoji: text;
 }
+/* ĐÁNH GIÁ SHOP */
+.hero-buttons .review-link {
+  white-space: nowrap;
+}
+
+.reviews-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.review-form,
+.review-list-wrap {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.review-form h3,
+.review-list-wrap h3 {
+  margin: 0 0 18px;
+  font-size: 18px;
+}
+
+.review-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+
+.review-summary strong {
+  color: var(--white);
+  font-size: 28px;
+}
+
+.review-summary-stars,
+.review-card-stars,
+.review-star-picker {
+  color: var(--red);
+}
+
+.review-label {
+  display: block;
+  margin: 14px 0 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.review-form input,
+.review-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: #0b0d12;
+  color: var(--white);
+}
+
+.review-form textarea {
+  resize: vertical;
+}
+
+.review-star-picker {
+  display: flex;
+  gap: 5px;
+}
+
+.review-star-picker button {
+  padding: 0 3px;
+  border: 0;
+  background: transparent;
+  color: #777;
+  font-size: 30px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.review-star-picker button.selected {
+  color: var(--red);
+}
+
+.review-submit {
+  margin-top: 16px;
+  border: 0;
+  cursor: pointer;
+}
+
+.review-status {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.review-status a {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.review-list {
+  display: grid;
+  gap: 12px;
+}
+
+.review-card {
+  padding: 15px;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+}
+
+.review-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.review-card-top time {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.review-card-stars {
+  margin-top: 7px;
+  letter-spacing: 2px;
+}
+
+.review-card p {
+  margin: 9px 0 0;
+  color: #c7c9d1;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .reviews-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .review-form,
+  .review-list-wrap {
+    padding: 16px;
+  }
+
+  .review-summary {
+    align-self: flex-start;
+  }
+}
