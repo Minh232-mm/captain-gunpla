@@ -1221,3 +1221,14 @@ textarea {
     word-break: normal !important;
   }
 }
+@media (max-width: 600px) {
+  #contact .contact-info h2 {
+    font-size: clamp(38px, 10vw, 54px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  #contact .contact-info h2 br {
+    display: none;
+  }
+}
