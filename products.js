@@ -121,14 +121,14 @@ window.CAPTAIN_PRODUCTS = [
 
   {
     id: "nightfall-custom",
-    name: "NIGHTFALL / PAINT PROJECT",
+    name: "CỤ TỔ RX78-2 RG 2.0 BANDAI ",
     category: "custom",
-    grade: "PAINT & FINISH",
-    price: null,
-    oldPrice: null,
+    grade: "ĐÃ SƠN TOPCOAT NHÁM",
+    price: 900000,
+    oldPrice: 1200000,
     badge: "CUSTOM",
     images: ["assets/anhsanpham6.jpg", "assets/anhsanpham6_2.jpg"],
-    description: "Nhận sơn hoàn thiện, weathering và hiệu ứng bề mặt theo concept riêng.",
+    description: "Sản phẩm đã sơn hoàn thiện đầy đủ box sách.",
     available: true
   },
    
