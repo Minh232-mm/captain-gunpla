@@ -1319,3 +1319,24 @@ textarea {
   background: rgba(20, 22, 29, 0.55) !important;
   border-color: rgba(255, 255, 255, 0.22) !important;
 }
+/* Tiêu đề trượt lên và hiện dần */
+.section-heading h2 {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.section-heading h2.is-title-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading h2 {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
