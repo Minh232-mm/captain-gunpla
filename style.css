@@ -1142,3 +1142,28 @@ textarea {
     align-self: flex-start;
   }
 }
+.review-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-delete {
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #c7c9d1;
+  font: 700 10px var(--tech);
+  cursor: pointer;
+}
+
+.review-delete:hover {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+.review-delete:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
