@@ -207,75 +207,6 @@
     </span>
   </div>
 </div>
-<!-- ĐÁNH GIÁ SHOP -->
-<section class="section reviews-section" id="reviews">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">
-        <span class="slash">//</span>
-        CUSTOMER REVIEWS
-      </p>
-      <h2>ĐÁNH GIÁ <em>SHOP</em><span class="end-dot">.</span></h2>
-    </div>
-
-    <div class="review-summary">
-      <strong id="reviewAverage">—</strong>
-      <span class="review-summary-stars" id="reviewAverageStars">☆☆☆☆☆</span>
-      <span id="reviewCount">Chưa có đánh giá</span>
-    </div>
-  </div>
-
-  <div class="reviews-layout">
-    <form class="review-form" id="reviewForm">
-      <h3>Chia sẻ trải nghiệm của bạn</h3>
-
-      <label class="review-label" for="reviewName">Tên hiển thị</label>
-      <input
-        id="reviewName"
-        name="display_name"
-        type="text"
-        maxlength="50"
-        placeholder="Tên của bạn"
-        autocomplete="name"
-      >
-
-      <span class="review-label">Bạn đánh giá shop mấy sao?</span>
-      <div class="review-star-picker" id="reviewStarPicker" role="group" aria-label="Chọn số sao">
-        <button type="button" data-rating="1" aria-label="1 sao">☆</button>
-        <button type="button" data-rating="2" aria-label="2 sao">☆</button>
-        <button type="button" data-rating="3" aria-label="3 sao">☆</button>
-        <button type="button" data-rating="4" aria-label="4 sao">☆</button>
-        <button type="button" data-rating="5" aria-label="5 sao">☆</button>
-      </div>
-
-      <label class="review-label" for="reviewComment">Nhận xét</label>
-      <textarea
-        id="reviewComment"
-        name="comment"
-        rows="5"
-        minlength="3"
-        maxlength="1000"
-        required
-        placeholder="Viết nhận xét của bạn..."
-      ></textarea>
-
-      <button class="btn btn-red review-submit" type="submit">
-        GỬI ĐÁNH GIÁ
-      </button>
-
-      <p class="review-status" id="reviewStatus" aria-live="polite">
-        Đăng nhập để gửi đánh giá. Mọi người có thể xem các đánh giá đã đăng.
-      </p>
-    </form>
-
-    <div class="review-list-wrap">
-      <h3>Khách hàng nói gì</h3>
-      <div class="review-list" id="reviewList" aria-live="polite">
-        Đang tải đánh giá...
-      </div>
-    </div>
-  </div>
-</section>
     <!-- GIAN HÀNG -->
     <section class="section shop-section" id="shop">
 
@@ -646,7 +577,75 @@
     </section>
 
   </main>
+<!-- ĐÁNH GIÁ SHOP -->
+<section class="section reviews-section" id="reviews">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">
+        <span class="slash">//</span>
+        CUSTOMER REVIEWS
+      </p>
+      <h2>ĐÁNH GIÁ <em>SHOP</em><span class="end-dot">.</span></h2>
+    </div>
 
+    <div class="review-summary">
+      <strong id="reviewAverage">—</strong>
+      <span class="review-summary-stars" id="reviewAverageStars">☆☆☆☆☆</span>
+      <span id="reviewCount">Chưa có đánh giá</span>
+    </div>
+  </div>
+
+  <div class="reviews-layout">
+    <form class="review-form" id="reviewForm">
+      <h3>Chia sẻ trải nghiệm của bạn</h3>
+
+      <label class="review-label" for="reviewName">Tên hiển thị</label>
+      <input
+        id="reviewName"
+        name="display_name"
+        type="text"
+        maxlength="50"
+        placeholder="Tên của bạn"
+        autocomplete="name"
+      >
+
+      <span class="review-label">Bạn đánh giá shop mấy sao?</span>
+      <div class="review-star-picker" id="reviewStarPicker" role="group" aria-label="Chọn số sao">
+        <button type="button" data-rating="1" aria-label="1 sao">☆</button>
+        <button type="button" data-rating="2" aria-label="2 sao">☆</button>
+        <button type="button" data-rating="3" aria-label="3 sao">☆</button>
+        <button type="button" data-rating="4" aria-label="4 sao">☆</button>
+        <button type="button" data-rating="5" aria-label="5 sao">☆</button>
+      </div>
+
+      <label class="review-label" for="reviewComment">Nhận xét</label>
+      <textarea
+        id="reviewComment"
+        name="comment"
+        rows="5"
+        minlength="3"
+        maxlength="1000"
+        required
+        placeholder="Viết nhận xét của bạn..."
+      ></textarea>
+
+      <button class="btn btn-red review-submit" type="submit">
+        GỬI ĐÁNH GIÁ
+      </button>
+
+      <p class="review-status" id="reviewStatus" aria-live="polite">
+        Đăng nhập để gửi đánh giá. Mọi người có thể xem các đánh giá đã đăng.
+      </p>
+    </form>
+
+    <div class="review-list-wrap">
+      <h3>Khách hàng nói gì</h3>
+      <div class="review-list" id="reviewList" aria-live="polite">
+        Đang tải đánh giá...
+      </div>
+    </div>
+  </div>
+</section>
   <!-- FOOTER -->
   <footer class="footer">
 
