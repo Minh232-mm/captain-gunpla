@@ -1169,7 +1169,7 @@ textarea {
 }
 .hero-mecha.hero-character-2,
 .hero-mecha.hero-character-3 {
-  transform: scale(1.4);
+  transform: scale(1.3);
   transform-origin: center;
 }
 /* Zoom nhẹ cho ảnh mô hình chính */
