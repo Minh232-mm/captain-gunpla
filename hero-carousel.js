@@ -29,7 +29,7 @@ if (heroCharacter) {
     heroCharacter.classList.add("is-changing");
 
     window.setTimeout(() => {
-      heroCharacter.src = heroCharacterImages[nextCharacter];
+      heroCharacter.src = heroCharacterImages[nextCharacter];  heroCharacter.classList.remove("hero-character-2", "hero-character-3");  if (nextCharacter === 1) {   heroCharacter.classList.add("hero-character-2"); } else if (nextCharacter === 2) {   heroCharacter.classList.add("hero-character-3"); }
       currentCharacter = nextCharacter;
 
       requestAnimationFrame(() => {
