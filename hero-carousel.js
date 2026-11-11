@@ -1,7 +1,7 @@
 const heroCharacterImages = [
   "assets/anhdautrang.jpg",
-  "assets/anhdautrang2.ppg",
-  "assets/anhdautrang3.ppg"
+  "assets/anhdautrang2.png",
+  "assets/anhdautrang3.png"
 ];
 
 const heroCharacter = document.getElementById("heroMecha");
@@ -9,28 +9,32 @@ const heroCharacter = document.getElementById("heroMecha");
 if (heroCharacter) {
   let currentCharacter = 0;
 
-  // Tải trước ảnh để chuyển đổi mượt hơn
-  heroCharacterImages.forEach((src) => {
-    const preloadImage = new Image();
-    preloadImage.src = src;
+  // Tải trước ảnh để tránh chớp hoặc ảnh bị trống khi đổi
+  const preloadedImages = heroCharacterImages.map((src) => {
+    const image = new Image();
+    image.src = src;
+    return image;
   });
 
   window.setInterval(() => {
+    const nextCharacter =
+      (currentCharacter + 1) % heroCharacterImages.length;
+
+    // Chỉ đổi ảnh khi ảnh kế tiếp đã tải thành công
+    if (!preloadedImages[nextCharacter].complete ||
+        preloadedImages[nextCharacter].naturalWidth === 0) {
+      return;
+    }
+
     heroCharacter.classList.add("is-changing");
 
     window.setTimeout(() => {
-      currentCharacter =
-        (currentCharacter + 1) % heroCharacterImages.length;
+      heroCharacter.src = heroCharacterImages[nextCharacter];
+      currentCharacter = nextCharacter;
 
-      heroCharacter.src = heroCharacterImages[currentCharacter];
-
-      heroCharacter.onload = () => {
+      requestAnimationFrame(() => {
         heroCharacter.classList.remove("is-changing");
-      };
-
-      window.setTimeout(() => {
-        heroCharacter.classList.remove("is-changing");
-      }, 700);
+      });
     }, 300);
   }, 3000);
 }
