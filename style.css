@@ -1271,3 +1271,26 @@ textarea {
   color: #f5f6f8 !important;
   font-style: inherit;
 }
+.service-card,
+.service-card:nth-child(2) {
+  background: #fff !important;
+  border: 1px solid #d5d5d5 !important;
+  color: #111 !important;
+}
+
+.service-card h3,
+.service-card p,
+.service-card .service-number {
+  color: #111 !important;
+}
+
+.service-card .service-icon,
+.service-card a,
+.service-card a:hover {
+  color: #c81020 !important;
+}
+
+.service-card:hover {
+  background: #fff !important;
+  border-color: #c81020 !important;
+}
