@@ -1294,75 +1294,29 @@ textarea {
   background: #fff !important;
   border-color: #c81020 !important;
 }
-/* Ba ô dịch vụ: nền trắng, chữ đen, điểm nhấn đỏ */
-.services-grid .service,
-.services-grid .service.featured {
-  background: #fff !important;
-  color: #111 !important;
-  border: 1px solid #d5d5d5 !important;
-}
-
-.services-grid .service h3,
-.services-grid .service p,
-.services-grid .service .service-number {
-  color: #111 !important;
-}
-
-.services-grid .service .service-icon,
-.services-grid .service a {
-  color: #c81020 !important;
-}
-
-.services-grid .service.featured {
-  border-color: #c81020 !important;
-}
-/* Ô dịch vụ kiểu kính mờ */
-article.service,
-article.service.featured {
-  background: rgba(20, 22, 29, 0.58) !important;
+/* Ba ô dịch vụ kiểu kính mờ */
+.services-grid article.service,
+.services-grid article.service.featured {
+  background: rgba(20, 22, 29, 0.68) !important;
+  color: #fff !important;
   border: 1px solid rgba(255, 255, 255, 0.22) !important;
-  color: #fff !important;
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
-}
-
-article.service h3,
-article.service p,
-article.service .service-number {
-  color: #fff !important;
-}
-
-article.service .service-icon,
-article.service a {
-  color: #f03742 !important;
-}
-
-article.service.featured {
-  background: rgba(115, 15, 27, 0.32) !important;
-  border-color: rgba(240, 55, 66, 0.55) !important;
-}
-article.service,
-article.service.featured {
-  background: rgba(20, 22, 29, 0.55) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   backdrop-filter: blur(16px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22) !important;
 }
 
-article.service h3,
-article.service p,
-article.service .service-number {
+.services-grid article.service h3,
+.services-grid article.service p,
+.services-grid article.service .service-number {
   color: #fff !important;
 }
 
-article.service .service-icon,
-article.service a {
+.services-grid article.service .service-icon,
+.services-grid article.service a {
   color: #f03742 !important;
 }
 
-article.service.featured {
-  background: rgba(80, 12, 20, 0.42) !important;
-  border-color: rgba(240, 55, 66, 0.6) !important;
+.services-grid article.service.featured {
+  background: rgba(80, 12, 20, 0.55) !important;
+  border-color: rgba(240, 55, 66, 0.65) !important;
 }
