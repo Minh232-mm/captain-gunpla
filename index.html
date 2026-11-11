@@ -803,6 +803,26 @@
       </div>
     </div>
   </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const titles = document.querySelectorAll(".section-heading h2");
 
+  if (!("IntersectionObserver" in window)) {
+    titles.forEach(title => title.classList.add("is-title-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-title-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  titles.forEach(title => observer.observe(title));
+});
+</script>
 </body>
 </html>
