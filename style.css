@@ -1253,3 +1253,21 @@ textarea {
     font-style: inherit;
   }
 }
+#contact .contact-info h2 {
+  display: block !important;
+  width: 100%;
+  color: #f5f6f8 !important;
+  font-size: clamp(22px, 3.2vw, 48px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.04em !important;
+  white-space: nowrap !important;
+}
+
+#contact .contact-info h2 br {
+  display: none !important;
+}
+
+#contact .contact-info h2 em {
+  color: #f5f6f8 !important;
+  font-style: inherit;
+}
