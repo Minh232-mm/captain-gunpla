@@ -1210,3 +1210,14 @@ textarea {
     overflow-wrap: anywhere;
   }
 }
+@media (max-width: 600px) {
+  #contact h2,
+  .contact-section h2,
+  .contact-title {
+    font-size: clamp(38px, 11vw, 54px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.045em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+}
