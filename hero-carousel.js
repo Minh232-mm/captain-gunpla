@@ -1,7 +1,7 @@
 const heroCharacterImages = [
   "assets/anhdautrang.jpg",
-  "assets/anhdautrang2.jpg",
-  "assets/anhdautrang3.jpg"
+  "assets/anhdautrang2.ppg",
+  "assets/anhdautrang3.ppg"
 ];
 
 const heroCharacter = document.getElementById("heroMecha");
