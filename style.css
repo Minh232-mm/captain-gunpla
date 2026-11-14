@@ -2,7 +2,7 @@
 
 /* ===== RESPONSIVE FIX: DESKTOP + MOBILE ===== */
 
-/* Đăng nhập: thêm class="btn-login" vào thẻ a của nút đăng nhập */
+/* ÄÄƒng nháº­p: thÃªm class="btn-login" vÃ o tháº» a cá»§a nÃºt Ä‘Äƒng nháº­p */
 .btn-login {
   display: inline-flex;
   flex: 0 0 auto;
@@ -180,7 +180,7 @@ textarea {
   }
 }
 
-/* Điện thoại */
+/* Äiá»‡n thoáº¡i */
 @media (max-width: 700px) {
   html {
     scroll-padding-top: 76px;
@@ -250,7 +250,7 @@ textarea {
     flex: 0 0 38px;
   }
 
-  /* Nút đăng nhập nằm gọn một hàng trên thanh đầu trang */
+  /* NÃºt Ä‘Äƒng nháº­p náº±m gá»n má»™t hÃ ng trÃªn thanh Ä‘áº§u trang */
   .header > .btn-login,
   .head-actions .btn-login {
     min-height: 36px;
@@ -259,7 +259,7 @@ textarea {
     letter-spacing: 0.3px;
   }
 
-  /* Hero cân đối: chữ bên trái, mô hình bên phải */
+  /* Hero cÃ¢n Ä‘á»‘i: chá»¯ bÃªn trÃ¡i, mÃ´ hÃ¬nh bÃªn pháº£i */
   .hero {
     display: grid;
     grid-template-columns: minmax(0, 54%) minmax(0, 46%);
@@ -428,7 +428,7 @@ textarea {
     padding: 0 14px;
   }
 
-  /* Tiêu đề và nội dung các mục căn theo cùng lề */
+  /* TiÃªu Ä‘á» vÃ  ná»™i dung cÃ¡c má»¥c cÄƒn theo cÃ¹ng lá» */
   .section {
     padding: 54px 16px;
   }
@@ -718,7 +718,7 @@ textarea {
     transform: none;
   }
 }
-/* SỬA KÍCH THƯỚC NÚT TRÊN ĐIỆN THOẠI */
+/* Sá»¬A KÃCH THÆ¯á»šC NÃšT TRÃŠN ÄIá»†N THOáº I */
 @media (max-width: 700px) {
   .hero-buttons {
     display: flex !important;
@@ -749,7 +749,7 @@ textarea {
     margin-left: 4px !important;
   }
 
-  /* Giữ nút đăng nhập gọn trên thanh đầu trang */
+  /* Giá»¯ nÃºt Ä‘Äƒng nháº­p gá»n trÃªn thanh Ä‘áº§u trang */
   .header > .btn-login,
   .head-actions .btn-login,
   .header a[href="#login"] {
@@ -765,7 +765,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* Nút lọc danh mục sản phẩm gọn và cuộn ngang */
+  /* NÃºt lá»c danh má»¥c sáº£n pháº©m gá»n vÃ  cuá»™n ngang */
   .categories {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -783,7 +783,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* Tránh các nút tràn ra ngoài chiều ngang màn hình */
+  /* TrÃ¡nh cÃ¡c nÃºt trÃ n ra ngoÃ i chiá»u ngang mÃ n hÃ¬nh */
   .hero,
   .hero-content,
   .shop-section,
@@ -846,13 +846,13 @@ textarea {
     white-space: nowrap;
   }
 }
-/* Tông đỏ đậm đồng bộ với mô hình */
+/* TÃ´ng Ä‘á» Ä‘áº­m Ä‘á»“ng bá»™ vá»›i mÃ´ hÃ¬nh */
 :root {
   --red: #d10a1c;
   --red2: #8f0b16;
 }
 
-/* Các dải đỏ có màu đang được khai báo riêng */
+/* CÃ¡c dáº£i Ä‘á» cÃ³ mÃ u Ä‘ang Ä‘Æ°á»£c khai bÃ¡o riÃªng */
 .top-line {
   background: #c8101e;
 }
@@ -861,20 +861,20 @@ textarea {
   background: #c8101e;
 }
 
-/* Màu hover nút đỏ */
+/* MÃ u hover nÃºt Ä‘á» */
 .head-cta:hover,
 .btn-red:hover {
   background: #a80d19;
 }
 
-/* Ánh đỏ nền hero dịu và đậm hơn */
+/* Ãnh Ä‘á» ná»n hero dá»‹u vÃ  Ä‘áº­m hÆ¡n */
 .hero {
   background:
     radial-gradient(ellipse at 75% 52%, rgba(150, 12, 26, 0.16), transparent 45%),
     linear-gradient(125deg, #0a0b11, #08090d 70%);
 }
 @media (max-width: 700px) {
-  /* Hiện nút đăng nhập trên điện thoại */
+  /* Hiá»‡n nÃºt Ä‘Äƒng nháº­p trÃªn Ä‘iá»‡n thoáº¡i */
   #headerLogin,
   .header-user-button {
     display: inline-flex !important;
@@ -895,7 +895,7 @@ textarea {
     display: none;
   }
 
-  /* Thu gọn hai nút ở phần bìa, không kéo dài hết hàng */
+  /* Thu gá»n hai nÃºt á»Ÿ pháº§n bÃ¬a, khÃ´ng kÃ©o dÃ i háº¿t hÃ ng */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -935,7 +935,7 @@ textarea {
   }
 }
 @media (max-width: 700px) {
-  /* Hai nút cùng kích thước, chữ căn giữa */
+  /* Hai nÃºt cÃ¹ng kÃ­ch thÆ°á»›c, chá»¯ cÄƒn giá»¯a */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -961,7 +961,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* Dải chữ chạy gọn hơn */
+  /* Dáº£i chá»¯ cháº¡y gá»n hÆ¡n */
   .marquee {
     height: 32px !important;
   }
@@ -988,7 +988,7 @@ textarea {
   font-family: Arial, sans-serif !important;
   font-variant-emoji: text;
 }
-/* ĐÁNH GIÁ SHOP */
+/* ÄÃNH GIÃ SHOP */
 .hero-buttons .review-link {
   white-space: nowrap;
 }
@@ -1172,7 +1172,7 @@ textarea {
   transform: scale(1.3);
   transform-origin: center;
 }
-/* Zoom nhẹ cho ảnh mô hình chính */
+/* Zoom nháº¹ cho áº£nh mÃ´ hÃ¬nh chÃ­nh */
 #heroMecha {
   animation: heroZoom 3s ease-in-out infinite alternate;
   transform-origin: center center;
@@ -1319,7 +1319,7 @@ textarea {
   background: rgba(20, 22, 29, 0.55) !important;
   border-color: rgba(255, 255, 255, 0.22) !important;
 }
-/* Tiêu đề trượt lên và hiện dần */
+/* TiÃªu Ä‘á» trÆ°á»£t lÃªn vÃ  hiá»‡n dáº§n */
 .section-heading h2 {
   opacity: 0;
   transform: translateY(28px);
@@ -1342,7 +1342,7 @@ textarea {
 }
 
 
-/* CAPTAIN GUNPLA — rounded UI refinement (visual-only overrides) */
+/* CAPTAIN GUNPLA â€” rounded UI refinement (visual-only overrides) */
 :root {
   --radius-card: 14px;
   --radius-panel: 12px;
@@ -1387,4 +1387,101 @@ textarea {
 .badge-product, .cover-index { border-radius: 5px; }
 @media (max-width: 700px) {
   .modal-media { border-radius: var(--radius-card) var(--radius-card) 0 0; }
+}
+
+
+/* CAPTAIN GUNPLA â€” áº£nh Ä‘Ã­nh kÃ¨m Ä‘Ã¡nh giÃ¡ vÃ  sao mÃ u vÃ ng */
+.review-summary-stars,
+.review-card-stars,
+.review-star-picker {
+  color: #f5c542 !important;
+}
+.review-star-picker button.selected {
+  color: #f5c542 !important;
+}
+.review-image-input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed rgba(245, 197, 66, .45) !important;
+  border-radius: 10px;
+  background: #0b0d12;
+  color: var(--white);
+}
+.review-image-hint {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+.review-image-preview,
+.review-card-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 12px;
+}
+.review-image-preview-item {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel2);
+}
+.review-image-preview-item img,
+.review-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.review-image-preview-item button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 23px;
+  height: 23px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .78);
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+.review-card-photos {
+  margin-top: 13px;
+}
+.review-photo-link {
+  display: block;
+  width: min(120px, calc(33.333% - 7px));
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.review-photo {
+  transition: transform .25s ease;
+}
+.review-photo-link:hover .review-photo {
+  transform: scale(1.06);
+}
+.review-form input[type="file"] {
+  cursor: pointer;
+}
+.review-form input[type="file"]::file-selector-button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--red);
+  color: #fff;
+  font: 700 12px var(--tech);
+  cursor: pointer;
+}
+.review-submit:disabled {
+  opacity: .65;
+  cursor: wait;
 }
