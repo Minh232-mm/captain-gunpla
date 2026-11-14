@@ -2,7 +2,7 @@
 'use strict';
 
 const SUPABASE_URL = 'https://cskfurtcvqomyvitcfua.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_6vkQOLH_JEQq_oPhz9aN8Q_6qLj8RYa';
+const SUPABASE_KEY = 'sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa';
 
 const $ = s => document.querySelector(s);
 const identity = $('#adminIdentity');
