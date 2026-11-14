@@ -109,10 +109,22 @@
       .auth-box { padding: 26px 20px; }
     }
 
-    /* Rounded UI refinement — keeps the existing login layout and colors. */
-    .auth-box { border-radius: 16px; }
-    input, button { border-radius: 8px; }
-    .text-button { border-radius: 6px; }
+    /* ===== DARK GLASSMORPHISM — LOGIN ===== */
+    .auth-box {
+      background: linear-gradient(145deg, rgba(39,41,45,.94), rgba(17,19,23,.97));
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 27px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.48), inset 0 1px 0 rgba(255,255,255,.09);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+    }
+    input {
+      border-radius: 11px;
+      background: rgba(7,8,12,.65);
+    }
+    button {
+      border-radius: 12px;
+    }
   </style>
 
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
