@@ -20,3 +20,26 @@
 .order-status-label select{width:100%;padding:10px;border:1px solid #444955;border-radius:8px;background:#101218;color:#fff}
 .order-save-state{display:block;margin-top:8px;color:#8ce0ae;font-size:11px}
 @media(max-width:600px){.order-admin-head{flex-direction:column}.order-admin-item{align-items:flex-start}}
+
+/* ===== DRAG & DROP THÃ€NH PHáº¨M ===== */
+.showcase-sort-hint{margin:0 0 10px;color:#a2a5ae;font-size:11px;line-height:1.6}
+.showcase-list{max-height:70vh;overflow-y:auto;overflow-x:hidden}
+.showcase-admin-row{display:flex;align-items:stretch;gap:7px;min-width:0}
+.showcase-drag-handle{
+  flex:0 0 34px;display:flex;align-items:center;justify-content:center;
+  padding:0;border:1px solid #ffffff20;border-radius:10px;background:#14161b;
+  color:#aeb3bf;font-size:23px;cursor:grab;touch-action:none;
+  user-select:none;-webkit-user-select:none
+}
+.showcase-drag-handle:active{cursor:grabbing;color:#fff;border-color:#f03742}
+.showcase-admin-option{flex:1;min-width:0;min-height:76px}
+.showcase-admin-option .showcase-order-number{flex:0 0 auto;color:#8e929d;font-size:10px;font-weight:800;letter-spacing:.5px}
+.showcase-sort-ghost{opacity:.35;border:1px dashed #f03742}
+.showcase-sort-chosen{border-color:#f03742}
+.showcase-sort-drag{background:#242730;box-shadow:0 12px 30px #0009}
+@media(max-width:600px){
+  .showcase-list{max-height:360px}
+  .showcase-drag-handle{flex-basis:38px;min-height:76px;font-size:25px}
+  .showcase-admin-option{padding:8px;gap:8px}
+  .showcase-admin-option img{width:54px;height:54px}
+}
