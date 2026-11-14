@@ -68,6 +68,12 @@
 
     <div class="head-actions">
 
+      <button class="cart-toggle" id="cartToggle" type="button" aria-label="Mở giỏ hàng">
+        <span aria-hidden="true">▣</span>
+        <span class="cart-toggle-label">GIỎ HÀNG</span>
+        <b id="cartCount" class="cart-count" aria-live="polite">0</b>
+      </button>
+
       <button class="search-toggle"
               id="searchToggle"
               type="button"
@@ -727,6 +733,24 @@
   </button>
 
   <!-- POPUP CHI TIẾT SẢN PHẨM -->
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+    <button class="cart-shade" id="cartShade" type="button" aria-label="Đóng giỏ hàng"></button>
+    <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart-header">
+        <div><p class="eyebrow">CAPTAIN GUNPLA / YOUR SELECTION</p><h2 id="cartTitle">GIỎ HÀNG</h2></div>
+        <button id="cartClose" class="cart-close" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row"><span>TẠM TÍNH</span><strong id="cartTotal">0₫</strong></div>
+        <p class="cart-note">Giỏ hàng được lưu trên thiết bị này. Đơn hàng chưa được gửi hoặc trừ tồn kho.</p>
+        <button id="cartContinue" class="btn btn-outline cart-action" type="button">TIẾP TỤC MUA SẮM</button>
+        <button id="cartClear" class="cart-clear" type="button">XÓA TOÀN BỘ GIỎ HÀNG</button>
+      </div>
+    </aside>
+  </div>
+
   <div class="modal" id="productModal" aria-hidden="true">
 
     <div class="modal-shade" data-close-modal></div>
@@ -810,7 +834,7 @@
         <button id="modalOrder"
                 class="btn btn-red modal-order"
                 type="button">
-          TƯ VẤN / ĐẶT HÀNG <span>↗</span>
+          THÊM VÀO GIỎ HÀNG <span>＋</span>
         </button>
 
         <p class="modal-footnote">
