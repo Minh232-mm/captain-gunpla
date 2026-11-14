@@ -32,7 +32,7 @@
       <article class="stat"><small>TẠM ẨN</small><strong id="statHidden">0</strong></article>
       <article class="stat"><small>ĐÁNH GIÁ</small><strong id="statReviews">0</strong></article>
     </div>
-    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="showcase">THÀNH PHẨM</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button><button class="tab" data-tab="orders">ĐƠN HÀNG</button></nav>
+    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="showcase">THÀNH PHẨM</button><button class="tab" data-tab="banners">BANNER TRANG CHỦ</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button><button class="tab" data-tab="orders">ĐƠN HÀNG</button></nav>
     <section id="productsTab" class="admin-layout">
       <aside class="panel">
         <div class="panel-head"><h2>DANH SÁCH SẢN PHẨM</h2><button id="addBtn" class="accent">+ THÊM</button></div>
@@ -76,6 +76,37 @@
           <div class="actions"><button class="accent" type="submit">LƯU THÀNH PHẨM</button><button id="deleteShowcaseBtn" class="danger" type="button" disabled>XÓA THÀNH PHẨM</button><button id="resetShowcaseBtn" type="button">LÀM MỚI FORM</button></div>
         </form>
       </section>
+    </section>
+    <section id="bannersTab" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h2>QUẢN LÝ BANNER TRANG CHỦ</h2>
+          <p class="muted">Thay tối đa 3 ảnh banner ngang. Ảnh được tải lên Supabase Storage và tự hiển thị trước mục Cửa hàng.</p>
+        </div>
+        <span id="bannerSaveState" role="status"></span>
+      </div>
+      <div class="banner-admin-grid">
+        <article class="banner-admin-card">
+          <div class="banner-admin-card-head"><strong>BANNER 01</strong><small>Ảnh đầu tiên</small></div>
+          <div class="banner-admin-preview"><img id="bannerPreview1" alt="Xem trước banner 1" hidden><span id="bannerPlaceholder1">CHƯA CÓ ẢNH</span></div>
+          <label>CHỌN / THAY ẢNH<input id="bannerFile1" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <button type="button" class="danger banner-remove" data-remove-banner="1">XÓA ẢNH</button>
+        </article>
+        <article class="banner-admin-card">
+          <div class="banner-admin-card-head"><strong>BANNER 02</strong><small>Ảnh thứ hai</small></div>
+          <div class="banner-admin-preview"><img id="bannerPreview2" alt="Xem trước banner 2" hidden><span id="bannerPlaceholder2">CHƯA CÓ ẢNH</span></div>
+          <label>CHỌN / THAY ẢNH<input id="bannerFile2" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <button type="button" class="danger banner-remove" data-remove-banner="2">XÓA ẢNH</button>
+        </article>
+        <article class="banner-admin-card">
+          <div class="banner-admin-card-head"><strong>BANNER 03</strong><small>Ảnh thứ ba</small></div>
+          <div class="banner-admin-preview"><img id="bannerPreview3" alt="Xem trước banner 3" hidden><span id="bannerPlaceholder3">CHƯA CÓ ẢNH</span></div>
+          <label>CHỌN / THAY ẢNH<input id="bannerFile3" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <button type="button" class="danger banner-remove" data-remove-banner="3">XÓA ẢNH</button>
+        </article>
+      </div>
+      <div class="actions"><button id="saveBannersBtn" class="accent" type="button">LƯU 3 BANNER</button><button id="reloadBannersBtn" type="button">TẢI LẠI</button></div>
+      <p class="muted banner-admin-note">Khuyến nghị ảnh ngang tỷ lệ 16:5 hoặc 16:6, JPG / PNG / WEBP, tối đa 10MB mỗi ảnh. Ảnh sẽ tự chuyển sau 5 giây; khách cũng có thể bấm mũi tên hoặc chấm để đổi ảnh.</p>
     </section>
     <section id="ordersTab" class="panel" hidden>
       <div class="panel-head"><div><h2>QUẢN LÝ ĐƠN HÀNG</h2><p class="muted">Đơn hàng khách gửi từ website. Tồn kho chưa tự động trừ ở giai đoạn này.</p></div><button id="refreshOrdersBtn" type="button">TẢI LẠI</button></div>
