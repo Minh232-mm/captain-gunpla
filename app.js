@@ -12,14 +12,10 @@
 
   const fallbackProducts = [...products];
 
- const catalogClient =
-  window.CAPTAIN_SUPABASE_CLIENT ||
-  window.supabase?.createClient(
+  const catalogClient = window.supabase?.createClient(
     'https://cskfurtcvqomyvitcfua.supabase.co',
     'sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa'
   );
-
-window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
 
   const $ = selector => document.querySelector(selector);
   const $$ = selector => Array.from(document.querySelectorAll(selector));
@@ -40,65 +36,22 @@ window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
 
 
   // ==========================================
-  // GIỎ HÀNG - LƯU RIÊNG THEO TÀI KHOẢN
+  // GIỎ HÀNG - LƯU CỤC BỘ TRÊN THIẾT BỊ
   // ==========================================
   const CART_STORAGE_KEY = 'captainGunplaCartV1';
   let cartItems = [];
-  let cartUserId = null;
-  let cartAuthStateReady = false;
 
-  function getCartStorageKey(userId = cartUserId) {
-    return userId
-      ? `${CART_STORAGE_KEY}:user:${userId}`
-      : `${CART_STORAGE_KEY}:guest`;
-  }
-
-  function readCart(userId) {
-    try {
-      const savedCart = JSON.parse(localStorage.getItem(getCartStorageKey(userId)) || '[]');
-      return Array.isArray(savedCart) ? savedCart.filter(item =>
-        item && typeof item.id === 'string' && Number.isInteger(item.qty) && item.qty > 0
-      ) : [];
-    } catch (_) {
-      return [];
-    }
-  }
-
-  function loadCartForUser(userId) {
-    cartUserId = userId || null;
-    cartItems = readCart(cartUserId);
-    renderCart();
-  }
-
-  // Khởi tạo giỏ khách trước; sau đó đồng bộ đúng tài khoản từ phiên Supabase.
-  cartItems = readCart(null);
+  try {
+    const savedCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+    cartItems = Array.isArray(savedCart) ? savedCart.filter(item =>
+      item && typeof item.id === 'string' && Number.isInteger(item.qty) && item.qty > 0
+    ) : [];
+  } catch (_) { cartItems = []; }
 
   function saveCart() {
-    try {
-      localStorage.setItem(getCartStorageKey(), JSON.stringify(cartItems));
-    } catch (error) {
-      console.warn('Không thể lưu giỏ hàng trên thiết bị.', error);
-    }
+    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems)); }
+    catch (error) { console.warn('Không thể lưu giỏ hàng trên thiết bị.', error); }
     renderCart();
-  }
-
-  if (catalogClient?.auth) {
-    catalogClient.auth.onAuthStateChange((_event, session) => {
-      const nextUserId = session?.user?.id || null;
-      if (nextUserId !== cartUserId) loadCartForUser(nextUserId);
-      cartAuthStateReady = true;
-    });
-
-    catalogClient.auth.getSession().then(({ data, error }) => {
-      if (error) console.warn('Không đọc được phiên đăng nhập để tải giỏ hàng.', error);
-      if (!cartAuthStateReady) {
-        loadCartForUser(data?.session?.user?.id || null);
-        cartAuthStateReady = true;
-      }
-    }).catch(error => {
-      console.warn('Không thể đồng bộ giỏ hàng với phiên đăng nhập.', error);
-      cartAuthStateReady = true;
-    });
   }
 
   function cartQuantity() {
@@ -321,6 +274,14 @@ window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
   let previousFocus = null;
 
   const grid = $('#productGrid');
+  const showMoreProducts = $('#showMoreProducts');
+  const PRODUCTS_PER_PAGE = 12;
+  let visibleProductCount = PRODUCTS_PER_PAGE;
+
+  function resetProductPages() {
+    visibleProductCount = PRODUCTS_PER_PAGE;
+    render();
+  }
 
   function imgPath(product, index = 0) {
     return (product.images || [])[index] || 'assets/anhsanpham1.jpg';
@@ -353,7 +314,9 @@ window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
       items.sort((a, b) => (b.price ?? -1) - (a.price ?? -1));
     }
 
-    grid.innerHTML = items.map((p, i) => `
+    const visibleItems = items.slice(0, visibleProductCount);
+
+    grid.innerHTML = visibleItems.map((p, i) => `
       <article class="product-card">
 
         <button
@@ -412,7 +375,18 @@ window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
 
     $('#productCount').textContent = `${items.length} SẢN PHẨM`;
     $('#emptyState').hidden = items.length > 0;
+
+    if (showMoreProducts) {
+      const remaining = Math.max(0, items.length - visibleProductCount);
+      showMoreProducts.hidden = remaining === 0;
+      showMoreProducts.innerHTML = `XEM THÊM SẢN PHẨM <span aria-hidden="true">↓</span> <small>(${remaining} còn lại)</small>`;
+    }
   }
+
+  showMoreProducts?.addEventListener('click', () => {
+    visibleProductCount += PRODUCTS_PER_PAGE;
+    render();
+  });
 
   grid.addEventListener('click', event => {
     const btn = event.target.closest('[data-product]');
@@ -427,11 +401,11 @@ window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
         b.classList.toggle('active', b === btn)
       );
 
-      render();
+      resetProductPages();
     });
   });
 
-  $('#sortSelect').addEventListener('change', render);
+  $('#sortSelect').addEventListener('change', resetProductPages);
 
   $('#searchToggle').addEventListener('click', () => {
     const panel = $('#searchPanel');
@@ -447,19 +421,19 @@ window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
     } else {
       search = '';
       $('#searchInput').value = '';
-      render();
+      resetProductPages();
     }
   });
 
   $('#searchInput').addEventListener('input', event => {
     search = event.target.value.trim().toLocaleLowerCase('vi');
-    render();
+    resetProductPages();
   });
 
   $('#clearSearch').addEventListener('click', () => {
     $('#searchInput').value = '';
     search = '';
-    render();
+    resetProductPages();
     $('#searchInput').focus();
   });
 
