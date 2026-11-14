@@ -114,6 +114,7 @@ async function boot() {
     await loadProducts();
     await loadReviews();
     await loadShowcase();
+    await loadHomepageBanners();
     await loadOrders();
   } catch (error) {
     console.error('[CAPTAIN ADMIN] Boot error:', error);
@@ -502,10 +503,127 @@ document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click',
   $('#productsTab').hidden = b.dataset.tab !== 'products';
   $('#reviewsTab').hidden = b.dataset.tab !== 'reviews';
   $('#showcaseTab').hidden = b.dataset.tab !== 'showcase';
+  $('#bannersTab').hidden = b.dataset.tab !== 'banners';
   $('#ordersTab').hidden = b.dataset.tab !== 'orders';
   if (b.dataset.tab === 'orders') loadOrders();
+  if (b.dataset.tab === 'banners') loadHomepageBanners();
 }));
 
+
+
+// ===== QUẢN LÝ 3 BANNER TRANG CHỦ =====
+let homepageBanners = {
+  1: { slot: 1, image_url: '', is_active: true },
+  2: { slot: 2, image_url: '', is_active: true },
+  3: { slot: 3, image_url: '', is_active: true }
+};
+let bannerDirty = false;
+
+function bannerStatus(message, bad = false) {
+  const el = $('#bannerSaveState');
+  if (!el) return;
+  el.textContent = message;
+  el.style.color = bad ? '#ff7b86' : '#8ce0ae';
+}
+
+function renderBannerPreviews() {
+  [1, 2, 3].forEach(slot => {
+    const url = homepageBanners[slot]?.image_url || '';
+    const img = $(`#bannerPreview${slot}`);
+    const placeholder = $(`#bannerPlaceholder${slot}`);
+    if (!img || !placeholder) return;
+    img.src = url;
+    img.hidden = !url;
+    placeholder.hidden = !!url;
+  });
+}
+
+async function loadHomepageBanners() {
+  bannerStatus('Đang tải banner...');
+  try {
+    const { data, error } = await withTimeout(
+      db.from('homepage_banners').select('slot,image_url,is_active').order('slot', { ascending: true }),
+      'Tải banner trang chủ', 12000
+    );
+    if (error) throw error;
+    [1, 2, 3].forEach(slot => {
+      const row = (data || []).find(item => Number(item.slot) === slot);
+      homepageBanners[slot] = row
+        ? { slot, image_url: row.image_url || '', is_active: row.is_active !== false }
+        : { slot, image_url: '', is_active: true };
+    });
+    bannerDirty = false;
+    renderBannerPreviews();
+    bannerStatus('Đã tải 3 vị trí banner.');
+  } catch (error) {
+    console.error('[CAPTAIN ADMIN] Banner load error:', error);
+    bannerStatus('Không tải được banner: ' + (error.message || error) + '. Hãy chạy SQL thiết lập banner trước.', true);
+  }
+}
+
+[1, 2, 3].forEach(slot => {
+  $(`#bannerFile${slot}`).addEventListener('change', async event => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    try {
+      if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+        throw new Error('Chỉ nhận ảnh JPG, PNG hoặc WEBP.');
+      }
+      if (file.size > 10 * 1024 * 1024) throw new Error('Mỗi ảnh tối đa 10MB.');
+      bannerStatus(`Đang tải banner ${slot} lên Supabase...`);
+      const ext = file.type === 'image/png' ? 'png' : file.type === 'image/webp' ? 'webp' : 'jpg';
+      const path = `homepage-banners/${slot}-${Date.now()}-${crypto.randomUUID()}.${ext}`;
+      const { error } = await db.storage.from('showcase-images').upload(path, file, {
+        upsert: false, contentType: file.type
+      });
+      if (error) throw error;
+      const { data } = db.storage.from('showcase-images').getPublicUrl(path);
+      homepageBanners[slot].image_url = data.publicUrl;
+      homepageBanners[slot].is_active = true;
+      bannerDirty = true;
+      renderBannerPreviews();
+      bannerStatus(`Đã tải banner ${slot}. Nhấn LƯU 3 BANNER để áp dụng lên website.`);
+    } catch (error) {
+      console.error('[CAPTAIN ADMIN] Banner upload error:', error);
+      bannerStatus('Tải ảnh lỗi: ' + (error.message || error), true);
+    }
+  });
+
+  $(`[data-remove-banner="${slot}"]`).addEventListener('click', () => {
+    homepageBanners[slot].image_url = '';
+    homepageBanners[slot].is_active = false;
+    bannerDirty = true;
+    renderBannerPreviews();
+    bannerStatus(`Đã bỏ ảnh banner ${slot}. Nhấn LƯU 3 BANNER để xác nhận.`);
+  });
+});
+
+$('#saveBannersBtn').addEventListener('click', async () => {
+  bannerStatus('Đang lưu 3 vị trí banner...');
+  try {
+    for (const slot of [1, 2, 3]) {
+      const row = {
+        slot,
+        image_url: homepageBanners[slot].image_url || '',
+        is_active: !!homepageBanners[slot].image_url,
+        updated_at: new Date().toISOString()
+      };
+      const { error } = await db.from('homepage_banners').upsert(row, { onConflict: 'slot' });
+      if (error) throw error;
+    }
+    bannerDirty = false;
+    bannerStatus('Đã lưu banner. Tải lại trang chủ để kiểm tra.');
+  } catch (error) {
+    console.error('[CAPTAIN ADMIN] Banner save error:', error);
+    bannerStatus('Không lưu được banner: ' + (error.message || error), true);
+  }
+});
+
+$('#reloadBannersBtn').addEventListener('click', async () => {
+  if (bannerDirty && !confirm('Bạn có thay đổi chưa lưu. Tải lại sẽ bỏ các thay đổi này. Tiếp tục?')) return;
+  await loadHomepageBanners();
+});
 
 const orderStatuses = {
   pending: 'Chờ xác nhận',
