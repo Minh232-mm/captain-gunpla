@@ -2,7 +2,7 @@
 
 /* ===== RESPONSIVE FIX: DESKTOP + MOBILE ===== */
 
-/* ÄÄƒng nháº­p: thÃªm class="btn-login" vÃ o tháº» a cá»§a nÃºt Ä‘Äƒng nháº­p */
+/* Ã„ÂÃ„Æ’ng nhÃ¡ÂºÂ­p: thÃƒÂªm class="btn-login" vÃƒÂ o thÃ¡ÂºÂ» a cÃ¡Â»Â§a nÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p */
 .btn-login {
   display: inline-flex;
   flex: 0 0 auto;
@@ -180,7 +180,7 @@ textarea {
   }
 }
 
-/* Äiá»‡n thoáº¡i */
+/* Ã„ÂiÃ¡Â»â€¡n thoÃ¡ÂºÂ¡i */
 @media (max-width: 700px) {
   html {
     scroll-padding-top: 76px;
@@ -250,7 +250,7 @@ textarea {
     flex: 0 0 38px;
   }
 
-  /* NÃºt Ä‘Äƒng nháº­p náº±m gá»n má»™t hÃ ng trÃªn thanh Ä‘áº§u trang */
+  /* NÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p nÃ¡ÂºÂ±m gÃ¡Â»Ân mÃ¡Â»â„¢t hÃƒÂ ng trÃƒÂªn thanh Ã„â€˜Ã¡ÂºÂ§u trang */
   .header > .btn-login,
   .head-actions .btn-login {
     min-height: 36px;
@@ -259,7 +259,7 @@ textarea {
     letter-spacing: 0.3px;
   }
 
-  /* Hero cÃ¢n Ä‘á»‘i: chá»¯ bÃªn trÃ¡i, mÃ´ hÃ¬nh bÃªn pháº£i */
+  /* Hero cÃƒÂ¢n Ã„â€˜Ã¡Â»â€˜i: chÃ¡Â»Â¯ bÃƒÂªn trÃƒÂ¡i, mÃƒÂ´ hÃƒÂ¬nh bÃƒÂªn phÃ¡ÂºÂ£i */
   .hero {
     display: grid;
     grid-template-columns: minmax(0, 54%) minmax(0, 46%);
@@ -428,7 +428,7 @@ textarea {
     padding: 0 14px;
   }
 
-  /* TiÃªu Ä‘á» vÃ  ná»™i dung cÃ¡c má»¥c cÄƒn theo cÃ¹ng lá» */
+  /* TiÃƒÂªu Ã„â€˜Ã¡Â»Â vÃƒÂ  nÃ¡Â»â„¢i dung cÃƒÂ¡c mÃ¡Â»Â¥c cÃ„Æ’n theo cÃƒÂ¹ng lÃ¡Â»Â */
   .section {
     padding: 54px 16px;
   }
@@ -718,7 +718,7 @@ textarea {
     transform: none;
   }
 }
-/* Sá»¬A KÃCH THÆ¯á»šC NÃšT TRÃŠN ÄIá»†N THOáº I */
+/* SÃ¡Â»Â¬A KÃƒÂCH THÃ†Â¯Ã¡Â»Å¡C NÃƒÅ¡T TRÃƒÅ N Ã„ÂIÃ¡Â»â€ N THOÃ¡ÂºÂ I */
 @media (max-width: 700px) {
   .hero-buttons {
     display: flex !important;
@@ -749,7 +749,7 @@ textarea {
     margin-left: 4px !important;
   }
 
-  /* Giá»¯ nÃºt Ä‘Äƒng nháº­p gá»n trÃªn thanh Ä‘áº§u trang */
+  /* GiÃ¡Â»Â¯ nÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p gÃ¡Â»Ân trÃƒÂªn thanh Ã„â€˜Ã¡ÂºÂ§u trang */
   .header > .btn-login,
   .head-actions .btn-login,
   .header a[href="#login"] {
@@ -765,7 +765,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* NÃºt lá»c danh má»¥c sáº£n pháº©m gá»n vÃ  cuá»™n ngang */
+  /* NÃƒÂºt lÃ¡Â»Âc danh mÃ¡Â»Â¥c sÃ¡ÂºÂ£n phÃ¡ÂºÂ©m gÃ¡Â»Ân vÃƒÂ  cuÃ¡Â»â„¢n ngang */
   .categories {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -783,7 +783,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* TrÃ¡nh cÃ¡c nÃºt trÃ n ra ngoÃ i chiá»u ngang mÃ n hÃ¬nh */
+  /* TrÃƒÂ¡nh cÃƒÂ¡c nÃƒÂºt trÃƒÂ n ra ngoÃƒÂ i chiÃ¡Â»Âu ngang mÃƒÂ n hÃƒÂ¬nh */
   .hero,
   .hero-content,
   .shop-section,
@@ -846,13 +846,13 @@ textarea {
     white-space: nowrap;
   }
 }
-/* TÃ´ng Ä‘á» Ä‘áº­m Ä‘á»“ng bá»™ vá»›i mÃ´ hÃ¬nh */
+/* TÃƒÂ´ng Ã„â€˜Ã¡Â»Â Ã„â€˜Ã¡ÂºÂ­m Ã„â€˜Ã¡Â»â€œng bÃ¡Â»â„¢ vÃ¡Â»â€ºi mÃƒÂ´ hÃƒÂ¬nh */
 :root {
   --red: #d10a1c;
   --red2: #8f0b16;
 }
 
-/* CÃ¡c dáº£i Ä‘á» cÃ³ mÃ u Ä‘ang Ä‘Æ°á»£c khai bÃ¡o riÃªng */
+/* CÃƒÂ¡c dÃ¡ÂºÂ£i Ã„â€˜Ã¡Â»Â cÃƒÂ³ mÃƒÂ u Ã„â€˜ang Ã„â€˜Ã†Â°Ã¡Â»Â£c khai bÃƒÂ¡o riÃƒÂªng */
 .top-line {
   background: #c8101e;
 }
@@ -861,20 +861,20 @@ textarea {
   background: #c8101e;
 }
 
-/* MÃ u hover nÃºt Ä‘á» */
+/* MÃƒÂ u hover nÃƒÂºt Ã„â€˜Ã¡Â»Â */
 .head-cta:hover,
 .btn-red:hover {
   background: #a80d19;
 }
 
-/* Ãnh Ä‘á» ná»n hero dá»‹u vÃ  Ä‘áº­m hÆ¡n */
+/* ÃƒÂnh Ã„â€˜Ã¡Â»Â nÃ¡Â»Ân hero dÃ¡Â»â€¹u vÃƒÂ  Ã„â€˜Ã¡ÂºÂ­m hÃ†Â¡n */
 .hero {
   background:
     radial-gradient(ellipse at 75% 52%, rgba(150, 12, 26, 0.16), transparent 45%),
     linear-gradient(125deg, #0a0b11, #08090d 70%);
 }
 @media (max-width: 700px) {
-  /* Hiá»‡n nÃºt Ä‘Äƒng nháº­p trÃªn Ä‘iá»‡n thoáº¡i */
+  /* HiÃ¡Â»â€¡n nÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p trÃƒÂªn Ã„â€˜iÃ¡Â»â€¡n thoÃ¡ÂºÂ¡i */
   #headerLogin,
   .header-user-button {
     display: inline-flex !important;
@@ -895,7 +895,7 @@ textarea {
     display: none;
   }
 
-  /* Thu gá»n hai nÃºt á»Ÿ pháº§n bÃ¬a, khÃ´ng kÃ©o dÃ i háº¿t hÃ ng */
+  /* Thu gÃ¡Â»Ân hai nÃƒÂºt Ã¡Â»Å¸ phÃ¡ÂºÂ§n bÃƒÂ¬a, khÃƒÂ´ng kÃƒÂ©o dÃƒÂ i hÃ¡ÂºÂ¿t hÃƒÂ ng */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -935,7 +935,7 @@ textarea {
   }
 }
 @media (max-width: 700px) {
-  /* Hai nÃºt cÃ¹ng kÃ­ch thÆ°á»›c, chá»¯ cÄƒn giá»¯a */
+  /* Hai nÃƒÂºt cÃƒÂ¹ng kÃƒÂ­ch thÃ†Â°Ã¡Â»â€ºc, chÃ¡Â»Â¯ cÃ„Æ’n giÃ¡Â»Â¯a */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -961,7 +961,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* Dáº£i chá»¯ cháº¡y gá»n hÆ¡n */
+  /* DÃ¡ÂºÂ£i chÃ¡Â»Â¯ chÃ¡ÂºÂ¡y gÃ¡Â»Ân hÃ†Â¡n */
   .marquee {
     height: 32px !important;
   }
@@ -988,7 +988,7 @@ textarea {
   font-family: Arial, sans-serif !important;
   font-variant-emoji: text;
 }
-/* ÄÃNH GIÃ SHOP */
+/* Ã„ÂÃƒÂNH GIÃƒÂ SHOP */
 .hero-buttons .review-link {
   white-space: nowrap;
 }
@@ -1172,7 +1172,7 @@ textarea {
   transform: scale(1.3);
   transform-origin: center;
 }
-/* Zoom nháº¹ cho áº£nh mÃ´ hÃ¬nh chÃ­nh */
+/* Zoom nhÃ¡ÂºÂ¹ cho Ã¡ÂºÂ£nh mÃƒÂ´ hÃƒÂ¬nh chÃƒÂ­nh */
 #heroMecha {
   animation: heroZoom 3s ease-in-out infinite alternate;
   transform-origin: center center;
@@ -1319,7 +1319,7 @@ textarea {
   background: rgba(20, 22, 29, 0.55) !important;
   border-color: rgba(255, 255, 255, 0.22) !important;
 }
-/* TiÃªu Ä‘á» trÆ°á»£t lÃªn vÃ  hiá»‡n dáº§n */
+/* TiÃƒÂªu Ã„â€˜Ã¡Â»Â trÃ†Â°Ã¡Â»Â£t lÃƒÂªn vÃƒÂ  hiÃ¡Â»â€¡n dÃ¡ÂºÂ§n */
 .section-heading h2 {
   opacity: 0;
   transform: translateY(28px);
@@ -1342,7 +1342,7 @@ textarea {
 }
 
 
-/* ===== CAPTAIN GUNPLA â€” DARK GLASSMORPHISM CARDS ===== */
+/* ===== CAPTAIN GUNPLA Ã¢â‚¬â€ DARK GLASSMORPHISM CARDS ===== */
 :root {
   --glass-bg: linear-gradient(145deg, rgba(38, 40, 44, .88), rgba(17, 19, 23, .94));
   --glass-border: rgba(255, 255, 255, .22);
@@ -1413,7 +1413,7 @@ textarea {
 
 /* ===== MOBILE PRODUCT MODAL SCROLL FIX ===== */
 @media (max-width: 700px) {
-  /* Cho phÃ©p cuá»™n toÃ n bá»™ cá»­a sá»• chi tiáº¿t sáº£n pháº©m trÃªn Ä‘iá»‡n thoáº¡i */
+  /* Cho phÃƒÂ©p cuÃ¡Â»â„¢n toÃƒÂ n bÃ¡Â»â„¢ cÃ¡Â»Â­a sÃ¡Â»â€¢ chi tiÃ¡ÂºÂ¿t sÃ¡ÂºÂ£n phÃ¡ÂºÂ©m trÃƒÂªn Ã„â€˜iÃ¡Â»â€¡n thoÃ¡ÂºÂ¡i */
   #productModal.modal.open {
     display: block !important;
     overflow-x: hidden !important;
@@ -1458,7 +1458,7 @@ textarea {
 }
 
 
-/* ===== MOBILE HERO BUTTONS â€” COMPACT SIZE ===== */
+/* ===== MOBILE HERO BUTTONS Ã¢â‚¬â€ COMPACT SIZE ===== */
 @media (max-width: 700px) {
   .hero-buttons {
     align-items: flex-start !important;
@@ -1858,7 +1858,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
 .show-more-products[hidden] { display:none !important; }
 
 @media (max-width:700px) {
-  /* TÃ¡ch logo vÃ  cá»¥m nÃºt thÃ nh hai hÃ ng, khÃ´ng cÃ²n Ä‘Ã¨ chá»¯ lÃªn giá» hÃ ng */
+  /* TÃƒÂ¡ch logo vÃƒÂ  cÃ¡Â»Â¥m nÃƒÂºt thÃƒÂ nh hai hÃƒÂ ng, khÃƒÂ´ng cÃƒÂ²n Ã„â€˜ÃƒÂ¨ chÃ¡Â»Â¯ lÃƒÂªn giÃ¡Â»Â hÃƒÂ ng */
   body .header { display:flex !important; flex-direction:column !important; align-items:stretch !important; justify-content:center !important; gap:9px !important; width:100% !important; height:auto !important; min-height:104px !important; padding:9px 14px 11px !important; overflow:visible !important; }
   body .header > .brand { display:flex !important; flex:0 0 auto !important; align-self:flex-start !important; width:auto !important; max-width:100% !important; min-width:0 !important; gap:9px !important; margin:0 !important; }
   body .header .brand-logo-image { flex:0 0 36px !important; width:36px !important; height:36px !important; }
@@ -2116,4 +2116,42 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   body .head-actions > #headerLogin,
   body .head-actions > .header-user .head-cta { font-size:9px !important; padding-left:3px !important; padding-right:3px !important; }
   body .head-actions .hamburger { width:42px !important; min-width:42px !important; max-width:42px !important; flex-basis:42px !important; }
+}
+
+/* ===== SOCIAL LINKS: BOTTOM OF PAGE ===== */
+.socials-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 28px 7% 34px;
+  border-top: 1px solid var(--line);
+  background: #0c0d12;
+}
+.socials-bottom .socials {
+  justify-content: center;
+  margin: 0;
+  gap: 10px;
+}
+.socials-bottom .socials a {
+  min-width: 122px;
+}
+@media (max-width: 700px) {
+  .socials-bottom {
+    padding: 22px 5% 28px;
+  }
+  .socials-bottom .socials {
+    width: 100%;
+    gap: 8px;
+  }
+  .socials-bottom .socials a {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+  .socials-bottom .socials a img {
+    width: 20px;
+    height: 20px;
+  }
 }
