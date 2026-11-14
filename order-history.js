@@ -15,7 +15,7 @@
     #cgOrderHistory.open{display:flex}
     .cg-oh-panel{width:min(720px,100%);max-height:90vh;overflow:auto;background:#11141b;border:1px solid #393d48;border-radius:18px;padding:22px;color:#f4f5f7;box-shadow:0 24px 80px #0009}
     .cg-oh-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
-    .cg-oh-head h2{font:800 25px var(--title,Arial);margin:4px 0}
+    .cg-oh-head h2{   font-family: "Be Vietnam Pro", Arial, sans-serif;   font-size: 25px;   font-weight: 800;   line-height: 1.3;   letter-spacing: 0;   margin: 4px 0; }
     .cg-oh-close{width:38px;height:38px;border:1px solid #454955;border-radius:10px;background:#1c2029;color:white;font-size:24px;cursor:pointer}
     .cg-oh-form{display:flex;gap:9px;margin:14px 0}
     .cg-oh-form input{flex:1;min-width:0;background:#090b10;border:1px solid #3d424e;border-radius:9px;padding:13px;color:#fff}
