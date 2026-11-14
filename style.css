@@ -1456,3 +1456,42 @@ textarea {
     touch-action: manipulation;
   }
 }
+
+
+/* ===== MOBILE HERO BUTTONS — COMPACT SIZE ===== */
+@media (max-width: 700px) {
+  .hero-buttons {
+    align-items: flex-start !important;
+    width: 100% !important;
+    max-width: 175px !important;
+    gap: 7px !important;
+  }
+
+  .hero-buttons .btn {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 175px !important;
+    min-height: 37px !important;
+    padding: 7px 9px !important;
+    font-size: 9px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    gap: 4px !important;
+  }
+
+  .hero-buttons .btn span {
+    margin-left: 3px !important;
+  }
+}
+@media (max-width: 390px) {
+  .hero-buttons {
+    max-width: 160px !important;
+  }
+  .hero-buttons .btn {
+    max-width: 160px !important;
+    min-height: 35px !important;
+    padding: 6px 7px !important;
+    font-size: 8px !important;
+  }
+}
