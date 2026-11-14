@@ -12,10 +12,14 @@
 
   const fallbackProducts = [...products];
 
-  const catalogClient = window.supabase?.createClient(
+ const catalogClient =
+  window.CAPTAIN_SUPABASE_CLIENT ||
+  window.supabase?.createClient(
     'https://cskfurtcvqomyvitcfua.supabase.co',
     'sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa'
   );
+
+window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
 
   const $ = selector => document.querySelector(selector);
   const $$ = selector => Array.from(document.querySelectorAll(selector));
