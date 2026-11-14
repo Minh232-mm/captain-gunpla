@@ -1342,146 +1342,70 @@ textarea {
 }
 
 
-/* CAPTAIN GUNPLA â€” rounded UI refinement (visual-only overrides) */
+/* ===== CAPTAIN GUNPLA â€” DARK GLASSMORPHISM CARDS ===== */
 :root {
-  --radius-card: 14px;
-  --radius-panel: 12px;
-  --radius-control: 8px;
-  --radius-small: 6px;
+  --glass-bg: linear-gradient(145deg, rgba(38, 40, 44, .88), rgba(17, 19, 23, .94));
+  --glass-border: rgba(255, 255, 255, .22);
+  --glass-highlight: rgba(255, 255, 255, .07);
+  --glass-shadow: 0 18px 42px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .08);
 }
 .product-card,
-.service,
-.gallery-item,
+.services-grid article.service,
 .contact-form,
-.review-card,
+.modal-dialog,
 .review-form,
-.review-summary,
 .review-list-wrap,
-.reviews-layout,
+.review-card,
+.gallery-item {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 24px !important;
+  box-shadow: var(--glass-shadow) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+.product-card,
+.services-grid article.service,
+.review-card,
+.gallery-item {
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease, background .25s ease;
+}
+.product-card:hover,
+.services-grid article.service:hover,
+.review-card:hover,
+.gallery-item:hover {
+  border-color: rgba(255, 255, 255, .36) !important;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .1) !important;
+  transform: translateY(-3px);
+}
+.contact-form,
+.review-form,
+.review-list-wrap {
+  padding: 24px;
+}
 .modal-dialog {
-  border-radius: var(--radius-card);
+  border-radius: 26px !important;
 }
-.product-card, .service, .gallery-item, .contact-form, .review-card, .modal-dialog {
-  overflow: hidden;
+.review-card {
+  border-radius: 17px !important;
 }
-.product-cover,
-.gallery-item img,
-.modal-main-image,
-.hero-img {
-  border-radius: var(--radius-panel);
+.gallery-item {
+  border-radius: 22px !important;
 }
-.btn, .head-cta, .category, .view-btn,
-.showcase-nav button, .modal-image-controls > button,
-.modal-close, .review-delete, .review-submit,
-.socials a, .back-top, .search-toggle, .hamburger {
-  border-radius: var(--radius-control);
+.product-card .product-cover,
+.product-card .product-meta {
+  background: transparent;
 }
-.shop-sort select, .search-panel input, .search-panel button,
-.contact-form input, .contact-form textarea,
-.qty-control, .modal-thumbs button,
-.review-form input, .review-form textarea,
-.review-form select, .review-star-picker button {
-  border-radius: var(--radius-small);
-}
-.modal-media { border-radius: var(--radius-card) 0 0 var(--radius-card); }
-.badge-product, .cover-index { border-radius: 5px; }
 @media (max-width: 700px) {
-  .modal-media { border-radius: var(--radius-card) var(--radius-card) 0 0; }
-}
-
-
-/* CAPTAIN GUNPLA â€” áº£nh Ä‘Ã­nh kÃ¨m Ä‘Ã¡nh giÃ¡ vÃ  sao mÃ u vÃ ng */
-.review-summary-stars,
-.review-card-stars,
-.review-star-picker {
-  color: #f5c542 !important;
-}
-.review-star-picker button.selected {
-  color: #f5c542 !important;
-}
-.review-image-input {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  border: 1px dashed rgba(245, 197, 66, .45) !important;
-  border-radius: 10px;
-  background: #0b0d12;
-  color: var(--white);
-}
-.review-image-hint {
-  margin: 7px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-}
-.review-image-preview,
-.review-card-photos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 12px;
-}
-.review-image-preview-item {
-  position: relative;
-  width: 88px;
-  height: 88px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--panel2);
-}
-.review-image-preview-item img,
-.review-photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.review-image-preview-item button {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 23px;
-  height: 23px;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, .78);
-  color: #fff;
-  font-size: 17px;
-  line-height: 1;
-  cursor: pointer;
-}
-.review-card-photos {
-  margin-top: 13px;
-}
-.review-photo-link {
-  display: block;
-  width: min(120px, calc(33.333% - 7px));
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--panel);
-}
-.review-photo {
-  transition: transform .25s ease;
-}
-.review-photo-link:hover .review-photo {
-  transform: scale(1.06);
-}
-.review-form input[type="file"] {
-  cursor: pointer;
-}
-.review-form input[type="file"]::file-selector-button {
-  margin-right: 10px;
-  padding: 8px 12px;
-  border: 0;
-  border-radius: 7px;
-  background: var(--red);
-  color: #fff;
-  font: 700 12px var(--tech);
-  cursor: pointer;
-}
-.review-submit:disabled {
-  opacity: .65;
-  cursor: wait;
+  .contact-form,
+  .review-form,
+  .review-list-wrap {
+    padding: 17px;
+    border-radius: 20px !important;
+  }
+  .product-card,
+  .services-grid article.service {
+    border-radius: 18px !important;
+  }
 }
