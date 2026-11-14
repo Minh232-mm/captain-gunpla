@@ -4,7 +4,7 @@
   const fallbackProducts = [...products];
   const catalogClient = window.supabase?.createClient(
     'https://cskfurtcvqomyvitcfua.supabase.co',
-    'sb_publishable_6vkQOLH_JEQq_oPhz9aN8Q_6qLj8RYa'
+    'sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa'
   );
   const $ = selector => document.querySelector(selector);
   const $$ = selector => Array.from(document.querySelectorAll(selector));
