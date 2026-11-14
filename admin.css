@@ -43,15 +43,3 @@
   .showcase-admin-option{padding:8px;gap:8px}
   .showcase-admin-option img{width:54px;height:54px}
 }
-
-
-/* ===== Bá»” SUNG: QUáº¢N LÃ BANNER, CSS CÃ” Láº¬P ===== */
-.cg-banner-admin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.cg-banner-admin-card{min-width:0;padding:14px;border:1px solid #ffffff25;border-radius:12px;background:#17191e}
-.cg-banner-admin-card>strong{display:block;margin-bottom:12px;font-size:12px;letter-spacing:1px}
-.cg-banner-admin-preview{position:relative;display:grid;place-items:center;aspect-ratio:16/6;overflow:hidden;border:1px dashed #ffffff35;border-radius:8px;background:#0c0e13;color:#858b96;font-size:11px;font-weight:800}
-.cg-banner-admin-preview img{width:100%;height:100%;object-fit:cover}
-.cg-banner-admin-preview span{position:absolute}
-.cg-banner-admin-card label{margin:12px 0;font-size:10px}
-.cg-banner-admin-card input[type=file]{font-size:11px;padding:8px}
-@media(max-width:850px){.cg-banner-admin-grid{grid-template-columns:1fr}}
