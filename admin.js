@@ -48,6 +48,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 const money = n => n == null ? 'Liên hệ' : new Intl.NumberFormat('vi-VN').format(n) + '₫';
 
 let products = [], reviews = [], currentId = null, currentImages = [];
+let showcaseItems = [], currentShowcaseId = null, currentShowcaseImages = [];
 
 function status(msg, bad = false) {
   if (!saveState) return;
@@ -112,6 +113,7 @@ async function boot() {
 
     await loadProducts();
     await loadReviews();
+    await loadShowcase();
   } catch (error) {
     console.error('[CAPTAIN ADMIN] Boot error:', error);
     showLogin('Không thể hoàn tất khởi tạo: ' + (error.message || error) +
@@ -277,10 +279,156 @@ $('#deleteProductBtn').addEventListener('click', async () => {
 
 $('#productSearch').addEventListener('input', drawList);
 
+
+// ===== QUẢN LÝ THÀNH PHẨM =====
+function showcaseStatus(message, bad = false) {
+  const el = $('#showcaseSaveState');
+  el.textContent = message;
+  el.style.color = bad ? '#ff7b86' : '#8ce0ae';
+}
+function resetShowcaseForm() {
+  currentShowcaseId = null;
+  currentShowcaseImages = [];
+  $('#showcaseForm').reset();
+  $('#showcaseForm').elements.sort_order.value = showcaseItems.length + 1;
+  $('#showcaseEditorTitle').textContent = 'THÊM THÀNH PHẨM';
+  $('#showcaseImagePreview').innerHTML = '';
+  $('#deleteShowcaseBtn').disabled = true;
+  drawShowcaseList();
+}
+function drawShowcaseList() {
+  const host = $('#showcaseList');
+  host.innerHTML = '';
+  showcaseItems.forEach(item => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'showcase-admin-option' + (item.id === currentShowcaseId ? ' active' : '');
+    const cover = item.image_urls?.[0] || '';
+    b.innerHTML = `${cover ? `<img src="${esc(cover)}" alt="">` : ''}<span><strong>${esc(item.title)}</strong><small>${item.is_visible ? 'Đang hiển thị' : 'Đang ẩn'} · ${(item.image_urls || []).length} ảnh</small></span>`;
+    b.addEventListener('click', () => selectShowcase(item.id));
+    host.append(b);
+  });
+  if (!showcaseItems.length) host.innerHTML = '<p class="muted">Chưa có thành phẩm nào.</p>';
+}
+function renderShowcaseImages() {
+  $('#showcaseImagePreview').innerHTML = currentShowcaseImages.map((url, i) =>
+    `<div class="showcase-preview-tile"><img src="${esc(url)}" alt="Ảnh thành phẩm ${i+1}"><button type="button" data-remove-showcase-image="${i}" aria-label="Xóa ảnh">×</button></div>`
+  ).join('');
+}
+function selectShowcase(id) {
+  const item = showcaseItems.find(x => x.id === id);
+  if (!item) return;
+  currentShowcaseId = id;
+  currentShowcaseImages = [...(item.image_urls || [])];
+  const f = $('#showcaseForm');
+  f.elements.title.value = item.title || '';
+  f.elements.subtitle.value = item.subtitle || '';
+  f.elements.description.value = item.description || '';
+  f.elements.sort_order.value = item.sort_order ?? 0;
+  f.elements.is_visible.checked = !!item.is_visible;
+  $('#showcaseEditorTitle').textContent = 'CHỈNH SỬA / ' + item.title;
+  $('#deleteShowcaseBtn').disabled = false;
+  drawShowcaseList();
+  renderShowcaseImages();
+}
+async function loadShowcase() {
+  try {
+    const { data, error } = await withTimeout(
+      db.from('showcase_projects').select('*').order('sort_order', { ascending: true }).order('created_at', { ascending: false }),
+      'Tải danh sách thành phẩm', 15000
+    );
+    if (error) throw error;
+    showcaseItems = data || [];
+    drawShowcaseList();
+    if (currentShowcaseId && showcaseItems.some(x => x.id === currentShowcaseId)) selectShowcase(currentShowcaseId);
+    else if (showcaseItems.length) selectShowcase(showcaseItems[0].id);
+    else resetShowcaseForm();
+    showcaseStatus('Đã đồng bộ thành phẩm với Supabase.');
+  } catch (error) {
+    console.error('[CAPTAIN ADMIN] Showcase error:', error);
+    showcaseStatus('Không tải được thành phẩm: ' + (error.message || error) + '. Hãy kiểm tra SQL và quyền truy cập.', true);
+  }
+}
+async function uploadShowcaseImages(files) {
+  if (currentShowcaseImages.length + files.length > 5) throw new Error('Mỗi thành phẩm chỉ được tối đa 5 ảnh.');
+  for (const file of files) {
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) throw new Error('Chỉ nhận JPG, PNG hoặc WEBP.');
+    if (file.size > 10 * 1024 * 1024) throw new Error('Mỗi ảnh tối đa 10MB.');
+    const ext = file.type === 'image/png' ? 'png' : file.type === 'image/webp' ? 'webp' : 'jpg';
+    const path = `showcase/${Date.now()}-${crypto.randomUUID()}.${ext}`;
+    const { error } = await db.storage.from('showcase-images').upload(path, file, { upsert: false, contentType: file.type });
+    if (error) throw error;
+    const { data } = db.storage.from('showcase-images').getPublicUrl(path);
+    currentShowcaseImages.push(data.publicUrl);
+  }
+  renderShowcaseImages();
+}
+$('#addShowcaseBtn').addEventListener('click', resetShowcaseForm);
+$('#resetShowcaseBtn').addEventListener('click', resetShowcaseForm);
+$('#showcaseFiles').addEventListener('change', async e => {
+  try {
+    showcaseStatus('Đang tải ảnh lên Supabase...');
+    await uploadShowcaseImages([...e.target.files]);
+    showcaseStatus('Đã tải ảnh. Nhấn LƯU THÀNH PHẨM để hoàn tất.');
+  } catch (error) {
+    showcaseStatus('Tải ảnh lỗi: ' + (error.message || error), true);
+  }
+  e.target.value = '';
+});
+$('#showcaseImagePreview').addEventListener('click', e => {
+  const b = e.target.closest('[data-remove-showcase-image]');
+  if (!b) return;
+  currentShowcaseImages.splice(Number(b.dataset.removeShowcaseImage), 1);
+  renderShowcaseImages();
+});
+$('#showcaseForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.currentTarget;
+  const d = new FormData(f);
+  if (!currentShowcaseImages.length) return showcaseStatus('Bạn cần tải lên ít nhất 1 ảnh.', true);
+  const row = {
+    title: String(d.get('title') || '').trim(),
+    subtitle: String(d.get('subtitle') || '').trim(),
+    description: String(d.get('description') || '').trim(),
+    image_urls: currentShowcaseImages,
+    sort_order: Number(d.get('sort_order') || 0),
+    is_visible: f.elements.is_visible.checked,
+    updated_at: new Date().toISOString()
+  };
+  if (!row.title) return showcaseStatus('Vui lòng nhập tên thành phẩm.', true);
+  showcaseStatus('Đang lưu thành phẩm...');
+  try {
+    let query = db.from('showcase_projects');
+    const result = currentShowcaseId
+      ? await query.update(row).eq('id', currentShowcaseId)
+      : await query.insert(row).select('id').single();
+    if (result.error) throw result.error;
+    if (!currentShowcaseId) currentShowcaseId = result.data.id;
+    await loadShowcase();
+    showcaseStatus('Đã lưu thành phẩm. Trang chủ sẽ cập nhật khi tải lại.');
+  } catch (error) {
+    console.error('[CAPTAIN ADMIN] Save showcase error:', error);
+    showcaseStatus('Không lưu được thành phẩm: ' + (error.message || error), true);
+  }
+});
+$('#deleteShowcaseBtn').addEventListener('click', async () => {
+  if (!currentShowcaseId || !confirm('Xóa thành phẩm này khỏi website?')) return;
+  try {
+    const { error } = await db.from('showcase_projects').delete().eq('id', currentShowcaseId);
+    if (error) throw error;
+    currentShowcaseId = null;
+    await loadShowcase();
+    showcaseStatus('Đã xóa thành phẩm.');
+  } catch (error) {
+    showcaseStatus('Không xóa được: ' + (error.message || error), true);
+  }
+});
+
 document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('[data-tab]').forEach(x => x.classList.toggle('active', x === b));
   $('#productsTab').hidden = b.dataset.tab !== 'products';
   $('#reviewsTab').hidden = b.dataset.tab !== 'reviews';
+  $('#showcaseTab').hidden = b.dataset.tab !== 'showcase';
 }));
 
 async function loadReviews() {
