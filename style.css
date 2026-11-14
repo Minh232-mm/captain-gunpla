@@ -2085,4 +2085,28 @@ main > section {
 img {
   max-width: 100%;
 }
+/* SOCIAL LINKS - CUỐI WEBSITE */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 20px 7% 30px;
+  background: #0c0d12;
+  border-top: 1px solid var(--line);
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .footer-socials {
+    padding: 18px 12px 25px;
+  }
+}
 
