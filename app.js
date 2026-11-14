@@ -1,11 +1,16 @@
 (() => {
   'use strict';
-  const products = Array.isArray(window.CAPTAIN_PRODUCTS) ? window.CAPTAIN_PRODUCTS : [];
+  let products = Array.isArray(window.CAPTAIN_PRODUCTS) ? [...window.CAPTAIN_PRODUCTS] : [];
+  const fallbackProducts = [...products];
+  const catalogClient = window.supabase?.createClient(
+    'https://cskfurtcvqomyvitcfua.supabase.co',
+    'sb_publishable_6vkQOLH_JEQq_oPhz9aN8Q_6qLj8RYa'
+  );
   const $ = selector => document.querySelector(selector);
   const $$ = selector => Array.from(document.querySelectorAll(selector));
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
   const money = value => typeof value === 'number' && Number.isFinite(value) ? new Intl.NumberFormat('vi-VN').format(value) + '₫' : 'GIÁ LIÊN HỆ';
-  const categoryNames = {gunpla:'GUNPLA / MODEL KIT',custom:'CUSTOM / PROJECT',tools:'TOOLS / EQUIPMENT',accessories:'ACCESSORY / DETAIL'};
+  const categoryNames = {gunpla:'GUNPLA / MODEL KIT',secondhand:'SECOND HAND',custom:'CUSTOM / PROJECT',tools:'TOOLS / EQUIPMENT',accessories:'ACCESSORY / DETAIL'};
   let category = 'all'; let search = ''; let activeProduct = null; let imageIndex = 0; let previousFocus = null;
   const grid = $('#productGrid');
   function imgPath(product,index=0){ return (product.images || [])[index] || 'assets/anhsanpham1.jpg'; }
@@ -54,5 +59,17 @@
   const back=$('#backTop');window.addEventListener('scroll',()=>back.classList.toggle('visible',window.scrollY>550),{passive:true});back.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}}),{threshold:.09});$$('[data-reveal]').forEach(el=>observer.observe(el));}else{$$('[data-reveal]').forEach(el=>el.classList.add('revealed'));}
   $('#contactForm').addEventListener('submit', async event=>{event.preventDefault();const data=new FormData(event.currentTarget);const message=`CAPTAIN GUNPLA — YÊU CẦU TƯ VẤN\nHọ tên: ${data.get('name')}\nSĐT/Zalo: ${data.get('phone')}\nSản phẩm/Dịch vụ: ${data.get('product')||'Chưa chọn'}\nChi tiết: ${data.get('message')||'Không có'}`;window.open('https://zalo.me/0395193831','_blank','noopener,noreferrer');let copied=false;try{await navigator.clipboard.writeText(message);copied=true;}catch(error){const copy=document.createElement('textarea');copy.value=message;copy.style.position='fixed';copy.style.left='-9999px';document.body.append(copy);copy.select();copied=document.execCommand('copy');copy.remove();}$('#formStatus').textContent=copied?'Đã sao chép nội dung. Zalo sẽ mở ở tab mới — hãy dán và gửi tin nhắn.':'Zalo sẽ mở ở tab mới. Hãy sao chép thông tin trong form để gửi thủ công.';});
-  render();
+  async function loadCatalogFromSupabase(){
+    if(!catalogClient){ render(); return; }
+    const {data,error}=await catalogClient.from('products')
+      .select('id,name,category,grade,price,old_price,badge,images,description,available,stock')
+      .eq('available',true).order('sort_order',{ascending:true});
+    if(error){
+      console.warn('CAPTAIN GUNPLA: Không tải được catalog Supabase, dùng dữ liệu products.js dự phòng.',error);
+      products=fallbackProducts; render(); return;
+    }
+    products=(data||[]).map(p=>({...p,oldPrice:p.old_price}));
+    render();
+  }
+  loadCatalogFromSupabase();
 })();
