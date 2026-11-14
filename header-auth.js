@@ -2,15 +2,10 @@
 const HEADER_SUPABASE_URL = "https://cskfurtcvqomyvitcfua.supabase.co";
 const HEADER_SUPABASE_KEY = "sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa";
 
-// Dùng chung Supabase client trên toàn website
-const headerSupabase =
-  window.CAPTAIN_SUPABASE_CLIENT ||
-  window.supabase.createClient(
-    HEADER_SUPABASE_URL,
-    HEADER_SUPABASE_KEY
-  );
-
-window.CAPTAIN_SUPABASE_CLIENT = headerSupabase;
+const headerSupabase = window.supabase.createClient(
+  HEADER_SUPABASE_URL,
+  HEADER_SUPABASE_KEY
+);
 
 const headerLogin = document.getElementById("headerLogin");
 const headerUser = document.getElementById("headerUser");
@@ -21,8 +16,6 @@ const headerUserMenu = document.getElementById("headerUserMenu");
 const headerSignOut = document.getElementById("headerSignOut");
 
 function showHeaderUser(user) {
-  if (!headerLogin || !headerUser) return;
-
   if (!user) {
     headerLogin.hidden = false;
     headerUser.hidden = true;
@@ -36,8 +29,8 @@ function showHeaderUser(user) {
     user.email?.split("@")[0] ||
     "TÀI KHOẢN";
 
-  if (headerUserName) headerUserName.textContent = displayName;
-  if (headerUserEmail) headerUserEmail.textContent = user.email || "";
+  headerUserName.textContent = displayName;
+  headerUserEmail.textContent = user.email || "";
 
   headerLogin.hidden = true;
   headerUser.hidden = false;
@@ -52,10 +45,7 @@ async function updateHeaderAuth() {
 }
 
 headerUserButton?.addEventListener("click", () => {
-  if (!headerUserMenu) return;
-
   headerUserMenu.hidden = !headerUserMenu.hidden;
-
   headerUserButton.setAttribute(
     "aria-expanded",
     String(!headerUserMenu.hidden)
@@ -70,8 +60,7 @@ headerSignOut?.addEventListener("click", async () => {
     return;
   }
 
-  if (headerUserMenu) headerUserMenu.hidden = true;
-
+  headerUserMenu.hidden = true;
   showHeaderUser(null);
   window.location.reload();
 });
