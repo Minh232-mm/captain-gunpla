@@ -19,6 +19,14 @@
   <script defer src="header-auth.js"></script>
   <script defer src="reviews.js"></script>
   <script defer src="hero-carousel.js"></script>
+
+  <style>
+    .footer-admin-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 16px;border:1px solid rgba(240,55,66,.65);border-radius:10px;background:rgba(240,55,66,.10);color:#f5f6f8;font:700 12px var(--tech);letter-spacing:1px;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s}
+    .footer-admin-link:hover{background:#f03742;border-color:#f03742;transform:translateY(-2px)}
+    .footer-admin-link:focus-visible{outline:2px solid #ff6673;outline-offset:3px}
+    @media(max-width:700px){.footer-admin-link{align-self:flex-start}}
+  </style>
+
 </head>
 
 <body>
@@ -703,6 +711,10 @@
 
     <span>BUILD WITH PASSION. DISPLAY WITH PRIDE.</span>
     <small>© 2026 CAPTAIN GUNPLA</small>
+
+    <a class="footer-admin-link" href="admin.html" aria-label="Đăng nhập quản trị CAPTAIN GUNPLA">
+      <span aria-hidden="true">⚙</span> ADMIN LOGIN <span aria-hidden="true">↗</span>
+    </a>
 
   </footer>
 
