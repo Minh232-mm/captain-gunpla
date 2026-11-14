@@ -2,7 +2,7 @@
   'use strict';
   const SUPABASE_URL = 'https://cskfurtcvqomyvitcfua.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa';
-  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const client =   window.CAPTAIN_SUPABASE_CLIENT ||   window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);  window.CAPTAIN_SUPABASE_CLIENT = client;
   const $ = s => document.querySelector(s);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const money = value => new Intl.NumberFormat('vi-VN').format(Number(value || 0)) + '₫';
