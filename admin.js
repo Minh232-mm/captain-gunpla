@@ -300,17 +300,89 @@ function resetShowcaseForm() {
 function drawShowcaseList() {
   const host = $('#showcaseList');
   host.innerHTML = '';
-  showcaseItems.forEach(item => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'showcase-admin-option' + (item.id === currentShowcaseId ? ' active' : '');
+  showcaseItems.forEach((item, index) => {
+    const row = document.createElement('div');
+    row.className = 'showcase-admin-row';
+    row.dataset.showcaseId = item.id;
+
+    const handle = document.createElement('button');
+    handle.type = 'button';
+    handle.className = 'showcase-drag-handle';
+    handle.setAttribute('aria-label', `Kéo để đổi thứ tự ${item.title}`);
+    handle.setAttribute('title', 'Giữ và kéo để đổi thứ tự');
+    handle.textContent = '⠿';
+
+    const select = document.createElement('button');
+    select.type = 'button';
+    select.className = 'showcase-admin-option' + (item.id === currentShowcaseId ? ' active' : '');
     const cover = item.image_urls?.[0] || '';
-    b.innerHTML = `${cover ? `<img src="${esc(cover)}" alt="">` : ''}<span><strong>${esc(item.title)}</strong><small>${item.is_visible ? 'Đang hiển thị' : 'Đang ẩn'} · ${(item.image_urls || []).length} ảnh</small></span>`;
-    b.addEventListener('click', () => selectShowcase(item.id));
-    host.append(b);
+    select.innerHTML = `${cover ? `<img src="${esc(cover)}" alt="">` : ''}<span><strong>${esc(item.title)}</strong><small>${item.is_visible ? 'Đang hiển thị' : 'Đang ẩn'} · ${(item.image_urls || []).length} ảnh</small></span><small class="showcase-order-number">${String(index + 1).padStart(2, '0')}</small>`;
+    select.addEventListener('click', () => selectShowcase(item.id));
+
+    row.append(handle, select);
+    host.append(row);
   });
-  if (!showcaseItems.length) host.innerHTML = '<p class="muted">Chưa có thành phẩm nào.</p>';
+  if (!showcaseItems.length) {
+    host.innerHTML = '<p class="muted">Chưa có thành phẩm nào.</p>';
+  }
+  initShowcaseSorting();
 }
+
+// SortableJS hỗ trợ kéo bằng chuột và thao tác chạm trên điện thoại.
+let showcaseSortable = null;
+function initShowcaseSorting() {
+  const host = $('#showcaseList');
+  if (!host || !window.Sortable) return;
+
+  if (showcaseSortable) showcaseSortable.destroy();
+  showcaseSortable = Sortable.create(host, {
+    animation: 180,
+    handle: '.showcase-drag-handle',
+    draggable: '.showcase-admin-row',
+    ghostClass: 'showcase-sort-ghost',
+    chosenClass: 'showcase-sort-chosen',
+    dragClass: 'showcase-sort-drag',
+    forceFallback: true,
+    fallbackOnBody: true,
+    swapThreshold: 0.65,
+    delay: 120,
+    delayOnTouchOnly: true,
+    touchStartThreshold: 5,
+    onEnd: async event => {
+      if (event.oldIndex === event.newIndex) return;
+      const previousItems = [...showcaseItems];
+      const moved = showcaseItems.splice(event.oldIndex, 1)[0];
+      showcaseItems.splice(event.newIndex, 0, moved);
+
+      showcaseStatus('Đang lưu thứ tự hiển thị...');
+      try {
+        // Cập nhật tuần tự để tránh ghi đè đồng thời.
+        for (let index = 0; index < showcaseItems.length; index++) {
+          const item = showcaseItems[index];
+          const { error } = await db
+            .from('showcase_projects')
+            .update({ sort_order: (index + 1) * 10, updated_at: new Date().toISOString() })
+            .eq('id', item.id);
+          if (error) throw error;
+        }
+
+        showcaseItems = showcaseItems.map((item, index) => ({
+          ...item,
+          sort_order: (index + 1) * 10
+        }));
+        drawShowcaseList();
+        showcaseStatus('Đã lưu thứ tự mới. Trang chủ sẽ hiển thị theo thứ tự này.');
+      } catch (error) {
+        console.error('[CAPTAIN ADMIN] Reorder showcase error:', error);
+        showcaseItems = previousItems;
+        drawShowcaseList();
+        showcaseStatus('Không lưu được thứ tự: ' + (error.message || error) + '. Danh sách đã được khôi phục.', true);
+        await loadShowcase();
+      }
+    }
+  });
+}
+
 function renderShowcaseImages() {
   $('#showcaseImagePreview').innerHTML = currentShowcaseImages.map((url, i) =>
     `<div class="showcase-preview-tile"><img src="${esc(url)}" alt="Ảnh thành phẩm ${i+1}"><button type="button" data-remove-showcase-image="${i}" aria-label="Xóa ảnh">×</button></div>`
