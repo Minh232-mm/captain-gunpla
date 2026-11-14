@@ -6,6 +6,7 @@
 <title>CAPTAIN GUNPLA / ADMIN</title>
 <link rel="stylesheet" href="admin.css">
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
 <script defer src="admin.js"></script>
 </head>
 <body>
@@ -60,7 +61,8 @@
     <section id="showcaseTab" class="admin-layout" hidden>
       <aside class="panel">
         <div class="panel-head"><h2>DANH SÁCH THÀNH PHẨM</h2><button id="addShowcaseBtn" class="accent" type="button">+ THÊM THÀNH PHẨM</button></div>
-        <div id="showcaseList" class="product-list"></div>
+        <p class="showcase-sort-hint">⠿ Giữ biểu tượng bên trái rồi kéo để đổi thứ tự hiển thị.</p>
+        <div id="showcaseList" class="product-list showcase-list"></div>
       </aside>
       <section class="panel editor">
         <div class="panel-head"><div><h2 id="showcaseEditorTitle">THÊM THÀNH PHẨM</h2><p class="muted">Tải tối đa 5 ảnh cho mỗi thành phẩm. Ảnh được lưu trên Supabase Storage.</p></div><span id="showcaseSaveState" role="status"></span></div>
