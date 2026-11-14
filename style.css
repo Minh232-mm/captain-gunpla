@@ -1495,3 +1495,43 @@ textarea {
     font-size: 8px !important;
   }
 }
+
+
+/* ===== TIGHTER MOBILE HERO BUTTON HEIGHT ===== */
+@media (max-width: 700px) {
+  .hero-buttons {
+    gap: 6px !important;
+  }
+
+  .hero-buttons .btn,
+  .hero-buttons a.btn,
+  .hero-buttons button.btn {
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    padding: 0 9px !important;
+    line-height: 1 !important;
+    font-size: 9px !important;
+    letter-spacing: 0 !important;
+    gap: 3px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-buttons .btn span {
+    margin: 0 0 0 3px !important;
+    line-height: 1 !important;
+  }
+}
+@media (max-width: 390px) {
+  .hero-buttons .btn,
+  .hero-buttons a.btn,
+  .hero-buttons button.btn {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 7px !important;
+    font-size: 8px !important;
+  }
+}
