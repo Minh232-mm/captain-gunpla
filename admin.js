@@ -114,6 +114,7 @@ async function boot() {
     await loadProducts();
     await loadReviews();
     await loadShowcase();
+    await loadOrders();
   } catch (error) {
     console.error('[CAPTAIN ADMIN] Boot error:', error);
     showLogin('Không thể hoàn tất khởi tạo: ' + (error.message || error) +
@@ -429,7 +430,70 @@ document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click',
   $('#productsTab').hidden = b.dataset.tab !== 'products';
   $('#reviewsTab').hidden = b.dataset.tab !== 'reviews';
   $('#showcaseTab').hidden = b.dataset.tab !== 'showcase';
+  $('#ordersTab').hidden = b.dataset.tab !== 'orders';
+  if (b.dataset.tab === 'orders') loadOrders();
 }));
+
+
+const orderStatuses = {
+  pending: 'Chờ xác nhận',
+  confirmed: 'Đã xác nhận',
+  preparing: 'Đang chuẩn bị',
+  shipping: 'Đang giao hàng',
+  completed: 'Hoàn thành',
+  cancelled: 'Đã hủy'
+};
+
+async function loadOrders() {
+  const host = $('#orderAdminList');
+  if (!host) return;
+  host.innerHTML = '<p>Đang tải đơn hàng...</p>';
+  try {
+    const {data, error} = await db.from('orders')
+      .select('id,order_code,customer_name,customer_phone,customer_address,customer_note,status,subtotal,created_at,order_items(id,product_id,product_name,product_image,unit_price,quantity,line_total)')
+      .order('created_at', {ascending:false}).limit(100);
+    if (error) throw error;
+    const rows = data || [];
+    if (!rows.length) { host.innerHTML = '<p>Chưa có đơn hàng nào.</p>'; return; }
+    host.innerHTML = rows.map(order => `
+      <article class="order-admin-card" data-order-id="${esc(order.id)}">
+        <div class="order-admin-head">
+          <div><strong>${esc(order.order_code)}</strong><small>${new Date(order.created_at).toLocaleString('vi-VN')}</small></div>
+          <strong>${money(Number(order.subtotal))}</strong>
+        </div>
+        <div class="order-admin-customer"><b>${esc(order.customer_name)}</b> · ${esc(order.customer_phone)}<br>${esc(order.customer_address)}</div>
+        ${order.customer_note ? `<p class="muted">Ghi chú: ${esc(order.customer_note)}</p>` : ''}
+        <div class="order-admin-items">${(order.order_items || []).map(item => `<div class="order-admin-item">${item.product_image ? `<img src="${esc(item.product_image)}" alt="">` : ''}<span>${esc(item.product_name)} × ${Number(item.quantity)}</span><b>${money(Number(item.line_total))}</b></div>`).join('')}</div>
+        <label class="order-status-label">TRẠNG THÁI
+          <select data-order-status>
+            ${Object.entries(orderStatuses).map(([value,label]) => `<option value="${value}" ${order.status===value?'selected':''}>${label}</option>`).join('')}
+          </select>
+        </label>
+        <span class="order-save-state" role="status"></span>
+      </article>`).join('');
+  } catch (error) {
+    host.innerHTML = `<p class="error">Không tải được đơn hàng: ${esc(error.message || error)}</p>`;
+  }
+}
+
+$('#orderAdminList')?.addEventListener('change', async event => {
+  const select = event.target.closest('[data-order-status]');
+  if (!select) return;
+  const card = select.closest('[data-order-id]');
+  const state = card.querySelector('.order-save-state');
+  select.disabled = true;
+  state.textContent = 'Đang cập nhật...';
+  try {
+    const {error} = await db.from('orders')
+      .update({status:select.value,updated_at:new Date().toISOString()})
+      .eq('id',card.dataset.orderId);
+    if (error) throw error;
+    state.textContent = 'Đã cập nhật trạng thái.';
+  } catch (error) {
+    state.textContent = 'Lỗi: ' + (error.message || error);
+  } finally { select.disabled = false; }
+});
+$('#refreshOrdersBtn')?.addEventListener('click', loadOrders);
 
 async function loadReviews() {
   try {
