@@ -1,1 +1,66 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CAPTAIN GUNPLA / PRODUCT EDITOR</title><link rel="stylesheet" href="admin.css"><script defer src="products.js"></script><script defer src="admin.js"></script></head><body><header><div><a href="index.html">← TRỞ VỀ WEBSITE</a><h1>CAPTAIN <em>GUNPLA</em> / PRODUCT EDITOR</h1><p>Thêm sản phẩm, thay ảnh, thay giá — xuất file products.js để cập nhật website.</p></div><button id="exportBtn" class="accent">↓ XUẤT FILE PRODUCTS.JS</button></header><main><aside><div class="panel-head"><h2>DANH SÁCH SẢN PHẨM</h2><button id="addBtn">+ THÊM MỚI</button></div><div id="productList"></div></aside><section class="editor"><h2 id="editorTitle">CHỈNH SỬA SẢN PHẨM</h2><p class="notice">Thay đổi trong trang này chỉ lưu tạm trên trình duyệt của bạn. Sau khi chỉnh xong, nhấn <b>XUẤT FILE PRODUCTS.JS</b> và thay file cùng tên trên hosting để mọi khách đều thấy cập nhật.</p><form id="editForm"><div class="pair"><label>MÃ SẢN PHẨM (KHÔNG TRÙNG)<input name="id" required pattern="[a-zA-Z0-9_-]+" placeholder="vd: rg-exia"></label><label>NHÓM SẢN PHẨM<select name="category"><option value="gunpla">GUNPLA</option><option value="custom">CUSTOM</option><option value="tools">DỤNG CỤ</option><option value="accessories">PHỤ KIỆN</option></select></label></div><label>TÊN SẢN PHẨM<input name="name" required placeholder="Tên mô hình"></label><div class="pair"><label>DÒNG / TỈ LỆ<input name="grade" placeholder="MG · 1/100"></label><label>NHÃN NỔI BẬT<input name="badge" placeholder="NEW, HOT, CUSTOM..."></label></div><div class="pair"><label>GIÁ BÁN (VND) — ĐỂ TRỐNG NẾU LIÊN HỆ<input name="price" type="number" min="0" step="1000" placeholder="890000"></label><label>GIÁ GỐC (VND) — TÙY CHỌN<input name="oldPrice" type="number" min="0" step="1000" placeholder="1050000"></label></div><label>ĐƯỜNG DẪN ẢNH — MỖI DÒNG MỘT ẢNH<textarea name="images" rows="5" placeholder="assets/anhsanpham1.jpg&#10;assets/anhsanpham1_2.jpg"></textarea><small>Ảnh cần tồn tại trong thư mục website. Có thể dùng nhiều ảnh cho mỗi sản phẩm; khách sẽ vuốt/chuyển được trong popup.</small></label><label>MÔ TẢ SẢN PHẨM<textarea name="description" rows="4"></textarea></label><label class="visible"><input type="checkbox" name="available" checked> HIỂN THỊ SẢN PHẨM TRÊN WEBSITE</label><div class="actions"><button type="submit" class="accent">LƯU THAY ĐỔI</button><button type="button" id="deleteBtn" class="danger">XÓA SẢN PHẨM</button><button type="button" id="resetBtn">KHÔI PHỤC DỮ LIỆU GỐC</button></div><p id="editorStatus" aria-live="polite"></p></form></section></main><script></script></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08090d">
+<title>CAPTAIN GUNPLA / ADMIN</title>
+<link rel="stylesheet" href="admin.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="admin.js"></script>
+</head>
+<body>
+<header class="admin-header">
+  <div><a href="index.html">← TRỞ VỀ WEBSITE</a><h1>CAPTAIN <em>GUNPLA</em> / ADMIN</h1><p>Quản lý sản phẩm, giá, tồn kho, hình ảnh và đánh giá.</p></div>
+  <div class="header-actions"><span id="adminIdentity">Đang kiểm tra phiên đăng nhập...</span><button id="logoutBtn" hidden>ĐĂNG XUẤT</button></div>
+</header>
+<main>
+  <section id="loginPanel" class="panel auth-panel" hidden>
+    <h2>ĐĂNG NHẬP QUẢN TRỊ</h2>
+    <p>Đăng nhập bằng tài khoản đã được cấp quyền Admin. Không có chức năng tự đăng ký Admin.</p>
+    <form id="loginForm">
+      <label>Email<input name="email" type="email" autocomplete="username" required></label>
+      <label>Mật khẩu<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="accent" type="submit">ĐĂNG NHẬP ADMIN</button>
+    </form><p id="loginStatus" role="status"></p>
+  </section>
+
+  <section id="dashboard" hidden>
+    <div class="stats">
+      <article class="stat"><small>TỔNG SẢN PHẨM</small><strong id="statTotal">0</strong></article>
+      <article class="stat"><small>ĐANG HIỂN THỊ</small><strong id="statVisible">0</strong></article>
+      <article class="stat"><small>TẠM ẨN</small><strong id="statHidden">0</strong></article>
+      <article class="stat"><small>ĐÁNH GIÁ</small><strong id="statReviews">0</strong></article>
+    </div>
+    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button></nav>
+    <section id="productsTab" class="admin-layout">
+      <aside class="panel">
+        <div class="panel-head"><h2>DANH SÁCH SẢN PHẨM</h2><button id="addBtn" class="accent">+ THÊM</button></div>
+        <input id="productSearch" placeholder="Tìm sản phẩm...">
+        <div id="productList" class="product-list"></div>
+      </aside>
+      <section class="panel editor">
+        <div class="panel-head"><div><h2 id="editorTitle">CHỌN SẢN PHẨM</h2><p class="muted">Mọi thay đổi được lưu trực tiếp vào Supabase.</p></div><span id="saveState" role="status"></span></div>
+        <form id="editForm">
+          <div class="pair">
+            <label>MÃ SẢN PHẨM<input name="id" required pattern="[a-zA-Z0-9_-]+" placeholder="vd: rg-exia"></label>
+            <label>NHÓM<select name="category"><option value="gunpla">GUNPLA</option><option value="secondhand">2HAND</option><option value="custom">CUSTOM</option><option value="tools">DỤNG CỤ</option><option value="accessories">PHỤ KIỆN</option></select></label>
+          </div>
+          <label>TÊN SẢN PHẨM<input name="name" required></label>
+          <div class="pair"><label>DÒNG / TỈ LỆ<input name="grade"></label><label>Nhãn nổi bật<input name="badge" placeholder="NEW, HOT, SALE..."></label></div>
+          <div class="pair"><label>GIÁ BÁN (VND)<input name="price" type="number" min="0" step="1000"></label><label>GIÁ GỐC (VND)<input name="old_price" type="number" min="0" step="1000"></label></div>
+          <div class="pair"><label>TỒN KHO<input name="stock" type="number" min="0" step="1" value="0"></label><label>THỨ TỰ HIỂN THỊ<input name="sort_order" type="number" step="1" value="0"></label></div>
+          <label>MÔ TẢ<textarea name="description" rows="6"></textarea></label>
+          <label>ẢNH SẢN PHẨM — JPG / PNG / WEBP<input id="imageFiles" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+          <div id="imagePreview" class="image-preview"></div>
+          <label class="check"><input name="available" type="checkbox" checked> HIỂN THỊ TRÊN WEBSITE</label>
+          <div class="actions"><button class="accent" type="submit">LƯU SẢN PHẨM</button><button id="deleteProductBtn" class="danger" type="button">XÓA SẢN PHẨM</button><button id="newProductBtn" type="button">LÀM MỚI FORM</button></div>
+        </form>
+      </section>
+    </section>
+    <section id="reviewsTab" class="panel" hidden>
+      <div class="panel-head"><div><h2>ĐÁNH GIÁ KHÁCH HÀNG</h2><p class="muted">Xem nội dung, ảnh đính kèm và xóa đánh giá vi phạm khi cần.</p></div><button id="refreshReviewsBtn">TẢI LẠI</button></div>
+      <div id="reviewAdminList" class="review-admin-list"></div>
+    </section>
+  </section>
+</main>
+</body></html>
