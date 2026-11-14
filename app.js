@@ -12,10 +12,14 @@
 
   const fallbackProducts = [...products];
 
-  const catalogClient = window.supabase?.createClient(
+ const catalogClient =
+  window.CAPTAIN_SUPABASE_CLIENT ||
+  window.supabase?.createClient(
     'https://cskfurtcvqomyvitcfua.supabase.co',
     'sb_publishable_6vkQOLH_jEQq_oPhz9aN8Q_6qLj8RYa'
   );
+
+window.CAPTAIN_SUPABASE_CLIENT = catalogClient;
 
   const $ = selector => document.querySelector(selector);
   const $$ = selector => Array.from(document.querySelectorAll(selector));
@@ -36,22 +40,65 @@
 
 
   // ==========================================
-  // GIỎ HÀNG - LƯU CỤC BỘ TRÊN THIẾT BỊ
+  // GIỎ HÀNG - LƯU RIÊNG THEO TÀI KHOẢN
   // ==========================================
   const CART_STORAGE_KEY = 'captainGunplaCartV1';
   let cartItems = [];
+  let cartUserId = null;
+  let cartAuthStateReady = false;
 
-  try {
-    const savedCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
-    cartItems = Array.isArray(savedCart) ? savedCart.filter(item =>
-      item && typeof item.id === 'string' && Number.isInteger(item.qty) && item.qty > 0
-    ) : [];
-  } catch (_) { cartItems = []; }
+  function getCartStorageKey(userId = cartUserId) {
+    return userId
+      ? `${CART_STORAGE_KEY}:user:${userId}`
+      : `${CART_STORAGE_KEY}:guest`;
+  }
+
+  function readCart(userId) {
+    try {
+      const savedCart = JSON.parse(localStorage.getItem(getCartStorageKey(userId)) || '[]');
+      return Array.isArray(savedCart) ? savedCart.filter(item =>
+        item && typeof item.id === 'string' && Number.isInteger(item.qty) && item.qty > 0
+      ) : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  function loadCartForUser(userId) {
+    cartUserId = userId || null;
+    cartItems = readCart(cartUserId);
+    renderCart();
+  }
+
+  // Khởi tạo giỏ khách trước; sau đó đồng bộ đúng tài khoản từ phiên Supabase.
+  cartItems = readCart(null);
 
   function saveCart() {
-    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems)); }
-    catch (error) { console.warn('Không thể lưu giỏ hàng trên thiết bị.', error); }
+    try {
+      localStorage.setItem(getCartStorageKey(), JSON.stringify(cartItems));
+    } catch (error) {
+      console.warn('Không thể lưu giỏ hàng trên thiết bị.', error);
+    }
     renderCart();
+  }
+
+  if (catalogClient?.auth) {
+    catalogClient.auth.onAuthStateChange((_event, session) => {
+      const nextUserId = session?.user?.id || null;
+      if (nextUserId !== cartUserId) loadCartForUser(nextUserId);
+      cartAuthStateReady = true;
+    });
+
+    catalogClient.auth.getSession().then(({ data, error }) => {
+      if (error) console.warn('Không đọc được phiên đăng nhập để tải giỏ hàng.', error);
+      if (!cartAuthStateReady) {
+        loadCartForUser(data?.session?.user?.id || null);
+        cartAuthStateReady = true;
+      }
+    }).catch(error => {
+      console.warn('Không thể đồng bộ giỏ hàng với phiên đăng nhập.', error);
+      cartAuthStateReady = true;
+    });
   }
 
   function cartQuantity() {
