@@ -1848,3 +1848,30 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
 
 /* ===== CAPTAIN GUNPLA CART ===== */
 .cart-toggle{position:relative;min-height:39px;padding:0 11px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#11131a;color:#fff;font:700 12px var(--tech);letter-spacing:.8px;white-space:nowrap}.cart-toggle>span:first-child{font-size:17px;color:var(--red)}.cart-count{display:inline-grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:20px;background:var(--red);color:#fff;font:700 11px var(--font)}.cart-count[hidden]{display:none}.cart-overlay{position:fixed;inset:0;z-index:300;display:none}.cart-overlay.open{display:block}.cart-shade{position:absolute;inset:0;width:100%;height:100%;border:0;background:rgba(0,0,0,.72);backdrop-filter:blur(4px)}.cart-drawer{position:absolute;top:0;right:0;width:min(470px,100%);height:100%;display:flex;flex-direction:column;background:#11131a;border-left:1px solid #ffffff24;box-shadow:-25px 0 80px #0009;padding:25px}.cart-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}.cart-header .eyebrow{margin:0 0 7px;color:var(--red);font-size:10px}.cart-header h2{margin:0;font:700 32px var(--tech)}.cart-close{width:40px;height:40px;border:1px solid var(--line);background:#20232c;color:#fff;font-size:27px}.cart-items{flex:1;overflow:auto;padding:15px 0}.cart-empty{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#a2a6b0}.cart-empty>span{font-size:38px;color:var(--red);margin-bottom:15px}.cart-empty strong{color:#fff;font:700 17px var(--tech)}.cart-empty p{font-size:12px;line-height:1.7}.cart-item{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}.cart-item>img{width:94px;height:105px;flex:0 0 94px;object-fit:contain;background:#20232c;border-radius:8px}.cart-item-info{min-width:0;flex:1;display:flex;flex-direction:column;gap:7px}.cart-item-info>strong{font-size:13px;line-height:1.5}.cart-item-info>span{color:#fff;font-weight:700}.cart-item-controls{display:flex;align-items:center;gap:10px;margin-top:auto}.cart-item-controls button{width:28px;height:28px;border:1px solid var(--line);background:#20232c;color:#fff}.cart-item-controls b{min-width:16px;text-align:center}.cart-item-controls .cart-remove{width:auto;margin-left:auto;padding:0 9px;color:#ff737b;font-size:10px}.cart-footer{padding-top:17px;border-top:1px solid var(--line)}.cart-total-row{display:flex;justify-content:space-between;align-items:center;font:700 13px var(--tech);letter-spacing:1px}.cart-total-row strong{font-size:23px;color:#fff}.cart-note{font-size:11px;line-height:1.6;color:#8d929e}.cart-action{width:100%;justify-content:center;margin-top:8px}.cart-clear{display:block;margin:13px auto 0;border:0;background:none;color:#a3a7b0;font-size:10px;letter-spacing:1px}.cart-clear:hover{color:#ff737b}body.cart-open{overflow:hidden}@media(max-width:700px){.cart-toggle{height:37px;min-height:37px;padding:0 8px;gap:5px;font-size:10px}.cart-toggle-label{display:none}.cart-drawer{padding:18px}.cart-item>img{width:78px;height:90px;flex-basis:78px}}
+
+
+/* ===== CAPTAIN GUNPLA CHECKOUT ===== */
+.checkout-overlay{position:fixed;inset:0;z-index:320;display:none;align-items:center;justify-content:center;padding:18px}
+.checkout-overlay.open{display:flex}
+.checkout-shade{position:absolute;inset:0;width:100%;height:100%;border:0;background:rgba(0,0,0,.78);backdrop-filter:blur(5px)}
+.checkout-dialog{position:relative;z-index:1;width:min(560px,100%);max-height:min(92vh,900px);overflow:auto;padding:25px;background:#15171e;border:1px solid #ffffff30;border-radius:18px;box-shadow:0 24px 80px #000b;color:#f5f6f8}
+.checkout-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.checkout-head .eyebrow{margin:0 0 6px;color:var(--red);font-size:10px;letter-spacing:2px}
+.checkout-head h2{margin:0;font:700 25px var(--tech)}
+.checkout-intro{color:#aeb2bd;font-size:13px;line-height:1.65}
+.checkout-form{display:grid;gap:13px}
+.checkout-form[hidden],.checkout-success[hidden]{display:none}
+.checkout-form label{display:grid;gap:6px;color:#c6cad3;font-size:11px;font-weight:700;letter-spacing:.5px}
+.checkout-form input,.checkout-form textarea{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #3a3e49;border-radius:9px;background:#0b0d12;color:#fff;font:400 14px var(--font)}
+.checkout-form input:focus,.checkout-form textarea:focus{outline:1px solid var(--red);border-color:var(--red)}
+.checkout-summary{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--line);font:700 13px var(--tech)}
+.checkout-summary strong{font-size:22px;color:#fff}
+.checkout-status{margin:0;color:#ff9a9f;font-size:12px;line-height:1.5}
+.checkout-submit{width:100%;justify-content:center}
+.checkout-submit:disabled{opacity:.65;cursor:wait}
+.checkout-success{padding:28px 5px;text-align:center}
+.checkout-success>strong{display:block;color:#8ce0ae;font:700 21px var(--tech)}
+.checkout-success>b{display:inline-block;margin:8px 0;padding:10px 18px;border:1px solid var(--red);border-radius:8px;color:#fff;font-size:22px;letter-spacing:1px}
+.checkout-success p{color:#b8bdc8;font-size:13px}
+body.checkout-open{overflow:hidden}
+@media(max-width:600px){.checkout-overlay{padding:10px}.checkout-dialog{padding:18px;border-radius:14px;max-height:94vh}.checkout-head h2{font-size:21px}}
