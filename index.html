@@ -17,9 +17,17 @@
   <script defer src="products.js"></script>
   <script defer src="app.js"></script>
   <script defer src="header-auth.js"></script>
+  <script defer src="order-history.js"></script>
   <script defer src="reviews.js"></script>
   <script defer src="hero-carousel.js"></script>
-  <script defer src="banner-carousel.js"></script>
+
+  <style>
+    .footer-admin-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 16px;border:1px solid rgba(240,55,66,.65);border-radius:10px;background:rgba(240,55,66,.10);color:#f5f6f8;font:700 12px var(--tech);letter-spacing:1px;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s}
+    .footer-admin-link:hover{background:#f03742;border-color:#f03742;transform:translateY(-2px)}
+    .footer-admin-link:focus-visible{outline:2px solid #ff6673;outline-offset:3px}
+    @media(max-width:700px){.footer-admin-link{align-self:flex-start}}
+  </style>
+
 </head>
 
 <body>
@@ -60,6 +68,12 @@
     </nav>
 
     <div class="head-actions">
+
+      <button class="cart-toggle" id="cartToggle" type="button" aria-label="Mở giỏ hàng">
+        <span aria-hidden="true">▣</span>
+        <span class="cart-toggle-label">GIỎ HÀNG</span>
+        <b id="cartCount" class="cart-count" aria-live="polite">0</b>
+      </button>
 
       <button class="search-toggle"
               id="searchToggle"
@@ -142,14 +156,14 @@
 
         <div class="hero-buttons">
           <a href="#shop" class="btn btn-red">
-            XEM CỬA HÀNG
+            CỬA HÀNG
           </a>
 
           <a href="#projects" class="btn btn-outline">
-            XEM THÀNH PHẨM
+            THÀNH PHẨM
           </a>
           <a href="#reviews" class="btn btn-outline">
-  ĐÁNH GIÁ SHOP ★
+  ĐÁNH GIÁ ★
 </a>
         </div>
 
@@ -212,30 +226,6 @@
     </span>
   </div>
 </div>
-    <!-- BANNER NGANG / 3 ẢNH QUẢNG BÁ -->
-    <section class="home-banner-section" aria-label="Banner nổi bật CAPTAIN GUNPLA">
-      <div class="home-banner" id="homeBanner" aria-roledescription="carousel">
-        <div class="home-banner-track" id="homeBannerTrack">
-          <div class="home-banner-slide is-active">
-            <img src="" alt="Banner CAPTAIN GUNPLA 1" loading="lazy">
-          </div>
-          <div class="home-banner-slide">
-            <img src="" alt="Banner CAPTAIN GUNPLA 2" loading="lazy">
-          </div>
-          <div class="home-banner-slide">
-            <img src="" alt="Banner CAPTAIN GUNPLA 3" loading="lazy">
-          </div>
-        </div>
-        <button class="home-banner-arrow home-banner-prev" id="homeBannerPrev" type="button" aria-label="Banner trước">‹</button>
-        <button class="home-banner-arrow home-banner-next" id="homeBannerNext" type="button" aria-label="Banner tiếp theo">›</button>
-        <div class="home-banner-dots" id="homeBannerDots" aria-label="Chọn banner">
-          <button type="button" class="active" aria-label="Banner 1" aria-current="true"></button>
-          <button type="button" aria-label="Banner 2"></button>
-          <button type="button" aria-label="Banner 3"></button>
-        </div>
-      </div>
-    </section>
-
     <!-- GIAN HÀNG -->
     <section class="section shop-section" id="shop">
 
@@ -247,7 +237,7 @@
           </p>
 
           <h2>
-            CỬA HÀNG <em>MÔ HÌNH</em><span class="end-dot">.</span>
+            CỬA HÀNG<span class="end-dot">.</span>
           </h2>
         </div>
 
@@ -363,7 +353,7 @@
             02 / OUR EXPERTISE
           </p>
           <h2>
-            DỊCH VỤ <em>CHUYÊN SÂU</em><span class="end-dot">.</span>
+            DỊCH VỤ <span class="end-dot">.</span>
           </h2>
         </div>
         <p>
@@ -384,7 +374,6 @@
             hoàn thiện chi tiết và kiểm tra tổng thể.
           </p>
 
-          <a href="#contact">YÊU CẦU TƯ VẤN ↗</a>
         </article>
 
         <article class="service featured" data-reveal>
@@ -398,7 +387,6 @@
             decal.
           </p>
 
-          <a href="#contact">YÊU CẦU TƯ VẤN ↗</a>
         </article>
 
         <article class="service" data-reveal>
@@ -411,7 +399,6 @@
             Cắt khuôn chống sốc chỉnh chu đảm bảo di chuyển và tăng tính thẩm mỹ
           </p>
 
-          <a href="#contact">YÊU CẦU TƯ VẤN ↗</a>
         </article>
 
       </div>
@@ -428,7 +415,7 @@
             03 / VISUAL ARCHIVE
           </p>
           <h2>
-            THÀNH PHẨM <em>MÔ HÌNH</em><span class="end-dot">.</span>
+            THÀNH PHẨM <span class="end-dot">.</span>
           </h2>
         </div>
         
@@ -687,6 +674,16 @@
         placeholder="Viết nhận xét của bạn..."
       ></textarea>
 
+      <label class="review-label" for="reviewImages">Ảnh đánh giá (tối đa 3 ảnh)</label>
+      <input
+        id="reviewImages"
+        name="reviewImages"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        multiple
+      >
+      <div id="reviewImagePreview" class="review-image-preview" aria-live="polite"></div>
+
       <button class="btn btn-red review-submit" type="submit">
         GỬI ĐÁNH GIÁ
       </button>
@@ -722,6 +719,10 @@
     <span>BUILD WITH PASSION. DISPLAY WITH PRIDE.</span>
     <small>© 2026 CAPTAIN GUNPLA</small>
 
+    <a class="footer-admin-link" href="admin.html" aria-label="Đăng nhập quản trị CAPTAIN GUNPLA">
+      <span aria-hidden="true">⚙</span> ADMIN LOGIN <span aria-hidden="true">↗</span>
+    </a>
+
   </footer>
 
   <!-- NÚT LÊN ĐẦU TRANG -->
@@ -733,6 +734,43 @@
   </button>
 
   <!-- POPUP CHI TIẾT SẢN PHẨM -->
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+    <button class="cart-shade" id="cartShade" type="button" aria-label="Đóng giỏ hàng"></button>
+    <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart-header">
+        <div><p class="eyebrow">CAPTAIN GUNPLA / YOUR SELECTION</p><h2 id="cartTitle">GIỎ HÀNG</h2></div>
+        <button id="cartClose" class="cart-close" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row"><span>TẠM TÍNH</span><strong id="cartTotal">0₫</strong></div>
+        <p class="cart-note">Giỏ hàng được lưu trên thiết bị này. Đơn hàng chưa được gửi hoặc trừ tồn kho.</p>
+        <button id="cartCheckout" class="btn btn-primary cart-action" type="button">TIẾN HÀNH ĐẶT HÀNG</button>
+        <button id="cartContinue" class="btn btn-outline cart-action" type="button">TIẾP TỤC MUA SẮM</button>
+        <button id="cartClear" class="cart-clear" type="button">XÓA TOÀN BỘ GIỎ HÀNG</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="checkout-overlay" id="checkoutOverlay" aria-hidden="true">
+    <button class="checkout-shade" id="checkoutShade" type="button" aria-label="Đóng"></button>
+    <section class="checkout-dialog" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="checkout-head"><div><p class="eyebrow">CAPTAIN GUNPLA / CHECKOUT</p><h2 id="checkoutTitle">THÔNG TIN ĐẶT HÀNG</h2></div><button type="button" id="checkoutClose" class="cart-close" aria-label="Đóng">×</button></div>
+      <p class="checkout-intro">Vui lòng điền thông tin để shop tiếp nhận đơn hàng. Đơn hàng sẽ được xác nhận trước khi xử lý.</p>
+      <form id="checkoutForm" class="checkout-form">
+        <label>HỌ VÀ TÊN<input name="customer_name" required minlength="2" maxlength="120" autocomplete="name" placeholder="Tên người nhận"></label>
+        <label>SỐ ĐIỆN THOẠI<input name="customer_phone" required minlength="8" maxlength="30" autocomplete="tel" inputmode="tel" placeholder="Số điện thoại liên hệ"></label>
+        <label>ĐỊA CHỈ NHẬN HÀNG<textarea name="customer_address" required minlength="5" maxlength="500" autocomplete="street-address" rows="3" placeholder="Số nhà, đường, phường/xã, tỉnh/thành"></textarea></label>
+        <label>GHI CHÚ (KHÔNG BẮT BUỘC)<textarea name="customer_note" maxlength="2000" rows="2" placeholder="Yêu cầu thêm..."></textarea></label>
+        <div class="checkout-summary"><span>TỔNG ĐƠN HÀNG</span><strong id="checkoutTotal">0₫</strong></div>
+        <p id="checkoutStatus" class="checkout-status" role="status"></p>
+        <button class="btn btn-primary checkout-submit" type="submit">GỬI ĐƠN HÀNG</button>
+      </form>
+      <div id="checkoutSuccess" class="checkout-success" hidden></div>
+    </section>
+  </div>
+
   <div class="modal" id="productModal" aria-hidden="true">
 
     <div class="modal-shade" data-close-modal></div>
@@ -816,7 +854,7 @@
         <button id="modalOrder"
                 class="btn btn-red modal-order"
                 type="button">
-          TƯ VẤN / ĐẶT HÀNG <span>↗</span>
+          THÊM VÀO GIỎ HÀNG <span>＋</span>
         </button>
 
         <p class="modal-footnote">
