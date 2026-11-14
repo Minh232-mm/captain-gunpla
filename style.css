@@ -1340,3 +1340,51 @@ textarea {
     transition: none;
   }
 }
+
+
+/* CAPTAIN GUNPLA — rounded UI refinement (visual-only overrides) */
+:root {
+  --radius-card: 14px;
+  --radius-panel: 12px;
+  --radius-control: 8px;
+  --radius-small: 6px;
+}
+.product-card,
+.service,
+.gallery-item,
+.contact-form,
+.review-card,
+.review-form,
+.review-summary,
+.review-list-wrap,
+.reviews-layout,
+.modal-dialog {
+  border-radius: var(--radius-card);
+}
+.product-card, .service, .gallery-item, .contact-form, .review-card, .modal-dialog {
+  overflow: hidden;
+}
+.product-cover,
+.gallery-item img,
+.modal-main-image,
+.hero-img {
+  border-radius: var(--radius-panel);
+}
+.btn, .head-cta, .category, .view-btn,
+.showcase-nav button, .modal-image-controls > button,
+.modal-close, .review-delete, .review-submit,
+.socials a, .back-top, .search-toggle, .hamburger {
+  border-radius: var(--radius-control);
+}
+.shop-sort select, .search-panel input, .search-panel button,
+.contact-form input, .contact-form textarea,
+.qty-control, .modal-thumbs button,
+.review-form input, .review-form textarea,
+.review-form select, .review-star-picker button {
+  border-radius: var(--radius-small);
+}
+.modal-media { border-radius: var(--radius-card) 0 0 var(--radius-card); }
+.badge-product, .cover-index { border-radius: 5px; }
+@media (max-width: 700px) {
+  .modal-media { border-radius: var(--radius-card) var(--radius-card) 0 0; }
+}
