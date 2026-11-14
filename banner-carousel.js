@@ -93,4 +93,3 @@
   setImages(fallbackBanners);
   load();
 })();
-
