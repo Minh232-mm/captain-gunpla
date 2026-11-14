@@ -659,6 +659,16 @@
         placeholder="Viết nhận xét của bạn..."
       ></textarea>
 
+      <label class="review-label" for="reviewImages">Ảnh đánh giá (tối đa 3 ảnh)</label>
+      <input
+        id="reviewImages"
+        name="reviewImages"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        multiple
+      >
+      <div id="reviewImagePreview" class="review-image-preview" aria-live="polite"></div>
+
       <button class="btn btn-red review-submit" type="submit">
         GỬI ĐÁNH GIÁ
       </button>
