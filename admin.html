@@ -31,7 +31,7 @@
       <article class="stat"><small>TẠM ẨN</small><strong id="statHidden">0</strong></article>
       <article class="stat"><small>ĐÁNH GIÁ</small><strong id="statReviews">0</strong></article>
     </div>
-    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button></nav>
+    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="showcase">THÀNH PHẨM</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button></nav>
     <section id="productsTab" class="admin-layout">
       <aside class="panel">
         <div class="panel-head"><h2>DANH SÁCH SẢN PHẨM</h2><button id="addBtn" class="accent">+ THÊM</button></div>
@@ -54,6 +54,24 @@
           <div id="imagePreview" class="image-preview"></div>
           <label class="check"><input name="available" type="checkbox" checked> HIỂN THỊ TRÊN WEBSITE</label>
           <div class="actions"><button class="accent" type="submit">LƯU SẢN PHẨM</button><button id="deleteProductBtn" class="danger" type="button">XÓA SẢN PHẨM</button><button id="newProductBtn" type="button">LÀM MỚI FORM</button></div>
+        </form>
+      </section>
+    </section>
+    <section id="showcaseTab" class="admin-layout" hidden>
+      <aside class="panel">
+        <div class="panel-head"><h2>DANH SÁCH THÀNH PHẨM</h2><button id="addShowcaseBtn" class="accent" type="button">+ THÊM THÀNH PHẨM</button></div>
+        <div id="showcaseList" class="product-list"></div>
+      </aside>
+      <section class="panel editor">
+        <div class="panel-head"><div><h2 id="showcaseEditorTitle">THÊM THÀNH PHẨM</h2><p class="muted">Tải tối đa 5 ảnh cho mỗi thành phẩm. Ảnh được lưu trên Supabase Storage.</p></div><span id="showcaseSaveState" role="status"></span></div>
+        <form id="showcaseForm">
+          <label>TÊN THÀNH PHẨM<input name="title" required maxlength="140" placeholder="Ví dụ: MGEX Strike Freedom"></label>
+          <label>NỘI DUNG / KỸ THUẬT THỰC HIỆN<input name="subtitle" maxlength="160" placeholder="Ví dụ: LẮP RÁP / ĐI LED / DÁN DECAL"></label>
+          <label>MÔ TẢ<textarea name="description" rows="4" placeholder="Mô tả thêm về tác phẩm..."></textarea></label>
+          <div class="pair"><label>THỨ TỰ HIỂN THỊ<input name="sort_order" type="number" step="1" value="0"></label><label class="check"><input name="is_visible" type="checkbox" checked> HIỂN THỊ TRÊN WEBSITE</label></div>
+          <label>ẢNH THÀNH PHẨM — JPG / PNG / WEBP (TỐI ĐA 5 ẢNH)<input id="showcaseFiles" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+          <div id="showcaseImagePreview" class="image-preview"></div>
+          <div class="actions"><button class="accent" type="submit">LƯU THÀNH PHẨM</button><button id="deleteShowcaseBtn" class="danger" type="button" disabled>XÓA THÀNH PHẨM</button><button id="resetShowcaseBtn" type="button">LÀM MỚI FORM</button></div>
         </form>
       </section>
     </section>
