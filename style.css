@@ -1850,249 +1850,35 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
 .cart-item-info>strong{display:block;margin:0 0 6px;color:var(--white);font-size:13px;line-height:1.5}
 .cart-item-info>span{display:block;color:var(--red);font:700 15px var(--tech)}
 
+/* ===== CAPTAIN GUNPLA: MOBILE HEADER + PRODUCT PAGINATION ===== */
+.show-more-wrap { display:flex; justify-content:center; width:100%; margin:34px auto 0; }
+.show-more-products { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:48px; padding:0 28px; border:1px solid var(--red); background:var(--red); color:#fff; font:700 14px var(--tech); letter-spacing:1px; transition:background .2s ease,transform .2s ease; }
+.show-more-products:hover { background:#ff4c56; transform:translateY(-2px); }
+.show-more-products small { color:rgba(255,255,255,.78); font:600 11px var(--font); letter-spacing:0; }
+.show-more-products[hidden] { display:none !important; }
 
-/* =========================================================
-   CAPTAIN GUNPLA â€” MOBILE FULL-WIDTH + 3-COLUMN PRODUCT GRID
-   Chá»‰ ghi Ä‘Ã¨ responsive; giá»¯ nguyÃªn bá»‘ cá»¥c desktop vÃ  chá»©c nÄƒng.
-   ========================================================= */
-
-/* NgÄƒn layout viewport bá»‹ co hoáº·c trÃ n ngang trÃªn trÃ¬nh duyá»‡t mobile */
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
+@media (max-width:700px) {
+  /* TÃ¡ch logo vÃ  cá»¥m nÃºt thÃ nh hai hÃ ng, khÃ´ng cÃ²n Ä‘Ã¨ chá»¯ lÃªn giá» hÃ ng */
+  body .header { display:flex !important; flex-direction:column !important; align-items:stretch !important; justify-content:center !important; gap:9px !important; width:100% !important; height:auto !important; min-height:104px !important; padding:9px 14px 11px !important; overflow:visible !important; }
+  body .header > .brand { display:flex !important; flex:0 0 auto !important; align-self:flex-start !important; width:auto !important; max-width:100% !important; min-width:0 !important; gap:9px !important; margin:0 !important; }
+  body .header .brand-logo-image { flex:0 0 36px !important; width:36px !important; height:36px !important; }
+  body .header .brand-copy { display:block !important; min-width:0 !important; white-space:nowrap !important; }
+  body .header .brand-copy strong { font-size:18px !important; line-height:1 !important; }
+  body .header .brand-copy small { display:block !important; margin-top:3px !important; font-size:8px !important; letter-spacing:1.8px !important; }
+  body .header > .head-actions { display:flex !important; flex:0 0 auto !important; align-items:center !important; justify-content:space-between !important; gap:7px !important; width:100% !important; min-width:0 !important; margin:0 !important; }
+  body .head-actions .cart-toggle { display:inline-flex !important; flex:1 1 auto !important; min-width:0 !important; width:auto !important; justify-content:center !important; padding:0 8px !important; font-size:10px !important; }
+  body .head-actions .search-toggle, body .head-actions .hamburger { display:grid !important; flex:0 0 38px !important; width:38px !important; height:38px !important; min-width:38px !important; padding:8px !important; }
+  body .head-actions .hamburger { display:flex !important; }
+  body .head-actions > #headerLogin, body .head-actions > .header-user .head-cta { display:inline-flex !important; flex:0 0 auto !important; align-items:center !important; justify-content:center !important; min-width:0 !important; min-height:38px !important; padding:0 10px !important; font-size:10px !important; letter-spacing:.2px !important; white-space:nowrap !important; }
+  body .header .nav { top:100% !important; right:0 !important; left:0 !important; z-index:60 !important; }
+  .show-more-wrap { margin-top:24px; }
+  .show-more-products { width:min(100%,300px); min-height:44px; padding:0 16px; font-size:12px; }
 }
-
-body {
-  overflow-x: clip;
-}
-
-#top,
-.top-line,
-.header,
-main,
-.marquee,
-.section,
-.footer {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-
-main,
-.shop-section,
-.shop-controls,
-.products,
-.product-card,
-.product-cover,
-.product-meta {
-  box-sizing: border-box;
-  min-width: 0;
-}
-
-img {
-  max-width: 100%;
-}
-
-/* Äiá»‡n thoáº¡i: dÃ¹ng háº¿t chiá»u rá»™ng mÃ n hÃ¬nh, khÃ´ng Ä‘á»ƒ trang bá»‹ thu háº¹p */
-@media screen and (max-width: 700px) {
-  html,
-  body {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  body {
-    overflow-x: clip !important;
-  }
-
-  .top-line,
-  .header,
-  main,
-  .marquee,
-  .footer {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .header {
-    box-sizing: border-box !important;
-    gap: 6px !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-
-  .brand {
-    min-width: 0 !important;
-    flex: 0 1 auto !important;
-    gap: 6px !important;
-  }
-
-  .brand-copy {
-    min-width: 0 !important;
-  }
-
-  .brand-copy strong {
-    white-space: nowrap;
-  }
-
-  .head-actions {
-    min-width: 0 !important;
-    flex: 0 0 auto !important;
-    gap: 5px !important;
-  }
-
-  .shop-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    overflow: hidden;
-  }
-
-  .shop-controls,
-  .categories,
-  .shop-sort {
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-
-  /* Ba cá»™t sáº£n pháº©m trÃªn Ä‘iá»‡n thoáº¡i, tÆ°Æ¡ng tá»± bá»‘ cá»¥c desktop */
-  #productGrid.products,
-  .products {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    gap: 8px !important;
-    align-items: stretch !important;
-  }
-
-  .products > .product-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .products .product-cover {
-    display: block;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 0.82 / 1 !important;
-    min-width: 0 !important;
-    padding: 5px !important;
-    overflow: hidden !important;
-  }
-
-  .products .product-cover img {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    object-fit: contain !important;
-  }
-
-  .products .badge-product {
-    top: 5px !important;
-    left: 5px !important;
-    max-width: calc(100% - 10px);
-    padding: 3px 4px !important;
-    font-size: clamp(6px, 1.8vw, 8px) !important;
-    line-height: 1.15 !important;
-    letter-spacing: 0 !important;
-    white-space: normal !important;
-  }
-
-  .products .cover-index {
-    right: 5px !important;
-    bottom: 5px !important;
-    font-size: 7px !important;
-    letter-spacing: 0 !important;
-  }
-
-  .products .product-meta {
-    min-width: 0 !important;
-    padding: 7px 6px 8px !important;
-  }
-
-  .products .product-grade {
-    margin: 0 0 4px !important;
-    font-size: clamp(6px, 1.8vw, 8px) !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  .products .product-name {
-    min-width: 0 !important;
-    min-height: 0 !important;
-    margin: 0 0 7px !important;
-    font-size: clamp(9px, 2.7vw, 12px) !important;
-    line-height: 1.25 !important;
-    letter-spacing: 0 !important;
-    overflow-wrap: anywhere !important;
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 3 !important;
-    line-clamp: 3 !important;
-    overflow: hidden !important;
-  }
-
-  .products .product-price-row {
-    min-width: 0 !important;
-    gap: 3px !important;
-    align-items: center !important;
-    padding-top: 6px !important;
-  }
-
-  .products .product-price {
-    min-width: 0 !important;
-    font-size: clamp(9px, 2.6vw, 12px) !important;
-    line-height: 1.2 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  .products .product-price small {
-    display: block !important;
-    margin: 2px 0 0 !important;
-    font-size: 8px !important;
-  }
-
-  .products .view-btn {
-    flex: 0 0 23px !important;
-    width: 23px !important;
-    height: 23px !important;
-    padding: 0 !important;
-    font-size: 13px !important;
-  }
-}
-
-/* MÃ n hÃ¬nh ráº¥t háº¹p váº«n giá»¯ 3 cá»™t, giáº£m khoáº£ng cÃ¡ch vÃ  chá»¯ vá»«a Ä‘á»§ Ä‘á»c */
-@media screen and (max-width: 360px) {
-  #productGrid.products,
-  .products {
-    gap: 5px !important;
-  }
-
-  .products .product-meta {
-    padding: 6px 4px 7px !important;
-  }
-
-  .products .product-name {
-    font-size: 9px !important;
-  }
-
-  .products .product-price {
-    font-size: 9px !important;
-  }
+@media (max-width:360px) {
+  body .header { padding-right:10px !important; padding-left:10px !important; }
+  body .header .brand-copy strong { font-size:16px !important; }
+  body .head-actions { gap:5px !important; }
+  body .head-actions .cart-toggle { padding:0 5px !important; font-size:9px !important; }
+  body .head-actions > #headerLogin, body .head-actions > .header-user .head-cta { padding:0 7px !important; font-size:9px !important; }
+  body .head-actions .search-toggle, body .head-actions .hamburger { flex-basis:35px !important; width:35px !important; min-width:35px !important; height:36px !important; }
 }
