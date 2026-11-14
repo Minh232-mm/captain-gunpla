@@ -129,6 +129,113 @@
     $('#cartToggle').focus();
   }
 
+
+  // ==========================================
+  // CHECKOUT - TẠO ĐƠN HÀNG TRÊN SUPABASE
+  // ==========================================
+  const checkoutOverlay = $('#checkoutOverlay');
+  const checkoutForm = $('#checkoutForm');
+  const checkoutStatus = $('#checkoutStatus');
+  const checkoutSuccess = $('#checkoutSuccess');
+  const checkoutTotal = $('#checkoutTotal');
+  const checkoutSubmit = checkoutForm?.querySelector('[type="submit"]');
+
+  function openCheckout() {
+    if (!cartItems.length) {
+      alert('Giỏ hàng đang trống. Vui lòng chọn sản phẩm trước.');
+      return;
+    }
+    if (!catalogClient) {
+      alert('Chưa kết nối được Supabase. Vui lòng tải lại trang và thử lại.');
+      return;
+    }
+    const total = cartItems.reduce((sum, item) =>
+      sum + (typeof item.price === 'number' ? item.price * item.qty : 0), 0);
+    checkoutTotal.textContent = money(total);
+    checkoutStatus.textContent = '';
+    checkoutStatus.className = 'checkout-status';
+    checkoutSuccess.hidden = true;
+    checkoutSuccess.innerHTML = '';
+    checkoutForm.hidden = false;
+    checkoutOverlay.classList.add('open');
+    checkoutOverlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cart-open');
+    checkoutForm.querySelector('[name="customer_name"]')?.focus();
+  }
+
+  function closeCheckout() {
+    checkoutOverlay.classList.remove('open');
+    checkoutOverlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cart-open');
+    $('#cartCheckout')?.focus();
+  }
+
+  $('#cartCheckout')?.addEventListener('click', openCheckout);
+  $('#checkoutClose')?.addEventListener('click', closeCheckout);
+  $('#checkoutShade')?.addEventListener('click', closeCheckout);
+
+  checkoutForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!cartItems.length || !catalogClient) return;
+
+    const formData = new FormData(checkoutForm);
+    const payload = {
+      p_customer_name: String(formData.get('customer_name') || '').trim(),
+      p_customer_phone: String(formData.get('customer_phone') || '').trim(),
+      p_customer_address: String(formData.get('customer_address') || '').trim(),
+      p_customer_note: String(formData.get('customer_note') || '').trim(),
+      p_items: cartItems.map(item => ({
+        product_id: String(item.id),
+        quantity: item.qty
+      }))
+    };
+
+    if (checkoutSubmit) {
+      checkoutSubmit.disabled = true;
+      checkoutSubmit.textContent = 'ĐANG GỬI ĐƠN...';
+    }
+    checkoutStatus.textContent = 'Đang kiểm tra sản phẩm và gửi đơn hàng...';
+    checkoutStatus.className = 'checkout-status is-loading';
+
+    try {
+      const { data, error } = await catalogClient.rpc('create_captain_order', payload);
+      if (error) throw error;
+      const result = Array.isArray(data) ? data[0] : data;
+      if (!result?.order_code) throw new Error('Supabase chưa trả về mã đơn hàng. Vui lòng kiểm tra mục Đơn hàng trong Admin.');
+
+      cartItems = [];
+      saveCart();
+      checkoutForm.reset();
+      checkoutForm.hidden = true;
+      checkoutStatus.textContent = '';
+      checkoutSuccess.hidden = false;
+      checkoutSuccess.innerHTML = `
+        <div class="checkout-success-icon">✓</div>
+        <h3>ĐẶT HÀNG THÀNH CÔNG</h3>
+        <p>Mã đơn hàng của bạn:</p>
+        <strong class="checkout-order-code">${escapeHTML(result.order_code)}</strong>
+        <p>CAPTAIN GUNPLA sẽ liên hệ để xác nhận đơn hàng.</p>
+        <button type="button" class="btn btn-primary" id="checkoutDone">HOÀN TẤT</button>`;
+      $('#checkoutDone')?.addEventListener('click', () => {
+        closeCheckout();
+        closeCart();
+      });
+    } catch (error) {
+      console.error('[CAPTAIN GUNPLA] Checkout error:', error);
+      checkoutStatus.textContent = error?.message || 'Không gửi được đơn hàng. Vui lòng thử lại.';
+      checkoutStatus.className = 'checkout-status is-error';
+    } finally {
+      if (checkoutSubmit) {
+        checkoutSubmit.disabled = false;
+        checkoutSubmit.textContent = 'GỬI ĐƠN HÀNG';
+      }
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && checkoutOverlay?.classList.contains('open')) closeCheckout();
+  });
+
   $('#cartToggle').addEventListener('click', openCart);
   $('#cartClose').addEventListener('click', closeCart);
   $('#cartShade').addEventListener('click', closeCart);
