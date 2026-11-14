@@ -34,6 +34,124 @@
       ? new Intl.NumberFormat('vi-VN').format(value) + '₫'
       : 'GIÁ LIÊN HỆ';
 
+
+  // ==========================================
+  // GIỎ HÀNG - LƯU CỤC BỘ TRÊN THIẾT BỊ
+  // ==========================================
+  const CART_STORAGE_KEY = 'captainGunplaCartV1';
+  let cartItems = [];
+
+  try {
+    const savedCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+    cartItems = Array.isArray(savedCart) ? savedCart.filter(item =>
+      item && typeof item.id === 'string' && Number.isInteger(item.qty) && item.qty > 0
+    ) : [];
+  } catch (_) { cartItems = []; }
+
+  function saveCart() {
+    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems)); }
+    catch (error) { console.warn('Không thể lưu giỏ hàng trên thiết bị.', error); }
+    renderCart();
+  }
+
+  function cartQuantity() {
+    return cartItems.reduce((sum, item) => sum + item.qty, 0);
+  }
+
+  function renderCart() {
+    const count = $('#cartCount');
+    const list = $('#cartItems');
+    if (!count || !list) return;
+
+    count.textContent = cartQuantity();
+    count.hidden = cartQuantity() === 0;
+
+    if (!cartItems.length) {
+      list.innerHTML = '<div class="cart-empty"><span>▣</span><strong>GIỎ HÀNG ĐANG TRỐNG</strong><p>Hãy chọn sản phẩm bạn yêu thích tại gian hàng.</p></div>';
+    } else {
+      list.innerHTML = cartItems.map(item => `
+        <article class="cart-item" data-cart-id="${escapeHTML(item.id)}">
+          <img src="${escapeHTML(item.image || 'assets/anhsanpham1.jpg')}" alt="${escapeHTML(item.name)}">
+          <div class="cart-item-info">
+            <strong>${escapeHTML(item.name)}</strong>
+            <span>${item.price == null ? 'Liên hệ' : money(item.price)}</span>
+            <div class="cart-item-controls">
+              <button type="button" data-cart-action="decrease" aria-label="Giảm">−</button>
+              <b>${item.qty}</b>
+              <button type="button" data-cart-action="increase" aria-label="Tăng">+</button>
+              <button type="button" data-cart-action="remove" class="cart-remove">XÓA</button>
+            </div>
+          </div>
+        </article>`).join('');
+    }
+
+    const total = cartItems.reduce((sum, item) =>
+      sum + (typeof item.price === 'number' ? item.price * item.qty : 0), 0);
+    $('#cartTotal').textContent = money(total);
+  }
+
+  function addToCart(product, quantity) {
+    if (!product) return;
+    const qty = Math.max(1, Math.min(99, Number(quantity) || 1));
+    const existing = cartItems.find(item => item.id === String(product.id));
+    const stock = Number(product.stock);
+    const max = Number.isFinite(stock) && stock > 0 ? stock : 99;
+    const nextQty = Math.min(max, (existing?.qty || 0) + qty);
+
+    if (existing) {
+      existing.qty = nextQty;
+      existing.name = product.name;
+      existing.price = typeof product.price === 'number' ? product.price : null;
+      existing.image = imgPath(product);
+    } else {
+      cartItems.push({
+        id: String(product.id), name: product.name,
+        price: typeof product.price === 'number' ? product.price : null,
+        image: imgPath(product), qty: Math.min(qty, max)
+      });
+    }
+    saveCart();
+    closeProduct();
+    openCart();
+  }
+
+  function openCart() {
+    $('#cartOverlay').classList.add('open');
+    $('#cartOverlay').setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cart-open');
+    $('#cartClose').focus();
+  }
+
+  function closeCart() {
+    $('#cartOverlay').classList.remove('open');
+    $('#cartOverlay').setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cart-open');
+    $('#cartToggle').focus();
+  }
+
+  $('#cartToggle').addEventListener('click', openCart);
+  $('#cartClose').addEventListener('click', closeCart);
+  $('#cartShade').addEventListener('click', closeCart);
+  $('#cartContinue').addEventListener('click', closeCart);
+  $('#cartClear').addEventListener('click', () => { cartItems = []; saveCart(); });
+
+  $('#cartItems').addEventListener('click', event => {
+    const button = event.target.closest('[data-cart-action]');
+    if (!button) return;
+    const row = button.closest('[data-cart-id]');
+    const item = cartItems.find(entry => entry.id === row?.dataset.cartId);
+    if (!item) return;
+    const action = button.dataset.cartAction;
+    if (action === 'increase') item.qty = Math.min(99, item.qty + 1);
+    if (action === 'decrease') item.qty -= 1;
+    if (action === 'remove' || item.qty <= 0) cartItems = cartItems.filter(entry => entry.id !== item.id);
+    saveCart();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && $('#cartOverlay')?.classList.contains('open')) closeCart();
+  });
+
   const categoryNames = {
     gunpla: 'GUNPLA / MODEL KIT',
     secondhand: 'SECOND HAND',
@@ -373,20 +491,8 @@
 
   $('#modalOrder').addEventListener('click', () => {
     if (!activeProduct) return;
-
-    const qty = Math.max(
-      1,
-      Math.min(99, parseInt($('#modalQty').value, 10) || 1)
-    );
-
-    $('#orderProduct').value =
-      `${activeProduct.name} — số lượng: ${qty}`;
-
-    closeProduct();
-
-    $('#contact').scrollIntoView({ behavior: 'smooth' });
-
-    $('#orderProduct').focus({ preventScroll: true });
+    const qty = Math.max(1, Math.min(99, parseInt($('#modalQty').value, 10) || 1));
+    addToCart(activeProduct, qty);
   });
 
   // ==========================================
@@ -874,6 +980,7 @@
     }));
 
     render();
+    renderCart();
   }
 
   // ==========================================
@@ -967,6 +1074,7 @@
   // KHỞI ĐỘNG
   // ==========================================
 
+  renderCart();
   loadCatalogFromSupabase();
   loadShowcaseFromSupabase();
 
