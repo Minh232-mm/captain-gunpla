@@ -484,13 +484,17 @@ $('#orderAdminList')?.addEventListener('change', async event => {
   select.disabled = true;
   state.textContent = 'Đang cập nhật...';
   try {
-    const {error} = await db.from('orders')
-      .update({status:select.value,updated_at:new Date().toISOString()})
-      .eq('id',card.dataset.orderId);
+    const {data, error} = await db.rpc('set_captain_order_status', {
+      p_order_id: card.dataset.orderId,
+      p_status: select.value
+    });
     if (error) throw error;
-    state.textContent = 'Đã cập nhật trạng thái.';
+    state.textContent = data?.message || 'Đã cập nhật trạng thái và đồng bộ tồn kho.';
+    await loadOrders();
+    await loadProducts();
   } catch (error) {
     state.textContent = 'Lỗi: ' + (error.message || error);
+    await loadOrders();
   } finally { select.disabled = false; }
 });
 $('#refreshOrdersBtn')?.addEventListener('click', loadOrders);
