@@ -1836,3 +1836,11 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
     -webkit-text-fill-color: #f5c542 !important;
   }
 }
+
+
+/* ===== IMPROVE PRICE READABILITY ===== */
+.product-price,
+.modal-price {
+  color: #f5f5f5 !important;
+  -webkit-text-fill-color: #f5f5f5 !important;
+}
