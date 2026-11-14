@@ -31,7 +31,7 @@
       <article class="stat"><small>TẠM ẨN</small><strong id="statHidden">0</strong></article>
       <article class="stat"><small>ĐÁNH GIÁ</small><strong id="statReviews">0</strong></article>
     </div>
-    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="showcase">THÀNH PHẨM</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button></nav>
+    <nav class="tabs"><button class="tab active" data-tab="products">SẢN PHẨM</button><button class="tab" data-tab="showcase">THÀNH PHẨM</button><button class="tab" data-tab="reviews">ĐÁNH GIÁ KHÁCH HÀNG</button><button class="tab" data-tab="orders">ĐƠN HÀNG</button></nav>
     <section id="productsTab" class="admin-layout">
       <aside class="panel">
         <div class="panel-head"><h2>DANH SÁCH SẢN PHẨM</h2><button id="addBtn" class="accent">+ THÊM</button></div>
@@ -74,6 +74,10 @@
           <div class="actions"><button class="accent" type="submit">LƯU THÀNH PHẨM</button><button id="deleteShowcaseBtn" class="danger" type="button" disabled>XÓA THÀNH PHẨM</button><button id="resetShowcaseBtn" type="button">LÀM MỚI FORM</button></div>
         </form>
       </section>
+    </section>
+    <section id="ordersTab" class="panel" hidden>
+      <div class="panel-head"><div><h2>QUẢN LÝ ĐƠN HÀNG</h2><p class="muted">Đơn hàng khách gửi từ website. Tồn kho chưa tự động trừ ở giai đoạn này.</p></div><button id="refreshOrdersBtn" type="button">TẢI LẠI</button></div>
+      <div id="orderAdminList" class="order-admin-list"><p>Đang tải đơn hàng...</p></div>
     </section>
     <section id="reviewsTab" class="panel" hidden>
       <div class="panel-head"><div><h2>ĐÁNH GIÁ KHÁCH HÀNG</h2><p class="muted">Xem nội dung, ảnh đính kèm và xóa đánh giá vi phạm khi cần.</p></div><button id="refreshReviewsBtn">TẢI LẠI</button></div>
