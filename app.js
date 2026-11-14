@@ -59,6 +59,28 @@
   const back=$('#backTop');window.addEventListener('scroll',()=>back.classList.toggle('visible',window.scrollY>550),{passive:true});back.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}}),{threshold:.09});$$('[data-reveal]').forEach(el=>observer.observe(el));}else{$$('[data-reveal]').forEach(el=>el.classList.add('revealed'));}
   $('#contactForm').addEventListener('submit', async event=>{event.preventDefault();const data=new FormData(event.currentTarget);const message=`CAPTAIN GUNPLA — YÊU CẦU TƯ VẤN\nHọ tên: ${data.get('name')}\nSĐT/Zalo: ${data.get('phone')}\nSản phẩm/Dịch vụ: ${data.get('product')||'Chưa chọn'}\nChi tiết: ${data.get('message')||'Không có'}`;window.open('https://zalo.me/0395193831','_blank','noopener,noreferrer');let copied=false;try{await navigator.clipboard.writeText(message);copied=true;}catch(error){const copy=document.createElement('textarea');copy.value=message;copy.style.position='fixed';copy.style.left='-9999px';document.body.append(copy);copy.select();copied=document.execCommand('copy');copy.remove();}$('#formStatus').textContent=copied?'Đã sao chép nội dung. Zalo sẽ mở ở tab mới — hãy dán và gửi tin nhắn.':'Zalo sẽ mở ở tab mới. Hãy sao chép thông tin trong form để gửi thủ công.';});
+
+  async function loadShowcaseFromSupabase() {
+    if (!catalogClient || !gallery) return;
+    try {
+      const { data, error } = await catalogClient.from('showcase_projects')
+        .select('id,title,subtitle,description,image_urls,sort_order,is_visible')
+        .eq('is_visible', true).order('sort_order', { ascending: true }).order('created_at', { ascending: false });
+      if (error) throw error;
+      // Chỉ thay gallery khi có dữ liệu động; nếu bảng chưa có dữ liệu thì giữ nguyên gallery cũ.
+      if (!Array.isArray(data) || !data.length) return;
+      const slides = [];
+      data.forEach(project => {
+        (project.image_urls || []).slice(0, 5).forEach((url, index) => {
+          slides.push(`<figure class="gallery-item"><img src="${escapeHTML(url)}" alt="${escapeHTML(project.title)}${index ? ` — ảnh ${index + 1}` : ''}" loading="lazy"><figcaption><span>${escapeHTML(project.subtitle || 'CAPTAIN GUNPLA / FINISHED BUILD')}</span><b>${escapeHTML(project.title)}</b></figcaption></figure>`);
+        });
+      });
+      if (slides.length) gallery.innerHTML = slides.join('');
+    } catch (error) {
+      console.warn('CAPTAIN GUNPLA: Không tải được thành phẩm từ Supabase, giữ gallery mặc định.', error);
+    }
+  }
+
   async function loadCatalogFromSupabase(){
     if(!catalogClient){ render(); return; }
     const {data,error}=await catalogClient.from('products')
@@ -72,4 +94,5 @@
     render();
   }
   loadCatalogFromSupabase();
+  loadShowcaseFromSupabase();
 })();
