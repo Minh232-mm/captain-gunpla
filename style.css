@@ -2831,6 +2831,13 @@ body .services-section .services-grid > article.service:hover {
   }
 }
 
+/* CAPTAIN GUNPLA - REMOVE DECORATIVE NUMBERS */
+.service::before {
+  content: none !important;
+  display: none !important;
+}
+
+
 
 
 
