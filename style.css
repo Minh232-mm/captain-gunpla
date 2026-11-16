@@ -2156,31 +2156,55 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   }
 }
 
-/* CAPTAIN GUNPLA — cinematic blurred mecha background (homepage hero only) */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background-image:
-    linear-gradient(90deg,rgba(8,9,13,.78) 0%,rgba(8,9,13,.48) 46%,rgba(8,9,13,.34) 100%),
-    url("/captain-gunpla/assets/hero-bg-red-mecha.png");
-  background-size:cover;
-  background-position:center 48%;
-  background-repeat:no-repeat;
-  opacity:.78;
-}
-.hero-noise{z-index:1}
-.hero-content,.hero-visual{position:relative;z-index:2}
-@media(max-width:700px){
-  .hero::before{
+
+/* CAPTAIN GUNPLA — clearer cinematic hero background */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
     background-image:
-      linear-gradient(180deg,rgba(8,9,13,.72) 0%,rgba(8,9,13,.56) 55%,rgba(8,9,13,.72) 100%),
-      url(""/captain-gunpla/assets/hero-bg-red-mecha.png"");
-    background-position:58% center;
-    opacity:.56;
-  }
+        linear-gradient(
+            90deg,
+            rgba(8,9,13,.48) 0%,
+            rgba(8,9,13,.25) 46%,
+            rgba(8,9,13,.16) 100%
+        ),
+        url("/captain-gunpla/assets/hero-bg-red-mecha.png");
+
+    background-size: cover;
+    background-position: center 48%;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.hero-noise {
+    z-index: 1;
+}
+
+.hero-content,
+.hero-visual {
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .hero::before {
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(8,9,13,.40) 0%,
+                rgba(8,9,13,.25) 55%,
+                rgba(8,9,13,.45) 100%
+            ),
+            url("/captain-gunpla/assets/hero-bg-red-mecha.png");
+
+        background-position: 58% center;
+        opacity: 1;
+    }
 }
 
 
