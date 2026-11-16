@@ -2669,6 +2669,128 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   }
 }
 
+/* CAPTAIN GUNPLA - RED PREMIUM SERVICE CARDS */
+
+.service {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 360px;
+  padding: 35px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.18);
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,65,65,.35), transparent 55%),
+    linear-gradient(145deg, #d20b19 0%, #a90012 52%, #380711 100%);
+  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+  transition: transform .35s ease,
+              box-shadow .35s ease,
+              border-color .35s ease;
+}
+
+/* Ánh sáng nền */
+.service::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 85% 15%,
+      rgba(255,100,100,.28), transparent 35%),
+    linear-gradient(120deg,
+      transparent 40%, rgba(255,255,255,.045) 100%);
+}
+
+/* Số thứ tự trang trí */
+.service::before {
+  position: absolute;
+  z-index: -1;
+  right: 12px;
+  bottom: -65px;
+  font-family: var(--tech);
+  font-size: 210px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(20,0,5,.20);
+  pointer-events: none;
+}
+
+.service:nth-child(1)::before { content: "01"; }
+.service:nth-child(2)::before { content: "02"; }
+.service:nth-child(3)::before { content: "03"; }
+
+/* Đồng bộ cả ba thẻ */
+.service.featured {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,65,65,.35), transparent 55%),
+    linear-gradient(145deg, #d20b19 0%, #a90012 52%, #380711 100%);
+  border-color: rgba(255,255,255,.18);
+}
+
+.service-number {
+  color: rgba(255,255,255,.9);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.service-icon {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,.4);
+  transition: transform .35s ease;
+}
+
+.service h3 {
+  color: #fff;
+  text-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.service p {
+  color: rgba(255,255,255,.82);
+}
+
+.service a {
+  color: #fff;
+}
+
+.service:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255,255,255,.55);
+  box-shadow:
+    0 20px 45px rgba(180,0,20,.28),
+    0 0 25px rgba(240,55,66,.16);
+}
+
+.service:hover .service-icon {
+  transform: scale(1.12);
+}
+
+/* Điện thoại */
+@media (max-width:700px) {
+  .service {
+    min-height: 280px;
+    border-radius: 20px;
+    padding: 26px;
+  }
+
+  .service::before {
+    font-size: 150px;
+    bottom: -40px;
+  }
+
+  .service:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service,
+  .service-icon {
+    transition: none;
+  }
+}
+
+
 
 
 
