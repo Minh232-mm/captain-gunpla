@@ -2155,14 +2155,6 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
     height: 20px;
   }
 }
-CAPTAIN GUNPLA — ADD BLURRED HERO BACKGROUND
-
-1) Upload assets/hero-bg-red-mecha.png into the existing assets folder in your GitHub repository.
-2) Open the EXISTING style.css file and paste the CSS below at the VERY END.
-3) Do not replace index.html, app.js, products.js, Supabase files, or any other files.
-4) Commit changes, then hard-refresh the website (Ctrl+F5). On iPhone, refresh the page after a few minutes.
-
---- CSS TO APPEND TO THE END OF style.css ---
 
 /* CAPTAIN GUNPLA — cinematic blurred mecha background (homepage hero only) */
 .hero::before{
@@ -2191,7 +2183,5 @@ CAPTAIN GUNPLA — ADD BLURRED HERO BACKGROUND
   }
 }
 
---- END ---
 
 
-Dán này duoi cung file style.css phải ko
