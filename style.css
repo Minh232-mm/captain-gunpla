@@ -2207,5 +2207,208 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
     }
 }
 
+/* ==========================================
+   CAPTAIN GUNPLA - CINEMATIC MECHA V2
+   CSS ONLY - SAFE ANIMATION ENHANCEMENT
+   ========================================== */
+
+/* 1. Ánh sáng điện ảnh phía sau Gundam */
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  width: 65%;
+  height: 65%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(240, 35, 50, .19),
+    rgba(240, 35, 50, .05) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: -1;
+  animation: cg-aura 7s ease-in-out infinite;
+}
+
+/* 2. Vòng HUD thở nhẹ */
+.hero-ring.ring-b {
+  animation: cg-ring-pulse 5s ease-in-out infinite;
+}
+
+/* 3. Lưới kỹ thuật chuyển động */
+.hero-visual-grid {
+  animation: cg-grid-shift 22s linear infinite;
+}
+
+/* 4. Điểm đánh dấu HUD phát sáng */
+.hero-cross {
+  animation: cg-cross-pulse 3s ease-in-out infinite;
+}
+
+.cross-b {
+  animation-delay: 1.5s;
+}
+
+/* 5. Bảng thông số kỹ thuật */
+.hud {
+  transition: border-color .4s ease,
+              background .4s ease;
+  animation: cg-hud-glow 5s ease-in-out infinite;
+}
+
+.hud-pin {
+  animation: cg-hud-dot 1.8s ease-in-out infinite;
+}
+
+/* 6. Hiệu ứng sản phẩm */
+.product-card {
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 15px 40px rgba(240, 35, 50, .12);
+}
+
+/* 7. Hiệu ứng dịch vụ */
+.service {
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.service:hover {
+  box-shadow: 0 12px 35px rgba(240, 35, 50, .10);
+}
+
+/* 8. Hiệu ứng xuất hiện tuần tự */
+.services-grid .service:nth-child(2) {
+  transition-delay: .08s;
+}
+
+.services-grid .service:nth-child(3) {
+  transition-delay: .16s;
+}
+
+/* 9. Hiệu ứng ánh sáng nút bấm */
+.btn,
+.category,
+.view-btn {
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.btn-red:hover {
+  box-shadow: 0 0 22px rgba(240, 35, 50, .25);
+}
+
+/* ANIMATION KEYFRAMES */
+
+@keyframes cg-aura {
+  0%, 100% {
+    opacity: .55;
+    transform: scale(.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes cg-ring-pulse {
+  0%, 100% {
+    opacity: .45;
+    transform: scale(.98);
+  }
+  50% {
+    opacity: .9;
+    transform: scale(1.025);
+  }
+}
+
+@keyframes cg-grid-shift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 65px 65px;
+  }
+}
+
+@keyframes cg-cross-pulse {
+  0%, 100% {
+    opacity: .45;
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 12px #f03742;
+  }
+}
+
+@keyframes cg-hud-glow {
+  0%, 100% {
+    border-color: rgba(255,255,255,.22);
+  }
+  50% {
+    border-color: rgba(240,55,66,.55);
+  }
+}
+
+@keyframes cg-hud-dot {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 3px #f03742;
+  }
+  50% {
+    opacity: .45;
+    box-shadow: 0 0 10px #f03742;
+  }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 700px) {
+  .hero-visual::after {
+    width: 85%;
+    height: 65%;
+  }
+
+  .hero-visual-grid {
+    animation-duration: 35s;
+  }
+
+  .hero-ring.ring-b {
+    animation-duration: 7s;
+  }
+
+  .hud {
+    animation: none;
+  }
+
+  .product-card:hover,
+  .service:hover {
+    box-shadow: none;
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual::after,
+  .hero-ring.ring-b,
+  .hero-visual-grid,
+  .hero-cross,
+  .hud,
+  .hud-pin {
+    animation: none !important;
+  }
+}
+
+
 
 
