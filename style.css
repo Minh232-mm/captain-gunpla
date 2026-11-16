@@ -2408,6 +2408,267 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
     animation: none !important;
   }
 }
+/* =========================================================
+   CAPTAIN GUNPLA — CINEMATIC MECHA SHOWROOM
+   Add-on CSS only. Does not alter HTML, JavaScript or Supabase.
+   ========================================================= */
+
+/* Cinematic depth on the hero: keep the existing layout and carousel */
+.hero {
+  isolation: isolate;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 78% 48%, rgba(239, 24, 43, .16), transparent 38%),
+    linear-gradient(115deg, transparent 35%, rgba(128, 8, 22, .10) 72%, transparent);
+}
+.hero-content,
+.hero-visual {
+  z-index: 2;
+}
+.hero-mecha {
+  transform-origin: 50% 62%;
+  filter:
+    drop-shadow(0 24px 28px rgba(0,0,0,.55))
+    drop-shadow(0 0 24px rgba(240,35,50,.16));
+  animation: cg-mecha-showroom 7s ease-in-out infinite;
+}
+.hero-ring.ring-a {
+  animation: cg-ring-rotate 48s linear infinite;
+}
+.hero-ring.ring-b {
+  animation: cg-ring-breathe 6s ease-in-out infinite;
+}
+
+/* Product cards become red, dimensional showroom panels */
+.products {
+  perspective: 1200px;
+  align-items: stretch;
+}
+.product-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(255, 91, 103, .24);
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(255, 49, 63, .26), transparent 52%),
+    linear-gradient(155deg, #75101b 0%, #3a0b13 48%, #151018 100%);
+  box-shadow: 0 16px 38px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.08);
+  transform-style: preserve-3d;
+  transition:
+    transform .45s cubic-bezier(.2,.7,.2,1),
+    border-color .35s ease,
+    box-shadow .45s ease;
+}
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .55;
+  background:
+    linear-gradient(120deg, transparent 15%, rgba(255,255,255,.08) 42%, transparent 58%),
+    radial-gradient(ellipse at 50% 70%, rgba(255, 28, 47, .16), transparent 58%);
+  transform: translateX(-115%);
+  transition: transform .85s ease;
+}
+.product-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 3;
+  border: 1px solid rgba(255,255,255,.045);
+  border-radius: 19px;
+  pointer-events: none;
+}
+.product-card:hover {
+  transform: translateY(-9px) rotateX(2deg) rotateY(-1deg);
+  border-color: rgba(255, 83, 96, .75);
+  box-shadow:
+    0 26px 55px rgba(0,0,0,.42),
+    0 0 34px rgba(240,35,50,.16),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+.product-card:hover::before {
+  transform: translateX(115%);
+}
+.product-cover {
+  position: relative;
+  z-index: 1;
+  height: 360px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 19px 19px 0 0;
+  background:
+    radial-gradient(ellipse at 50% 58%, rgba(255, 75, 85, .25), transparent 57%),
+    linear-gradient(180deg, rgba(106, 10, 23, .55), rgba(22, 11, 18, .2));
+}
+.product-cover::before {
+  opacity: .45;
+  background:
+    linear-gradient(90deg, transparent 49.7%, rgba(255,255,255,.10) 50%, transparent 50.3%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 58px, rgba(255,255,255,.045) 59px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 58px, rgba(255,255,255,.045) 59px);
+  mask-image: radial-gradient(ellipse at center, #000 12%, transparent 78%);
+}
+.product-cover img {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(28px);
+  filter:
+    drop-shadow(0 18px 16px rgba(0,0,0,.48))
+    drop-shadow(0 0 15px rgba(255,54,69,.12));
+  animation: cg-product-hover 7s ease-in-out infinite;
+  transition: filter .4s ease, transform .5s ease;
+}
+.product-card:hover .product-cover img {
+  transform: translateY(-7px) scale(1.055);
+  filter:
+    drop-shadow(0 24px 20px rgba(0,0,0,.55))
+    drop-shadow(0 0 22px rgba(255,54,69,.25));
+  animation-play-state: paused;
+}
+.product-meta {
+  position: relative;
+  z-index: 2;
+  padding: 20px 21px 22px;
+  background: linear-gradient(180deg, rgba(39,10,18,.92), rgba(15,15,21,.98));
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+.product-grade {
+  color: #ff7b84;
+}
+.product-name {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.28);
+}
+.product-price-row {
+  border-top-color: rgba(255,255,255,.14);
+}
+.product-price {
+  color: #ff5965;
+}
+.badge-product {
+  z-index: 2;
+  border-radius: 3px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.28);
+}
+.cover-index {
+  z-index: 2;
+  text-shadow: 0 2px 8px #000;
+}
+
+/* Refined dimensional treatment for service and portfolio panels */
+.service {
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(240,55,66,.11), transparent 48%),
+    linear-gradient(145deg, #19151c, #11131a 72%);
+  box-shadow: 0 14px 35px rgba(0,0,0,.16);
+}
+.service.featured {
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(240,55,66,.2), transparent 52%),
+    linear-gradient(145deg, #32131b, #13151b 75%);
+}
+.gallery-item {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow: 0 15px 35px rgba(0,0,0,.2);
+}
+.gallery-item img {
+  transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .65s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.045);
+  filter: drop-shadow(0 12px 18px rgba(240,35,50,.18));
+}
+
+/* Buttons and controls: subtle red energy, no layout changes */
+.btn-red,
+.head-cta,
+.search-panel button {
+  box-shadow: 0 6px 22px rgba(220,35,52,.12);
+}
+.btn-red:hover,
+.head-cta:hover,
+.search-panel button:hover {
+  box-shadow: 0 8px 28px rgba(240,35,50,.28);
+}
+
+/* Medium movement, with a still/low-power experience on touch screens */
+@keyframes cg-mecha-showroom {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -11px, 0) rotate(.45deg); }
+}
+@keyframes cg-ring-rotate {
+  to { transform: rotate(360deg); }
+}
+@keyframes cg-ring-breathe {
+  0%, 100% { opacity: .42; transform: scale(.98); }
+  50% { opacity: .88; transform: scale(1.035); }
+}
+@keyframes cg-product-hover {
+  0%, 100% { transform: translateY(0) translateZ(28px); }
+  50% { transform: translateY(-7px) translateZ(28px); }
+}
+
+@media (max-width: 700px) {
+  .product-card {
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+  }
+  .product-cover {
+    height: clamp(175px, 48vw, 235px);
+    border-radius: 14px 14px 0 0;
+  }
+  .product-meta {
+    padding: 13px 12px 15px;
+  }
+  .product-card:hover {
+    transform: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+  }
+  .product-card:hover .product-cover img {
+    transform: none;
+  }
+  .product-cover img {
+    animation-duration: 9s;
+  }
+  .gallery-item {
+    border-radius: 12px;
+  }
+}
+@media (hover: none) {
+  .product-card:hover,
+  .gallery-item:hover img {
+    transform: none;
+  }
+  .product-card::before {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mecha,
+  .hero-ring.ring-a,
+  .hero-ring.ring-b,
+  .product-cover img {
+    animation: none !important;
+  }
+  .product-card,
+  .gallery-item img {
+    transition: none !important;
+  }
+}
+
 
 
 
