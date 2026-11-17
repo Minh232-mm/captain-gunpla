@@ -43,3 +43,12 @@
   .showcase-admin-option{padding:8px;gap:8px}
   .showcase-admin-option img{width:54px;height:54px}
 }
+
+
+/* CAPTAIN GUNPLA â€” shop reply controls (additive only) */
+.review-reply-form{margin:14px 0;padding:12px;border:1px solid #ffffff20;border-radius:10px;background:#101216}
+.review-reply-form label{margin:0;color:#bfc4ce}
+.review-reply-form textarea{resize:vertical;min-height:76px}
+.review-reply-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:9px}
+.review-reply-actions button{white-space:nowrap}
+@media(max-width:600px){.review-reply-actions{align-items:stretch;flex-direction:column}.review-reply-actions button{width:100%}}
