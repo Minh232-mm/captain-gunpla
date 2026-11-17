@@ -2,7 +2,7 @@
 
 /* ===== RESPONSIVE FIX: DESKTOP + MOBILE ===== */
 
-/* Ã„ÂÃ„Æ’ng nhÃ¡ÂºÂ­p: thÃƒÂªm class="btn-login" vÃƒÂ o thÃ¡ÂºÂ» a cÃ¡Â»Â§a nÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p */
+/* Ãƒâ€žÃ‚ÂÃƒâ€žÃ†â€™ng nhÃƒÂ¡Ã‚ÂºÃ‚Â­p: thÃƒÆ’Ã‚Âªm class="btn-login" vÃƒÆ’Ã‚Â o thÃƒÂ¡Ã‚ÂºÃ‚Â» a cÃƒÂ¡Ã‚Â»Ã‚Â§a nÃƒÆ’Ã‚Âºt Ãƒâ€žÃ¢â‚¬ËœÃƒâ€žÃ†â€™ng nhÃƒÂ¡Ã‚ÂºÃ‚Â­p */
 .btn-login {
   display: inline-flex;
   flex: 0 0 auto;
@@ -180,7 +180,7 @@ textarea {
   }
 }
 
-/* Ã„ÂiÃ¡Â»â€¡n thoÃ¡ÂºÂ¡i */
+/* Ãƒâ€žÃ‚ÂiÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¡n thoÃƒÂ¡Ã‚ÂºÃ‚Â¡i */
 @media (max-width: 700px) {
   html {
     scroll-padding-top: 76px;
@@ -250,7 +250,7 @@ textarea {
     flex: 0 0 38px;
   }
 
-  /* NÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p nÃ¡ÂºÂ±m gÃ¡Â»Ân mÃ¡Â»â„¢t hÃƒÂ ng trÃƒÂªn thanh Ã„â€˜Ã¡ÂºÂ§u trang */
+  /* NÃƒÆ’Ã‚Âºt Ãƒâ€žÃ¢â‚¬ËœÃƒâ€žÃ†â€™ng nhÃƒÂ¡Ã‚ÂºÃ‚Â­p nÃƒÂ¡Ã‚ÂºÃ‚Â±m gÃƒÂ¡Ã‚Â»Ã‚Ân mÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢t hÃƒÆ’Ã‚Â ng trÃƒÆ’Ã‚Âªn thanh Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚ÂºÃ‚Â§u trang */
   .header > .btn-login,
   .head-actions .btn-login {
     min-height: 36px;
@@ -259,7 +259,7 @@ textarea {
     letter-spacing: 0.3px;
   }
 
-  /* Hero cÃƒÂ¢n Ã„â€˜Ã¡Â»â€˜i: chÃ¡Â»Â¯ bÃƒÂªn trÃƒÂ¡i, mÃƒÂ´ hÃƒÂ¬nh bÃƒÂªn phÃ¡ÂºÂ£i */
+  /* Hero cÃƒÆ’Ã‚Â¢n Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã¢â‚¬Ëœi: chÃƒÂ¡Ã‚Â»Ã‚Â¯ bÃƒÆ’Ã‚Âªn trÃƒÆ’Ã‚Â¡i, mÃƒÆ’Ã‚Â´ hÃƒÆ’Ã‚Â¬nh bÃƒÆ’Ã‚Âªn phÃƒÂ¡Ã‚ÂºÃ‚Â£i */
   .hero {
     display: grid;
     grid-template-columns: minmax(0, 54%) minmax(0, 46%);
@@ -428,7 +428,7 @@ textarea {
     padding: 0 14px;
   }
 
-  /* TiÃƒÂªu Ã„â€˜Ã¡Â»Â vÃƒÂ  nÃ¡Â»â„¢i dung cÃƒÂ¡c mÃ¡Â»Â¥c cÃ„Æ’n theo cÃƒÂ¹ng lÃ¡Â»Â */
+  /* TiÃƒÆ’Ã‚Âªu Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã‚Â vÃƒÆ’Ã‚Â  nÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢i dung cÃƒÆ’Ã‚Â¡c mÃƒÂ¡Ã‚Â»Ã‚Â¥c cÃƒâ€žÃ†â€™n theo cÃƒÆ’Ã‚Â¹ng lÃƒÂ¡Ã‚Â»Ã‚Â */
   .section {
     padding: 54px 16px;
   }
@@ -718,7 +718,7 @@ textarea {
     transform: none;
   }
 }
-/* SÃ¡Â»Â¬A KÃƒÂCH THÃ†Â¯Ã¡Â»Å¡C NÃƒÅ¡T TRÃƒÅ N Ã„ÂIÃ¡Â»â€ N THOÃ¡ÂºÂ I */
+/* SÃƒÂ¡Ã‚Â»Ã‚Â¬A KÃƒÆ’Ã‚ÂCH THÃƒâ€ Ã‚Â¯ÃƒÂ¡Ã‚Â»Ã…Â¡C NÃƒÆ’Ã…Â¡T TRÃƒÆ’Ã…Â N Ãƒâ€žÃ‚ÂIÃƒÂ¡Ã‚Â»Ã¢â‚¬Â N THOÃƒÂ¡Ã‚ÂºÃ‚Â I */
 @media (max-width: 700px) {
   .hero-buttons {
     display: flex !important;
@@ -749,7 +749,7 @@ textarea {
     margin-left: 4px !important;
   }
 
-  /* GiÃ¡Â»Â¯ nÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p gÃ¡Â»Ân trÃƒÂªn thanh Ã„â€˜Ã¡ÂºÂ§u trang */
+  /* GiÃƒÂ¡Ã‚Â»Ã‚Â¯ nÃƒÆ’Ã‚Âºt Ãƒâ€žÃ¢â‚¬ËœÃƒâ€žÃ†â€™ng nhÃƒÂ¡Ã‚ÂºÃ‚Â­p gÃƒÂ¡Ã‚Â»Ã‚Ân trÃƒÆ’Ã‚Âªn thanh Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚ÂºÃ‚Â§u trang */
   .header > .btn-login,
   .head-actions .btn-login,
   .header a[href="#login"] {
@@ -765,7 +765,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* NÃƒÂºt lÃ¡Â»Âc danh mÃ¡Â»Â¥c sÃ¡ÂºÂ£n phÃ¡ÂºÂ©m gÃ¡Â»Ân vÃƒÂ  cuÃ¡Â»â„¢n ngang */
+  /* NÃƒÆ’Ã‚Âºt lÃƒÂ¡Ã‚Â»Ã‚Âc danh mÃƒÂ¡Ã‚Â»Ã‚Â¥c sÃƒÂ¡Ã‚ÂºÃ‚Â£n phÃƒÂ¡Ã‚ÂºÃ‚Â©m gÃƒÂ¡Ã‚Â»Ã‚Ân vÃƒÆ’Ã‚Â  cuÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢n ngang */
   .categories {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -783,7 +783,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* TrÃƒÂ¡nh cÃƒÂ¡c nÃƒÂºt trÃƒÂ n ra ngoÃƒÂ i chiÃ¡Â»Âu ngang mÃƒÂ n hÃƒÂ¬nh */
+  /* TrÃƒÆ’Ã‚Â¡nh cÃƒÆ’Ã‚Â¡c nÃƒÆ’Ã‚Âºt trÃƒÆ’Ã‚Â n ra ngoÃƒÆ’Ã‚Â i chiÃƒÂ¡Ã‚Â»Ã‚Âu ngang mÃƒÆ’Ã‚Â n hÃƒÆ’Ã‚Â¬nh */
   .hero,
   .hero-content,
   .shop-section,
@@ -846,13 +846,13 @@ textarea {
     white-space: nowrap;
   }
 }
-/* TÃƒÂ´ng Ã„â€˜Ã¡Â»Â Ã„â€˜Ã¡ÂºÂ­m Ã„â€˜Ã¡Â»â€œng bÃ¡Â»â„¢ vÃ¡Â»â€ºi mÃƒÂ´ hÃƒÂ¬nh */
+/* TÃƒÆ’Ã‚Â´ng Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã‚Â Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚ÂºÃ‚Â­m Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã¢â‚¬Å“ng bÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢ vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi mÃƒÆ’Ã‚Â´ hÃƒÆ’Ã‚Â¬nh */
 :root {
   --red: #d10a1c;
   --red2: #8f0b16;
 }
 
-/* CÃƒÂ¡c dÃ¡ÂºÂ£i Ã„â€˜Ã¡Â»Â cÃƒÂ³ mÃƒÂ u Ã„â€˜ang Ã„â€˜Ã†Â°Ã¡Â»Â£c khai bÃƒÂ¡o riÃƒÂªng */
+/* CÃƒÆ’Ã‚Â¡c dÃƒÂ¡Ã‚ÂºÃ‚Â£i Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã‚Â cÃƒÆ’Ã‚Â³ mÃƒÆ’Ã‚Â u Ãƒâ€žÃ¢â‚¬Ëœang Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c khai bÃƒÆ’Ã‚Â¡o riÃƒÆ’Ã‚Âªng */
 .top-line {
   background: #c8101e;
 }
@@ -861,20 +861,20 @@ textarea {
   background: #c8101e;
 }
 
-/* MÃƒÂ u hover nÃƒÂºt Ã„â€˜Ã¡Â»Â */
+/* MÃƒÆ’Ã‚Â u hover nÃƒÆ’Ã‚Âºt Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã‚Â */
 .head-cta:hover,
 .btn-red:hover {
   background: #a80d19;
 }
 
-/* ÃƒÂnh Ã„â€˜Ã¡Â»Â nÃ¡Â»Ân hero dÃ¡Â»â€¹u vÃƒÂ  Ã„â€˜Ã¡ÂºÂ­m hÃ†Â¡n */
+/* ÃƒÆ’Ã‚Ânh Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã‚Â nÃƒÂ¡Ã‚Â»Ã‚Ân hero dÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¹u vÃƒÆ’Ã‚Â  Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚ÂºÃ‚Â­m hÃƒâ€ Ã‚Â¡n */
 .hero {
   background:
     radial-gradient(ellipse at 75% 52%, rgba(150, 12, 26, 0.16), transparent 45%),
     linear-gradient(125deg, #0a0b11, #08090d 70%);
 }
 @media (max-width: 700px) {
-  /* HiÃ¡Â»â€¡n nÃƒÂºt Ã„â€˜Ã„Æ’ng nhÃ¡ÂºÂ­p trÃƒÂªn Ã„â€˜iÃ¡Â»â€¡n thoÃ¡ÂºÂ¡i */
+  /* HiÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¡n nÃƒÆ’Ã‚Âºt Ãƒâ€žÃ¢â‚¬ËœÃƒâ€žÃ†â€™ng nhÃƒÂ¡Ã‚ÂºÃ‚Â­p trÃƒÆ’Ã‚Âªn Ãƒâ€žÃ¢â‚¬ËœiÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¡n thoÃƒÂ¡Ã‚ÂºÃ‚Â¡i */
   #headerLogin,
   .header-user-button {
     display: inline-flex !important;
@@ -895,7 +895,7 @@ textarea {
     display: none;
   }
 
-  /* Thu gÃ¡Â»Ân hai nÃƒÂºt Ã¡Â»Å¸ phÃ¡ÂºÂ§n bÃƒÂ¬a, khÃƒÂ´ng kÃƒÂ©o dÃƒÂ i hÃ¡ÂºÂ¿t hÃƒÂ ng */
+  /* Thu gÃƒÂ¡Ã‚Â»Ã‚Ân hai nÃƒÆ’Ã‚Âºt ÃƒÂ¡Ã‚Â»Ã…Â¸ phÃƒÂ¡Ã‚ÂºÃ‚Â§n bÃƒÆ’Ã‚Â¬a, khÃƒÆ’Ã‚Â´ng kÃƒÆ’Ã‚Â©o dÃƒÆ’Ã‚Â i hÃƒÂ¡Ã‚ÂºÃ‚Â¿t hÃƒÆ’Ã‚Â ng */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -935,7 +935,7 @@ textarea {
   }
 }
 @media (max-width: 700px) {
-  /* Hai nÃƒÂºt cÃƒÂ¹ng kÃƒÂ­ch thÃ†Â°Ã¡Â»â€ºc, chÃ¡Â»Â¯ cÃ„Æ’n giÃ¡Â»Â¯a */
+  /* Hai nÃƒÆ’Ã‚Âºt cÃƒÆ’Ã‚Â¹ng kÃƒÆ’Ã‚Â­ch thÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºc, chÃƒÂ¡Ã‚Â»Ã‚Â¯ cÃƒâ€žÃ†â€™n giÃƒÂ¡Ã‚Â»Ã‚Â¯a */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -961,7 +961,7 @@ textarea {
     white-space: nowrap !important;
   }
 
-  /* DÃ¡ÂºÂ£i chÃ¡Â»Â¯ chÃ¡ÂºÂ¡y gÃ¡Â»Ân hÃ†Â¡n */
+  /* DÃƒÂ¡Ã‚ÂºÃ‚Â£i chÃƒÂ¡Ã‚Â»Ã‚Â¯ chÃƒÂ¡Ã‚ÂºÃ‚Â¡y gÃƒÂ¡Ã‚Â»Ã‚Ân hÃƒâ€ Ã‚Â¡n */
   .marquee {
     height: 32px !important;
   }
@@ -988,7 +988,7 @@ textarea {
   font-family: Arial, sans-serif !important;
   font-variant-emoji: text;
 }
-/* Ã„ÂÃƒÂNH GIÃƒÂ SHOP */
+/* Ãƒâ€žÃ‚ÂÃƒÆ’Ã‚ÂNH GIÃƒÆ’Ã‚Â SHOP */
 .hero-buttons .review-link {
   white-space: nowrap;
 }
@@ -1172,7 +1172,7 @@ textarea {
   transform: scale(1.3);
   transform-origin: center;
 }
-/* Zoom nhÃ¡ÂºÂ¹ cho Ã¡ÂºÂ£nh mÃƒÂ´ hÃƒÂ¬nh chÃƒÂ­nh */
+/* Zoom nhÃƒÂ¡Ã‚ÂºÃ‚Â¹ cho ÃƒÂ¡Ã‚ÂºÃ‚Â£nh mÃƒÆ’Ã‚Â´ hÃƒÆ’Ã‚Â¬nh chÃƒÆ’Ã‚Â­nh */
 #heroMecha {
   animation: heroZoom 3s ease-in-out infinite alternate;
   transform-origin: center center;
@@ -1319,7 +1319,7 @@ textarea {
   background: rgba(20, 22, 29, 0.55) !important;
   border-color: rgba(255, 255, 255, 0.22) !important;
 }
-/* TiÃƒÂªu Ã„â€˜Ã¡Â»Â trÃ†Â°Ã¡Â»Â£t lÃƒÂªn vÃƒÂ  hiÃ¡Â»â€¡n dÃ¡ÂºÂ§n */
+/* TiÃƒÆ’Ã‚Âªu Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã‚Â trÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£t lÃƒÆ’Ã‚Âªn vÃƒÆ’Ã‚Â  hiÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¡n dÃƒÂ¡Ã‚ÂºÃ‚Â§n */
 .section-heading h2 {
   opacity: 0;
   transform: translateY(28px);
@@ -1342,7 +1342,7 @@ textarea {
 }
 
 
-/* ===== CAPTAIN GUNPLA Ã¢â‚¬â€ DARK GLASSMORPHISM CARDS ===== */
+/* ===== CAPTAIN GUNPLA ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â DARK GLASSMORPHISM CARDS ===== */
 :root {
   --glass-bg: linear-gradient(145deg, rgba(38, 40, 44, .88), rgba(17, 19, 23, .94));
   --glass-border: rgba(255, 255, 255, .22);
@@ -1413,7 +1413,7 @@ textarea {
 
 /* ===== MOBILE PRODUCT MODAL SCROLL FIX ===== */
 @media (max-width: 700px) {
-  /* Cho phÃƒÂ©p cuÃ¡Â»â„¢n toÃƒÂ n bÃ¡Â»â„¢ cÃ¡Â»Â­a sÃ¡Â»â€¢ chi tiÃ¡ÂºÂ¿t sÃ¡ÂºÂ£n phÃ¡ÂºÂ©m trÃƒÂªn Ã„â€˜iÃ¡Â»â€¡n thoÃ¡ÂºÂ¡i */
+  /* Cho phÃƒÆ’Ã‚Â©p cuÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢n toÃƒÆ’Ã‚Â n bÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢ cÃƒÂ¡Ã‚Â»Ã‚Â­a sÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¢ chi tiÃƒÂ¡Ã‚ÂºÃ‚Â¿t sÃƒÂ¡Ã‚ÂºÃ‚Â£n phÃƒÂ¡Ã‚ÂºÃ‚Â©m trÃƒÆ’Ã‚Âªn Ãƒâ€žÃ¢â‚¬ËœiÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¡n thoÃƒÂ¡Ã‚ÂºÃ‚Â¡i */
   #productModal.modal.open {
     display: block !important;
     overflow-x: hidden !important;
@@ -1458,7 +1458,7 @@ textarea {
 }
 
 
-/* ===== MOBILE HERO BUTTONS Ã¢â‚¬â€ COMPACT SIZE ===== */
+/* ===== MOBILE HERO BUTTONS ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â COMPACT SIZE ===== */
 @media (max-width: 700px) {
   .hero-buttons {
     align-items: flex-start !important;
@@ -1858,7 +1858,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
 .show-more-products[hidden] { display:none !important; }
 
 @media (max-width:700px) {
-  /* TÃƒÂ¡ch logo vÃƒÂ  cÃ¡Â»Â¥m nÃƒÂºt thÃƒÂ nh hai hÃƒÂ ng, khÃƒÂ´ng cÃƒÂ²n Ã„â€˜ÃƒÂ¨ chÃ¡Â»Â¯ lÃƒÂªn giÃ¡Â»Â hÃƒÂ ng */
+  /* TÃƒÆ’Ã‚Â¡ch logo vÃƒÆ’Ã‚Â  cÃƒÂ¡Ã‚Â»Ã‚Â¥m nÃƒÆ’Ã‚Âºt thÃƒÆ’Ã‚Â nh hai hÃƒÆ’Ã‚Â ng, khÃƒÆ’Ã‚Â´ng cÃƒÆ’Ã‚Â²n Ãƒâ€žÃ¢â‚¬ËœÃƒÆ’Ã‚Â¨ chÃƒÂ¡Ã‚Â»Ã‚Â¯ lÃƒÆ’Ã‚Âªn giÃƒÂ¡Ã‚Â»Ã‚Â hÃƒÆ’Ã‚Â ng */
   body .header { display:flex !important; flex-direction:column !important; align-items:stretch !important; justify-content:center !important; gap:9px !important; width:100% !important; height:auto !important; min-height:104px !important; padding:9px 14px 11px !important; overflow:visible !important; }
   body .header > .brand { display:flex !important; flex:0 0 auto !important; align-self:flex-start !important; width:auto !important; max-width:100% !important; min-width:0 !important; gap:9px !important; margin:0 !important; }
   body .header .brand-logo-image { flex:0 0 36px !important; width:36px !important; height:36px !important; }
@@ -2157,7 +2157,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
 }
 
 
-/* CAPTAIN GUNPLA — clearer cinematic hero background */
+/* CAPTAIN GUNPLA â€” clearer cinematic hero background */
 .hero::before {
     content: "";
     position: absolute;
@@ -2212,7 +2212,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
    CSS ONLY - SAFE ANIMATION ENHANCEMENT
    ========================================== */
 
-/* 1. Ánh sáng điện ảnh phía sau Gundam */
+/* 1. Ãnh sÃ¡ng Ä‘iá»‡n áº£nh phÃ­a sau Gundam */
 .hero-visual::after {
   content: "";
   position: absolute;
@@ -2230,17 +2230,17 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   animation: cg-aura 7s ease-in-out infinite;
 }
 
-/* 2. Vòng HUD thở nhẹ */
+/* 2. VÃ²ng HUD thá»Ÿ nháº¹ */
 .hero-ring.ring-b {
   animation: cg-ring-pulse 5s ease-in-out infinite;
 }
 
-/* 3. Lưới kỹ thuật chuyển động */
+/* 3. LÆ°á»›i ká»¹ thuáº­t chuyá»ƒn Ä‘á»™ng */
 .hero-visual-grid {
   animation: cg-grid-shift 22s linear infinite;
 }
 
-/* 4. Điểm đánh dấu HUD phát sáng */
+/* 4. Äiá»ƒm Ä‘Ã¡nh dáº¥u HUD phÃ¡t sÃ¡ng */
 .hero-cross {
   animation: cg-cross-pulse 3s ease-in-out infinite;
 }
@@ -2249,7 +2249,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   animation-delay: 1.5s;
 }
 
-/* 5. Bảng thông số kỹ thuật */
+/* 5. Báº£ng thÃ´ng sá»‘ ká»¹ thuáº­t */
 .hud {
   transition: border-color .4s ease,
               background .4s ease;
@@ -2260,7 +2260,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   animation: cg-hud-dot 1.8s ease-in-out infinite;
 }
 
-/* 6. Hiệu ứng sản phẩm */
+/* 6. Hiá»‡u á»©ng sáº£n pháº©m */
 .product-card {
   transition:
     transform .35s ease,
@@ -2272,7 +2272,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   box-shadow: 0 15px 40px rgba(240, 35, 50, .12);
 }
 
-/* 7. Hiệu ứng dịch vụ */
+/* 7. Hiá»‡u á»©ng dá»‹ch vá»¥ */
 .service {
   transition:
     transform .35s ease,
@@ -2284,7 +2284,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   box-shadow: 0 12px 35px rgba(240, 35, 50, .10);
 }
 
-/* 8. Hiệu ứng xuất hiện tuần tự */
+/* 8. Hiá»‡u á»©ng xuáº¥t hiá»‡n tuáº§n tá»± */
 .services-grid .service:nth-child(2) {
   transition-delay: .08s;
 }
@@ -2293,7 +2293,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   transition-delay: .16s;
 }
 
-/* 9. Hiệu ứng ánh sáng nút bấm */
+/* 9. Hiá»‡u á»©ng Ã¡nh sÃ¡ng nÃºt báº¥m */
 .btn,
 .category,
 .view-btn {
@@ -2409,7 +2409,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   }
 }
 /* =========================================================
-   CAPTAIN GUNPLA — CINEMATIC MECHA SHOWROOM
+   CAPTAIN GUNPLA â€” CINEMATIC MECHA SHOWROOM
    Add-on CSS only. Does not alter HTML, JavaScript or Supabase.
    ========================================================= */
 
@@ -2688,7 +2688,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
               border-color .35s ease;
 }
 
-/* Ánh sáng nền */
+/* Ãnh sÃ¡ng ná»n */
 .service::after {
   content: "";
   position: absolute;
@@ -2702,7 +2702,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
       transparent 40%, rgba(255,255,255,.045) 100%);
 }
 
-/* Số thứ tự trang trí */
+/* Sá»‘ thá»© tá»± trang trÃ­ */
 .service::before {
   position: absolute;
   z-index: -1;
@@ -2720,7 +2720,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
 .service:nth-child(2)::before { content: "02"; }
 .service:nth-child(3)::before { content: "03"; }
 
-/* Đồng bộ cả ba thẻ */
+/* Äá»“ng bá»™ cáº£ ba tháº» */
 .service.featured {
   background:
     radial-gradient(ellipse at 20% 20%, rgba(255,65,65,.35), transparent 55%),
@@ -2765,7 +2765,7 @@ html body .reviews-section #reviewStarPicker > button:not(.selected):not([aria-p
   transform: scale(1.12);
 }
 
-/* Điện thoại */
+/* Äiá»‡n thoáº¡i */
 @media (max-width:700px) {
   .service {
     min-height: 280px;
@@ -2836,14 +2836,6 @@ body .services-section .services-grid > article.service:hover {
   content: none !important;
   display: none !important;
 }
-
-
-/* CAPTAIN GUNPLA - PUBLIC SHOP REVIEW REPLY */
-.shop-review-reply{margin:16px 0 2px;padding:14px 16px;border:1px solid rgba(240,55,66,.28);border-left:3px solid #f03742;border-radius:10px;background:linear-gradient(135deg,rgba(240,55,66,.10),rgba(20,22,30,.72))}
-.shop-review-reply-title{display:flex;align-items:center;gap:9px;color:#ffb6bb;font-size:11px;font-weight:800;letter-spacing:.65px}
-.shop-review-reply-mark{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#f03742;color:white;font-size:13px}
-.shop-review-reply p{margin:9px 0 0;color:#f0e8e9;line-height:1.65;white-space:pre-wrap}
-@media(max-width:600px){.shop-review-reply{padding:12px}}
 
 
 
