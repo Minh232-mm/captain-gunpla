@@ -187,7 +187,7 @@ async function loadReviews() {
   const [reviewsResult, ratingsResult] = await Promise.all([
     reviewsSupabase
       .from("shop_reviews")
-      .select("user_id, display_name, rating, comment, image_urls, created_at")
+      .select("user_id, display_name, rating, comment, image_urls, created_at, shop_reply, shop_replied_at")
       .order("created_at", { ascending: false })
       .limit(50),
     reviewsSupabase.from("shop_reviews").select("rating")
@@ -247,6 +247,7 @@ async function loadReviews() {
         </div>
         <p>${escapeReviewText(review.comment)}</p>
         ${imageMarkup ? `<div class="review-card-photos">${imageMarkup}</div>` : ""}
+        ${review.shop_reply ? `<div class="review-shop-reply"><strong>CAPTAIN GUNPLA · PHẢN HỒI CỦA SHOP</strong><p>${escapeReviewText(review.shop_reply)}</p>${review.shop_replied_at ? `<time>${new Intl.DateTimeFormat("vi-VN", { year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(review.shop_replied_at))}</time>` : ""}</div>` : ""}
       </article>
     `;
   }).join("");
