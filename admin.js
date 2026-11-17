@@ -578,39 +578,13 @@ async function loadReviews() {
       .order('created_at', {ascending:false}).limit(100);
     if (error) throw error;
     reviews = data || [];
-
-    let replies = [];
-    if (reviews.length) {
-      const replyResult = await db.from('shop_review_replies')
-        .select('review_user_id,reply,updated_at')
-        .in('review_user_id', reviews.map(r => r.user_id));
-      if (replyResult.error) throw replyResult.error;
-      replies = replyResult.data || [];
-    }
-    const replyByReview = new Map(replies.map(item => [item.review_user_id, item]));
-
     updateStats();
-    $('#reviewAdminList').innerHTML = reviews.map((r,i) => {
-      const reply = replyByReview.get(r.user_id);
-      return `<article class="review-admin-card" data-review-user="${esc(r.user_id)}">
-        <div><strong>${esc(r.display_name)}</strong> · <span class="gold">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div>
-        <p>${esc(r.comment)}</p>
-        <div class="review-images">${(r.image_urls || []).map(u => `<a href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="Ảnh đánh giá"></a>`).join('')}</div>
-        <small>${new Date(r.created_at).toLocaleString('vi-VN')}</small>
-        <label class="reply-admin-label">PHẢN HỒI CỦA SHOP
-          <textarea data-review-reply maxlength="2000" rows="3" placeholder="Nhập lời phản hồi dành cho khách hàng...">${esc(reply?.reply || '')}</textarea>
-        </label>
-        <div class="reply-admin-actions">
-          <button class="accent" type="button" data-save-review-reply>${reply ? 'CẬP NHẬT PHẢN HỒI' : 'GỬI PHẢN HỒI'}</button>
-          ${reply ? '<button class="danger" type="button" data-delete-review-reply>XÓA PHẢN HỒI</button>' : ''}
-          <span class="reply-admin-state" role="status">${reply ? 'Đã phản hồi · ' + new Date(reply.updated_at).toLocaleString('vi-VN') : 'Chưa phản hồi'}</span>
-        </div>
-        <button class="danger review-delete-admin" type="button" data-delete-review="${i}">XÓA ĐÁNH GIÁ</button>
-      </article>`;
-    }).join('') || '<p>Chưa có đánh giá.</p>';
+    $('#reviewAdminList').innerHTML = reviews.map((r,i) =>
+      `<article class="review-admin-card"><div><strong>${esc(r.display_name)}</strong> · <span class="gold">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div><p>${esc(r.comment)}</p><div class="review-images">${(r.image_urls || []).map(u => `<a href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="Ảnh đánh giá"></a>`).join('')}</div><small>${new Date(r.created_at).toLocaleString('vi-VN')}</small><button class="danger" type="button" data-delete-review="${i}">XÓA ĐÁNH GIÁ</button></article>`
+    ).join('') || '<p>Chưa có đánh giá.</p>';
   } catch (error) {
     console.error('[CAPTAIN ADMIN] Reviews error:', error);
-    $('#reviewAdminList').textContent = 'Không tải được đánh giá/phản hồi: ' + (error.message || error) + '. Hãy kiểm tra đã chạy SQL tạo shop_review_replies chưa.';
+    $('#reviewAdminList').textContent = 'Không tải được đánh giá: ' + (error.message || error);
   }
 }
 
@@ -624,53 +598,6 @@ async function deleteReviewImages(urls) {
 }
 
 $('#reviewAdminList').addEventListener('click', async e => {
-  const saveReplyButton = e.target.closest('[data-save-review-reply]');
-  const deleteReplyButton = e.target.closest('[data-delete-review-reply]');
-  const card = e.target.closest('[data-review-user]');
-
-  if (saveReplyButton && card) {
-    const textarea = card.querySelector('[data-review-reply]');
-    const state = card.querySelector('.reply-admin-state');
-    const reply = textarea.value.trim();
-    if (reply.length < 2) { state.textContent = 'Phản hồi cần có ít nhất 2 ký tự.'; return; }
-    saveReplyButton.disabled = true;
-    state.textContent = 'Đang lưu phản hồi...';
-    try {
-      const { data: userResult, error: userError } = await db.auth.getUser();
-      if (userError) throw userError;
-      if (!userResult.user) throw new Error('Phiên Admin đã hết hạn. Hãy đăng nhập lại.');
-      const { error } = await db.from('shop_review_replies').upsert({
-        review_user_id: card.dataset.reviewUser,
-        reply,
-        replied_by: userResult.user.id,
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'review_user_id' });
-      if (error) throw error;
-      await loadReviews();
-    } catch (error) {
-      state.textContent = 'Không lưu được: ' + (error.message || error);
-    } finally {
-      saveReplyButton.disabled = false;
-    }
-    return;
-  }
-
-  if (deleteReplyButton && card) {
-    if (!confirm('Xóa phản hồi của shop cho đánh giá này?')) return;
-    deleteReplyButton.disabled = true;
-    const state = card.querySelector('.reply-admin-state');
-    try {
-      const { error } = await db.from('shop_review_replies').delete()
-        .eq('review_user_id', card.dataset.reviewUser);
-      if (error) throw error;
-      await loadReviews();
-    } catch (error) {
-      state.textContent = 'Không xóa được phản hồi: ' + (error.message || error);
-      deleteReplyButton.disabled = false;
-    }
-    return;
-  }
-
   const b = e.target.closest('[data-delete-review]');
   if (!b) return;
   const r = reviews[Number(b.dataset.deleteReview)];
