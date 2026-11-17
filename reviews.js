@@ -201,6 +201,20 @@ async function loadReviews() {
 
   const reviews = reviewsResult.data || [];
   const ratings = ratingsResult.data || [];
+  let replies = [];
+  if (reviews.length) {
+    const repliesResult = await reviewsSupabase
+      .from("shop_review_replies")
+      .select("review_user_id, reply, updated_at")
+      .in("review_user_id", reviews.map((review) => review.user_id));
+    if (repliesResult.error) {
+      console.error("Review replies load error:", repliesResult.error);
+      reviewList.textContent = "Chưa tải được phản hồi của shop. Vui lòng tải lại trang sau.";
+      return;
+    }
+    replies = repliesResult.data || [];
+  }
+  const replyByReview = new Map(replies.map((item) => [item.review_user_id, item]));
 
   if (!ratings.length) {
     reviewAverage.textContent = "—";
@@ -224,6 +238,7 @@ async function loadReviews() {
       year: "numeric", month: "2-digit", day: "2-digit"
     }).format(new Date(review.created_at));
     const isOwnReview = currentReviewUser && currentReviewUser.id === review.user_id;
+    const shopReply = replyByReview.get(review.user_id);
     const imageMarkup = (Array.isArray(review.image_urls) ? review.image_urls : [])
       .map((url, index) => {
         const safeUrl = safeReviewImageUrl(url);
@@ -247,6 +262,7 @@ async function loadReviews() {
         </div>
         <p>${escapeReviewText(review.comment)}</p>
         ${imageMarkup ? `<div class="review-card-photos">${imageMarkup}</div>` : ""}
+        ${shopReply ? `<div class="shop-review-reply"><div class="shop-review-reply-title"><span class="shop-review-reply-mark">✓</span><strong>PHẢN HỒI TỪ CAPTAIN GUNPLA</strong></div><p>${escapeReviewText(shopReply.reply)}</p></div>` : ""}
       </article>
     `;
   }).join("");
