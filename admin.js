@@ -574,13 +574,13 @@ $('#refreshOrdersBtn')?.addEventListener('click', loadOrders);
 async function loadReviews() {
   try {
     const {data,error} = await db.from('shop_reviews')
-      .select('user_id,display_name,rating,comment,created_at,image_urls')
+      .select('user_id,display_name,rating,comment,created_at,image_urls,shop_reply,shop_replied_at')
       .order('created_at', {ascending:false}).limit(100);
     if (error) throw error;
     reviews = data || [];
     updateStats();
     $('#reviewAdminList').innerHTML = reviews.map((r,i) =>
-      `<article class="review-admin-card"><div><strong>${esc(r.display_name)}</strong> · <span class="gold">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div><p>${esc(r.comment)}</p><div class="review-images">${(r.image_urls || []).map(u => `<a href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="Ảnh đánh giá"></a>`).join('')}</div><small>${new Date(r.created_at).toLocaleString('vi-VN')}</small><button class="danger" type="button" data-delete-review="${i}">XÓA ĐÁNH GIÁ</button></article>`
+      `<article class="review-admin-card"><div><strong>${esc(r.display_name)}</strong> · <span class="gold">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div><p>${esc(r.comment)}</p><div class="review-images">${(r.image_urls || []).map(u => `<a href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="Ảnh đánh giá"></a>`).join('')}</div><small>${new Date(r.created_at).toLocaleString('vi-VN')}</small><form class="review-reply-form" data-review-reply-form="${i}"><label>PHẢN HỒI CỦA SHOP<textarea name="shop_reply" rows="3" maxlength="2000" placeholder="Nhập phản hồi cho khách hàng...">${esc(r.shop_reply || '')}</textarea></label><div class="review-reply-actions"><small>${r.shop_replied_at ? 'Đã phản hồi: ' + new Date(r.shop_replied_at).toLocaleString('vi-VN') : 'Chưa có phản hồi'}</small><button class="accent" type="submit">${r.shop_reply ? 'CẬP NHẬT PHẢN HỒI' : 'GỬI PHẢN HỒI'}</button></div></form><button class="danger" type="button" data-delete-review="${i}">XÓA ĐÁNH GIÁ</button></article>`
     ).join('') || '<p>Chưa có đánh giá.</p>';
   } catch (error) {
     console.error('[CAPTAIN ADMIN] Reviews error:', error);
@@ -606,6 +606,37 @@ $('#reviewAdminList').addEventListener('click', async e => {
   if (error) { alert('Không xóa được đánh giá: ' + error.message); return; }
   await deleteReviewImages(r.image_urls || []);
   await loadReviews();
+});
+
+$('#reviewAdminList').addEventListener('submit', async e => {
+  const replyForm = e.target.closest('[data-review-reply-form]');
+  if (!replyForm) return;
+  e.preventDefault();
+  const index = Number(replyForm.dataset.reviewReplyForm);
+  const review = reviews[index];
+  const button = replyForm.querySelector('button[type="submit"]');
+  const textarea = replyForm.querySelector('textarea[name="shop_reply"]');
+  const reply = textarea.value.trim();
+  if (!review) return;
+  if (reply.length < 2) {
+    alert('Phản hồi cần có ít nhất 2 ký tự.');
+    textarea.focus();
+    return;
+  }
+  button.disabled = true;
+  button.textContent = 'ĐANG LƯU...';
+  try {
+    const { error } = await db.from('shop_reviews').update({
+      shop_reply: reply,
+      shop_replied_at: new Date().toISOString()
+    }).eq('user_id', review.user_id);
+    if (error) throw error;
+    await loadReviews();
+  } catch (error) {
+    alert('Không lưu được phản hồi: ' + (error.message || error));
+    button.disabled = false;
+    button.textContent = review.shop_reply ? 'CẬP NHẬT PHẢN HỒI' : 'GỬI PHẢN HỒI';
+  }
 });
 
 $('#refreshReviewsBtn').addEventListener('click', loadReviews);
