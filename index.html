@@ -26,6 +26,31 @@
     .footer-admin-link:hover{background:#f03742;border-color:#f03742;transform:translateY(-2px)}
     .footer-admin-link:focus-visible{outline:2px solid #ff6673;outline-offset:3px}
     @media(max-width:700px){.footer-admin-link{align-self:flex-start}}
+
+    /* Thành phẩm: 2 hàng, 2 cột trong khung cuộn ngang. */
+    #projects #galleryTrack {
+      display: grid;
+      grid-template-rows: repeat(2, auto);
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 20px) / 2);
+      gap: 20px;
+      overflow-x: auto;
+      touch-action: pan-x pan-y;
+    }
+    #projects #galleryTrack > .gallery-item { min-width: 0; }
+    #projects #galleryTrack .gallery-item img {
+      height: auto;
+      aspect-ratio: 2 / 1;
+      object-fit: contain;
+    }
+    #projects #galleryTrack .gallery-item figcaption { padding: 14px; }
+    #projects #galleryTrack .gallery-item figcaption b { font-size: 18px; overflow-wrap: anywhere; }
+    @media (max-width: 700px) {
+      #projects #galleryTrack .gallery-item img { aspect-ratio: 1.15; padding: 5px; }
+      #projects #galleryTrack .gallery-item figcaption { padding: 8px; }
+      #projects #galleryTrack .gallery-item figcaption span { font-size: 10px; letter-spacing: .3px; }
+      #projects #galleryTrack .gallery-item figcaption b { font-size: 12px; margin-top: 4px; }
+    }
   </style>
 
 <!-- Analytics tạm ngừng cho đến khi có cơ chế đồng ý phù hợp. -->
