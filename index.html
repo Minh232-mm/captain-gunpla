@@ -728,11 +728,12 @@
   .cg-policy-footer { padding: 24px max(5%, 16px) 30px; border-top: 1px solid #292c35; background: #0d0f14; }
   .cg-policy-footer-title { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 18px; font-size: 13px; font-weight: 700; letter-spacing: 1.3px; color: #f5f6f8; text-align: center; }
   .cg-policy-footer-title::before, .cg-policy-footer-title::after { content: ''; width: 22px; height: 2px; flex: 0 0 22px; background: #db1029; }
-  .cg-policy-footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .cg-policy-footer-grid { max-width: 1760px; margin: 0 auto; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; }
   .cg-policy-footer-grid a { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 76px; padding: 12px 8px; border: 1px solid #292c35; border-radius: 6px; background: #15171e; color: #d3d5db; font-size: 13px; line-height: 1.4; text-align: center; text-decoration: none; overflow-wrap: anywhere; transition: color .2s, border-color .2s, background .2s; }
   .cg-policy-footer-grid a svg { width: 21px; height: 21px; flex: 0 0 21px; color: #e3263d; }
   .cg-policy-footer-grid a:hover, .cg-policy-footer-grid a:focus-visible { color: #fff; border-color: #d90c27; background: #20151b; }
-  @media (max-width: 720px) { .cg-policy-footer { padding: 22px 16px 64px; } .cg-policy-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .cg-policy-footer-grid a { font-size: 12px; } }
+  @media (max-width: 1023px) { .cg-policy-footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; } }
+  @media (max-width: 720px) { .cg-policy-footer { padding: 22px 10px 64px; } .cg-policy-footer-grid { gap: 6px; } .cg-policy-footer-grid a { font-size: 11px; padding: 9px 3px; gap: 6px; min-height: 84px; } .cg-policy-footer-grid a svg { width: 18px; height: 18px; flex-basis: 18px; } }
 </style>
 <nav class="cg-policy-footer" aria-label="Chính sách cửa hàng">
   <div class="cg-policy-footer-title">CHÍNH SÁCH &amp; ĐIỀU KHOẢN</div>
