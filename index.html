@@ -725,26 +725,26 @@
 
   </footer>
 <style>
-  .cg-policy-footer { padding: 24px 5% 28px; border-top: 1px solid var(--line); background: #0d0f14; }
-  .cg-policy-footer-title { margin: 0 auto 16px; max-width: 1440px; font-size: 13px; font-weight: 700; letter-spacing: 1.4px; color: #f5f6f8; }
-  .cg-policy-footer-title span { color: var(--red); }
-  .cg-policy-footer-grid { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 28px; }
-  .cg-policy-footer-grid a { display: block; padding: 5px 0 5px 12px; border-left: 2px solid #353841; color: #b9bdc7; font-size: 13px; line-height: 1.6; text-decoration: none; overflow-wrap: anywhere; transition: color .2s, border-color .2s; }
-  .cg-policy-footer-grid a:hover, .cg-policy-footer-grid a:focus-visible { color: #fff; border-color: var(--red); }
-  @media (max-width: 1000px) { .cg-policy-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 480px) { .cg-policy-footer-grid { grid-template-columns: 1fr; gap: 6px; } .cg-policy-footer { padding-right: 56px; } }
+  .cg-policy-footer { padding: 24px max(5%, 16px) 30px; border-top: 1px solid #292c35; background: #0d0f14; }
+  .cg-policy-footer-title { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 18px; font-size: 13px; font-weight: 700; letter-spacing: 1.3px; color: #f5f6f8; text-align: center; }
+  .cg-policy-footer-title::before, .cg-policy-footer-title::after { content: ''; width: 22px; height: 2px; flex: 0 0 22px; background: #db1029; }
+  .cg-policy-footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .cg-policy-footer-grid a { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 76px; padding: 12px 8px; border: 1px solid #292c35; border-radius: 6px; background: #15171e; color: #d3d5db; font-size: 13px; line-height: 1.4; text-align: center; text-decoration: none; overflow-wrap: anywhere; transition: color .2s, border-color .2s, background .2s; }
+  .cg-policy-footer-grid a svg { width: 21px; height: 21px; flex: 0 0 21px; color: #e3263d; }
+  .cg-policy-footer-grid a:hover, .cg-policy-footer-grid a:focus-visible { color: #fff; border-color: #d90c27; background: #20151b; }
+  @media (max-width: 720px) { .cg-policy-footer { padding: 22px 16px 64px; } .cg-policy-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .cg-policy-footer-grid a { font-size: 12px; } }
 </style>
 <nav class="cg-policy-footer" aria-label="Chính sách cửa hàng">
-  <div class="cg-policy-footer-title"><span>//</span> CHÍNH SÁCH &amp; ĐIỀU KHOẢN</div>
+  <div class="cg-policy-footer-title">CHÍNH SÁCH &amp; ĐIỀU KHOẢN</div>
   <div class="cg-policy-footer-grid">
-    <a href="chinh-sach.html#chu-the">Thông tin chủ website</a>
-    <a href="chinh-sach.html#mua-hang">Điều kiện giao dịch và hướng dẫn mua hàng</a>
-    <a href="chinh-sach.html#thanh-toan">Chính sách thanh toán</a>
-    <a href="chinh-sach.html#van-chuyen">Chính sách giao nhận</a>
-    <a href="chinh-sach.html#doi-tra">Chính sách đổi trả, hủy đơn và hoàn tiền</a>
-    <a href="chinh-sach.html#bao-hanh">Chính sách bảo hành</a>
-    <a href="chinh-sach.html#bao-mat">Chính sách bảo vệ dữ liệu cá nhân</a>
-    <a href="chinh-sach.html#khieu-nai">Tiếp nhận khiếu nại và giải quyết tranh chấp</a>
+    <a href="chinh-sach.html#chu-the" aria-label="Thông tin chủ website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18l-2-5H5L3 9Zm1 0v11h16V9M9 20v-6h6v6"/></svg><span>Thông tin cửa hàng</span></a>
+    <a href="chinh-sach.html#mua-hang" aria-label="Điều kiện giao dịch và hướng dẫn mua hàng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l3 12h11l3-9H6m3 13h.01M18 20h.01"/></svg><span>Hướng dẫn mua hàng</span></a>
+    <a href="chinh-sach.html#thanh-toan" aria-label="Chính sách thanh toán"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18m-14 5h4"/></svg><span>Thanh toán</span></a>
+    <a href="chinh-sach.html#van-chuyen" aria-label="Chính sách giao nhận"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h12v13H3zM15 9h4l3 4v5h-7M7 18v3m11-3v3"/></svg><span>Giao nhận</span></a>
+    <a href="chinh-sach.html#doi-tra" aria-label="Chính sách đổi trả, hủy đơn và hoàn tiền"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 1 1 3 7M3 4v7h7"/></svg><span>Đổi trả &amp; hoàn tiền</span></a>
+    <a href="chinh-sach.html#bao-hanh" aria-label="Chính sách bảo hành"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Zm-4 9 3 3 5-5"/></svg><span>Bảo hành</span></a>
+    <a href="chinh-sach.html#bao-mat" aria-label="Chính sách bảo vệ dữ liệu cá nhân"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4m-4 4v2"/></svg><span>Bảo vệ dữ liệu cá nhân</span></a>
+    <a href="chinh-sach.html#khieu-nai" aria-label="Tiếp nhận khiếu nại và giải quyết tranh chấp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13v-2a9 9 0 0 1 18 0v2M3 12h4v7H3zM17 12h4v7h-4zM19 19c0 2-3 2-7 2"/></svg><span>Giải quyết khiếu nại</span></a>
   </div>
 </nav>
 
