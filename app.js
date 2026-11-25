@@ -1112,54 +1112,6 @@
   }
 
   // ==========================================
-  // LIÊN HỆ QUA ZALO
-  // ==========================================
-
-  $('#contactForm').addEventListener('submit', async event => {
-    event.preventDefault();
-
-    const data = new FormData(event.currentTarget);
-
-    const message =
-      `CAPTAIN GUNPLA — YÊU CẦU TƯ VẤN\n` +
-      `Họ tên: ${data.get('name')}\n` +
-      `SĐT/Zalo: ${data.get('phone')}\n` +
-      `Sản phẩm/Dịch vụ: ${data.get('product') || 'Chưa chọn'}\n` +
-      `Chi tiết: ${data.get('message') || 'Không có'}`;
-
-    window.open(
-      'https://zalo.me/0395193831',
-      '_blank',
-      'noopener,noreferrer'
-    );
-
-    let copied = false;
-
-    try {
-      await navigator.clipboard.writeText(message);
-      copied = true;
-    } catch (error) {
-      const copy = document.createElement('textarea');
-
-      copy.value = message;
-      copy.style.position = 'fixed';
-      copy.style.left = '-9999px';
-
-      document.body.append(copy);
-
-      copy.select();
-
-      copied = document.execCommand('copy');
-
-      copy.remove();
-    }
-
-    $('#formStatus').textContent = copied
-      ? 'Đã sao chép nội dung. Zalo sẽ mở ở tab mới — hãy dán và gửi tin nhắn.'
-      : 'Zalo sẽ mở ở tab mới. Hãy sao chép thông tin trong form để gửi thủ công.';
-  });
-
-  // ==========================================
   // NÚT VỀ ĐẦU TRANG
   // ==========================================
 
