@@ -45,6 +45,9 @@
     }
     #projects #galleryTrack .gallery-item figcaption { padding: 14px; }
     #projects #galleryTrack .gallery-item figcaption b { font-size: 18px; overflow-wrap: anywhere; }
+    @media (min-width: 701px) {
+      #projects #galleryTrack { grid-auto-columns: calc((100% - 40px) / 3); }
+    }
     @media (max-width: 700px) {
       #projects #galleryTrack .gallery-item img { aspect-ratio: 1.15; padding: 5px; }
       #projects #galleryTrack .gallery-item figcaption { padding: 8px; }
