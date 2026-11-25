@@ -28,14 +28,7 @@
     @media(max-width:700px){.footer-admin-link{align-self:flex-start}}
   </style>
 
-<!-- Google Analytics - CAPTAIN GUNPLA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N58KYC60YR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-N58KYC60YR');
-</script>
+<!-- Analytics tạm ngừng cho đến khi có cơ chế đồng ý phù hợp. -->
 
 </head>
 
@@ -553,6 +546,7 @@
 
       <!-- FORM LIÊN HỆ -->
       <form id="contactForm" class="contact-form" data-reveal>
+        <p style="font-size:12px">Thông tin tư vấn được xử lý theo <a href="chinh-sach.html#bao-mat" style="text-decoration:underline" target="_blank" rel="noopener">chính sách bảo vệ dữ liệu cá nhân</a>.</p>
 
         <p class="form-title">
           // SEND AN INQUIRY
@@ -730,6 +724,7 @@
     </a>
 
   </footer>
+<nav aria-label="Chính sách cửa hàng" style="padding:16px 5%;border-top:1px solid var(--line);font-size:12px;line-height:2;text-align:center;color:inherit"><a href="chinh-sach.html#chu-the">Thông tin chủ website</a> · <a href="chinh-sach.html#mua-hang">Điều kiện giao dịch và hướng dẫn mua hàng</a> · <a href="chinh-sach.html#thanh-toan">Chính sách thanh toán</a> · <a href="chinh-sach.html#van-chuyen">Chính sách giao nhận</a> · <a href="chinh-sach.html#doi-tra">Chính sách đổi trả, hủy đơn và hoàn tiền</a> · <a href="chinh-sach.html#bao-hanh">Chính sách bảo hành</a> · <a href="chinh-sach.html#bao-mat">Chính sách bảo vệ dữ liệu cá nhân</a> · <a href="chinh-sach.html#khieu-nai">Tiếp nhận khiếu nại và giải quyết tranh chấp</a></nav>
 
   <!-- NÚT LÊN ĐẦU TRANG -->
   <button type="button"
@@ -769,7 +764,10 @@
         <label>SỐ ĐIỆN THOẠI<input name="customer_phone" required minlength="8" maxlength="30" autocomplete="tel" inputmode="tel" placeholder="Số điện thoại liên hệ"></label>
         <label>ĐỊA CHỈ NHẬN HÀNG<textarea name="customer_address" required minlength="5" maxlength="500" autocomplete="street-address" rows="3" placeholder="Số nhà, đường, phường/xã, tỉnh/thành"></textarea></label>
         <label>GHI CHÚ (KHÔNG BẮT BUỘC)<textarea name="customer_note" maxlength="2000" rows="2" placeholder="Yêu cầu thêm..."></textarea></label>
-        <div class="checkout-summary"><span>TỔNG ĐƠN HÀNG</span><strong id="checkoutTotal">0₫</strong></div>
+        <div class="checkout-summary"><span>TẠM TÍNH TIỀN HÀNG</span><strong id="checkoutTotal">0₫</strong></div>
+        <div id="checkoutReview" style="font-size:12px;line-height:1.8"></div>
+        <p class="cart-note">Phí giao hàng, thuế/phí phát sinh (nếu có) và tổng thanh toán sẽ được xác nhận trước khi giao dịch. Bạn có thể đóng biểu mẫu để sửa giỏ hàng.</p>
+        <label style="line-height:1.8"><input type="checkbox" required style="display:inline-block;width:auto;margin:0 6px 0 0;accent-color:var(--red)"> Tôi đã đọc <a style="text-decoration:underline" href="chinh-sach.html#mua-hang" target="_blank" rel="noopener">điều kiện giao dịch</a> và <a style="text-decoration:underline" href="chinh-sach.html#bao-mat" target="_blank" rel="noopener">chính sách bảo vệ dữ liệu</a>.</label>
         <p id="checkoutStatus" class="checkout-status" role="status"></p>
         <button class="btn btn-primary checkout-submit" type="submit">GỬI ĐƠN HÀNG</button>
       </form>
